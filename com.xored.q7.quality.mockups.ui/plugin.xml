@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point id="part" name="part" schema="schema/part.exsd"/>
+
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            name="Q7 Quality"
+            id="com.xored.q7.quality">
+      </category>
+      <view
+            name="Q7 Quality Mockups"
+            icon="icons/q7.png"
+            category="com.xored.q7.quality"
+            class="com.xored.q7.quality.mockups.issues.Q7MockupsCategoryView"
+            id="com.xored.q7.quality.mockups.category.view">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="com.xored.q7.quality.mockups.ui.Q7QualityPerspective"
+            fixed="true"
+            id="com.xored.q7.quality.mockups.ui.perspective"
+            name="Q7 Quality">
+      </perspective>
+   </extension>
+
+</plugin>

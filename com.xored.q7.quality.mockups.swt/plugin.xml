@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="com.xored.q7.quality.mockups.ui.part">
+      <part
+            category="swt.tree"
+            class="com.xored.q7.quality.mockups.swt.tree.CellEditPart"
+            name="CellEdit Tree Test">
+      </part>
+      <part
+            category="swt.table"
+            class="com.xored.q7.quality.mockups.swt.table.DialogCellEditPart"
+            name="Dialog CellEdit Table Test">
+      </part>
+      <part
+            category="swt.table"
+            class="org.eclipse.swt.table.SimpleDialogCellEditPart"
+            name="Simple Dialog CellEdit Table Test">
+      </part>
+      <part
+            category="swt.ccombo"
+            class="com.xored.q7.quality.mockups.swt.CComboPart"
+            name="CCombo Test">
+      </part>
+      <part
+            category="swt.button"
+            class="org.eclipse.swt.button.Button_Arrow"
+            name="ButtonArrow Test">
+      </part>
+      <part
+            category="swt.combobox"
+            class="org.eclipse.swt.combobox.ComboBox"
+            name="ComboBox Test">
+      </part>
+      <part
+            category="swt.button"
+            class="org.eclipse.swt.button.Button_Check"
+            name="ButtonCheck Test">
+      </part>
+      <part
+            category="swt.button"
+            class="org.eclipse.swt.button.Button_Push"
+            name="ButtonPush Test">
+      </part>
+      <part
+            category="swt.button"
+            class="org.eclipse.swt.button.Button_Radio"
+            name="ButonRadio Test">
+      </part>
+      <part
+            category="swt.button"
+            class="org.eclipse.swt.button.Button_Toggle"
+            name="ButtonToggle Test">
+      </part>
+      <part
+            category="swt.button"
+            class="org.eclipse.swt.button.Button_Flat"
+            name="ButtonFlat Test">
+      </part>
+      <part
+            category="swt.button"
+            class="org.eclipse.swt.button.Button_Wrap"
+            name="ButtonWrap Test">
+      </part>
+      <part
+            category="swt.toolbar"
+            class="org.eclipse.swt.toolbar.CoolBarTest"
+            name="CoolBar Test">
+      </part>
+      <part
+            category="swt.DateTime"
+            class="org.eclipse.swt.DateTime.Date"
+            name="Date Test">
+      </part>
+      <part
+            category="swt.DateTime"
+            class="org.eclipse.swt.DateTime.Time"
+            name="Time Test">
+      </part>
+      <part
+            category="swt.DateTime"
+            class="org.eclipse.swt.DateTime.Calendar"
+            name="Calendar Test">
+      </part>
+      <part
+            category="swt.toolbar"
+            class="org.eclipse.swt.toolbar.ToolBarTest"
+            name="ToolBar Test">
+      </part>
+      <part
+            category="swt.toolbar"
+            class="org.eclipse.swt.toolbar.ToolbarWithCombo"
+            name="ToolBar With Combo Test">
+      </part>
+      <part
+            category="swt.sliders"
+            class="org.eclipse.swt.sliders.ScaleTest"
+            name="Scale Test">
+      </part>
+      <part
+            category="swt.sliders"
+            class="org.eclipse.swt.sliders.SliderTest"
+            name="Slider Test">
+      </part>
+      <part
+            category="swt.canvas"
+            class="org.eclipse.swt.canvas.CanvasTest"
+            name="Canvas Test">
+      </part>
+      <part
+            category="swt.canvas"
+            class="org.eclipse.swt.canvas.ColoredCanvas"
+            name="ColoredCanvas">
+      </part>
+      <part
+            category="swt.colorDialog"
+            class="org.eclipse.swt.colorDialog.Color_Dialog"
+            name="ColorDialog">
+      </part>
+      <part
+            category="swt.directoryDialog"
+            class="org.eclipse.swt.directoryDialog.Directory_Dialog"
+            name="DirectoryDialog Test">
+      </part>
+      <part
+            category="swt.text"
+            class="org.eclipse.swt.text.Text_Mockup"
+            name="Text">
+      </part>
+      <part
+            category="swt.tab"
+            class="org.eclipse.swt.tab.CTabFolderTest"
+            name="CTabFolder Test">
+      </part>
+      <part
+            category="swt.tab"
+            class="org.eclipse.swt.tab.TabFoldetTest"
+            name="TabFolder Test">
+      </part>
+      <part
+            category="swt.text"
+            class="org.eclipse.swt.text.Text_Multiline"
+            name="Text_Multiline">
+      </part>
+      <part
+            category="swt.text"
+            class="org.eclipse.swt.text.Text_Search"
+            name="Text_Search">
+      </part>
+      <part
+            category="swt.text"
+            class="org.eclipse.swt.text.Styled_Text"
+            name="Styled Text">
+      </part>
+      <part
+            category="swt.tab"
+            class="org.eclipse.swt.tab.CTabFolderWithResize"
+            name="CTabFolder With Resize">
+      </part>
+      <part
+            category="swt.group"
+            class="org.eclipse.swt.group.Group_Mockup"
+            name="Group">
+      </part>
+      <part
+            category="swt.toolbar"
+            class="org.eclipse.swt.toolbar.CoolBarWithResizing"
+            name="CoolBar With Resizing">
+      </part>
+      <part
+            category="swt.expandBar"
+            class="org.eclipse.swt.expandBar.ExpandBar_Mockup"
+            name="ExpandBar">
+      </part>
+      <part
+            category="swt.fontDialog"
+            class="org.eclipse.swt.fontDialog.FontDialogTest"
+            name="FontDialog Test">
+      </part>
+      <part
+            category="swt.composite"
+            class="org.eclipse.swt.scrolledComposite.ScrolledCompositeTest"
+            name="ScrolledComposite Test">
+      </part>
+      <part
+            category="swt.composite"
+            class="org.eclipse.swt.scrolledComposite.TableWithScrollBar"
+            name="Table With ScrollBar Test">
+      </part>
+      <part
+            category="swt.label"
+            class="org.eclipse.swt.label.LabelMockup"
+            name="Label Test">
+      </part>
+      <part
+            category="swt.link"
+            class="org.eclipse.swt.link.LinkTest"
+            name="Link">
+      </part>
+      <part
+            category="swt.list"
+            class="org.eclipse.swt.list.ListMockup"
+            name="List">
+      </part>
+      <part
+            category="swt.sash"
+            class="org.eclipse.swt.sash.SashFormTest"
+            name="SashForm Test">
+      </part>
+      <part
+            category="swt.messageBox"
+            class="org.eclipse.swt.messageBox.MessageBoxTest"
+            name="MessageBox Test">
+      </part>
+      <part
+            category="swt.spinner"
+            class="org.eclipse.swt.spinner.SpinnerTest"
+            name="Spinner Test">
+      </part>
+      <part
+            category="swt.menu"
+            class="org.eclipse.swt.menu.MenuMockup"
+            name="Menu Test">
+      </part>
+      <part
+            category="swt.table"
+            class="org.eclipse.swt.table.TableWithCheckbox"
+            name="TableWithCheckBox Test">
+      </part>
+      <part
+            category="swt.menu"
+            class="org.eclipse.swt.menu.MenuBarMockup"
+            name="MenuBarTest">
+      </part>
+      <part
+            category="swt.toolbar"
+            class="org.eclipse.swt.toolbar.ToolBarWithDropDown"
+            name="ToolBarWithDropDown Test">
+      </part>
+      <part
+            category="jface.tableViewer"
+            class="org.eclipse.jface.viewer.TableViewerMockup"
+            name="TableViewer Test">
+      </part>
+      <part
+            category="jface.treeViewer"
+            class="org.eclipse.jface.viewer.TreeViewerMockup"
+            name="TreeViewer Test">
+      </part>
+      <part
+            category="jface.treeViewer"
+            class="org.eclipse.jface.viewer.CheckboxTreeViewerMockup"
+            name="CheckboxTreeViewer Test">
+      </part>
+      <part
+            category="jface.tableViewer"
+            class="org.eclipse.jface.viewer.ColorCellEditorMockup"
+            name="ColorCellEditor">
+      </part>
+      <part
+            category="jface.tableViewer"
+            class="org.eclipse.jface.viewer.ComboboxCellEditorMockup"
+            name="ComboboxCellEditor">
+      </part>
+      <part
+            category="jface.tableViewer"
+            class="org.eclipse.jface.viewer.CheckBoxCellEditorMockup"
+            name="CheckBoxCellEditor">
+      </part>
+      <part
+            category="jface.combo"
+            class="org.eclipse.jface.viewer.ComboViewerMockup"
+            name="ComboViewer Test">
+      </part>
+      <part
+            category="jface.tableViewer"
+            class="org.eclipse.jface.viewer.CheckBoxCellEditorMockup2"
+            name="CheckBoxCellEditor2">
+      </part>
+      <part
+            category="jface.tableViewer"
+            class="org.eclipse.jface.viewer.TableViewerWithListenersMockup"
+            name="TableViewerWithListener">
+      </part>
+      <part
+            category="jface.listViewer"
+            class="org.eclipse.jface.viewer.ListViewerMockup"
+            name="ListViewer">
+      </part>
+      <part
+            category="eclipse.form"
+            class="org.eclipse.form.FormToolkitTest"
+            name="FormToolkit Test">
+      </part>
+      <part
+            category="eclipse.form"
+            class="org.eclipse.form.FormWithSection"
+            name="FormWithSection">
+      </part>
+      <part
+            category="eclipse.form"
+            class="org.eclipse.form.SectionWithButtons"
+            name="SectionWithButtons">
+      </part>
+      <part
+            category="eclipse.form"
+            class="org.eclipse.form.NestedSections"
+            name="NestedSections">
+      </part>
+      <part
+            category="eclipse.form"
+            class="org.eclipse.form.ExpandableCompositeMockup"
+            name="ExpandableComposite">
+      </part>
+      <part
+            category="eclipse.form"
+            class="org.eclipse.form.FormWithLinks"
+            name="FormWithLinks Test">
+      </part>
+      <part
+            category="eclipse.form"
+            class="org.eclipse.form.ScrolledPageBookMockup"
+            name="ScrolledPageBook">
+      </part>
+      <part
+            category="swt.table"
+            class="org.eclipse.swt.table.TableWithEmptyColumns"
+            name="TableWithEmptyColumns">
+      </part>
+   </extension>
+
+</plugin>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+	<feature url="features/com.xored.q7.quality.mockups_1.0.0.qualifier.jar"
+		id="com.xored.q7.quality.mockups" version="1.0.0.qualifier">
+		<category name="q7.quality" />
+	</feature>
+
+	<category-def name="q7.quality" label="Q7 Quality" />
+</site>

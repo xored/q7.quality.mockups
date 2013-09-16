@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="com.xored.q7.quality.mockups.ui.part">
+      <part
+            category="platform.resources"
+            class="org.eclipse.platform.resources.DelayedBuildsPart"
+            name="Invoke AutoBuild with timeout">
+      </part>
+      <part
+            category="platform.resources"
+            class="org.eclipse.platform.resources.LockResourcesPart"
+            name="Resource Locking">
+      </part>
+   </extension>
+
+</plugin>

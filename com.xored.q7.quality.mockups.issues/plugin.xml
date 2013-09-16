@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="com.xored.q7.quality.mockups.ui.part">
+      <part
+            category="issues.customer"
+            class="com.xored.q7.quality.mockups.issues.parts.QS1962_SimpleControlsPart"
+            issue="QS-1962"
+            name="QS-1962 - Simple Control Parts">
+      </part>
+      <part
+            category="issues.customer"
+            class="com.xored.q7.quality.mockups.issues.parts.QS1962_TableDemoPart"
+            issue="QS-1962"
+            name="QS-1962 - Table Demo Part">
+      </part>
+      <part
+            category="issues"
+            class="com.xored.q7.quality.mockups.issues.parts.QS2167_DateTimePopup"
+            issue="QS-2167"
+            name="QS-2167 - DateTime picker in pop-up window">
+      </part>
+      <part
+            category="issues.customer"
+            class="com.xored.q7.quality.mockups.issues.parts.QS2614_ComboIndectUpdate"
+            issue="QS-2614"
+            name="QS-2614 - Combo create and select on recorded event">
+      </part>
+      <part
+            category="issues.customer"
+            class="com.xored.q7.quality.mockups.issues.parts.QS2404_TextWithKeyUpAndKeyDownListeners"
+            issue="QS-2404"
+            name="QS-2404 - Text with keyUp,keyDown">
+      </part>
+      <part
+            category="issues.customer"
+            class="com.xored.q7.quality.mockups.issues.parts.QS1957_StuartTableDemoPart"
+            issue="QS-1957"
+            name="QS-1957 - Stuart Table Demo">
+      </part>
+      <part
+            category="issues.customer"
+            class="com.xored.q7.quality.mockups.issues.parts.QS2531_TableWithCheckboxColumn"
+            issue="QS-2431"
+            name="QS-2531 - Table with checkbox column">
+      </part>
+      <part
+            category="issues"
+            class="com.xored.q7.quality.mockups.issues.parts.QS2373_ContextMenu"
+            issue="QS-2373"
+            name="QS-2373 - Context Menu">
+      </part>
+      <part
+            category="issues"
+            class="com.xored.q7.quality.mockups.issues.parts.QS2508_CheckedStateColumn"
+            issue="QS-2508"
+            name="QS - 2508 Checked State Column">
+      </part>
+      <part
+            category="issues.customer"
+            class="com.xored.q7.quality.mockups.issues.parts.QS2574_CComboItemsOnFocus"
+            issue="QS-2574"
+            name="QS-2574 Combo/CCombo provides items on focus">
+      </part>
+      <part
+            category="issues.customer"
+            class="com.xored.q7.quality.mockups.issues.parts.QS2575_TreeViewerWithMouseListeners"
+            issue="QS-2575"
+            name="QS-2575 - Issue with tree items selection">
+      </part>
+      <part
+            category="issues.customer"
+            class="com.xored.q7.quality.mockups.issues.parts.QS2286_TreeEditAfterErrors"
+            issue="QS-2286"
+            name="QS-2286 - Tree edit after errors">
+      </part>
+       <part
+            category="issues.customer"
+            class="com.xored.q7.quality.mockups.issues.parts.SUP251_HandWrittenCheckboxTree"
+            issue="SUP-251"
+            name="SUP251_HondWrittenCheckboxTree">
+      </part>
+      <part
+            category="issues.customer"
+            class="com.xored.q7.quality.mockups.issues.parts.QS2309_Checkboxes"
+            issue="QS-2309"
+            name="QS-2309 - Checkbox Tree">
+      </part>      	
+      <part
+            category="issues.customer"
+            class="com.xored.q7.quality.mockups.issues.parts.QS2641_DragDrop"
+            issue="QS-2641"
+            name="QS-2641 - Drag-n-drop">
+      </part>      	
+   </extension>
+</plugin>

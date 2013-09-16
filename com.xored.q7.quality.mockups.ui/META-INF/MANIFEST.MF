@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Q7 Quality Mockups for issues
+Bundle-SymbolicName: com.xored.q7.quality.mockups.ui;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: com.xored.q7.quality.mockups.issues.internal.QualityUIPlugin
+Bundle-Vendor: xored Software, Inc.
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.ui.forms,
+ org.eclipse.core.resources,
+ org.eclipse.jface.databinding,
+ org.eclipse.core.databinding
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Export-Package: com.xored.q7.quality.mockups.issues,
+ com.xored.q7.quality.mockups.issues.internal
