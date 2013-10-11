@@ -1,0 +1,40 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _2jXpEHTyEeKQnp4qYEvDRA
+Element-Name: SelectionInComboToolbar
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _sk8qMJb2EeKUTbHlS7Hh6Q
+Save-Time: 3/27/13 10:58 PM
+Testcase-Type: ecl
+
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Q7 Quality Mockups" | get-tree | select "swt/toolbar/ToolBar With Combo Test" | double-click
+with [get-view "Q7 Quality Mockups" | get-group "ToolBar With Combo Test" | get-combo] {
+    get-property selection | equals "" | verify-true
+    get-property values -index 0 | equals "Item 0" | verify-true
+    get-property values -index 1 | equals "Item 1" | verify-true
+    get-property values -index 2 | equals "Item 2" | verify-true
+    get-property values -index 3 | equals "Item 3" | verify-true
+}
+get-view "Q7 Quality Mockups" | get-group "ToolBar With Combo Test" | get-combo | select "Item 2"
+with [get-view "Q7 Quality Mockups" | get-group "ToolBar With Combo Test" | get-combo] {
+    get-property selection | equals "Item 2" | verify-true
+    get-property "getSelectionIndex()" | equals 2 | verify-true
+}
+get-view "Q7 Quality Mockups" | get-group "ToolBar With Combo Test" | get-combo | select "Item 0"
+with [get-view "Q7 Quality Mockups" | get-group "ToolBar With Combo Test" | get-combo] {
+    get-property selection | equals "Item 0" | verify-true
+    get-property readOnly | equals true | verify-true
+    get-property values -index 0 | equals "Item 0" | verify-true
+    get-property values -index 1 | equals "Item 1" | verify-true
+    get-property values -index 2 | equals "Item 2" | verify-true
+    get-property values -index 3 | equals "Item 3" | verify-true
+    get-property "getSelectionIndex()" | equals 0 | verify-true
+}
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

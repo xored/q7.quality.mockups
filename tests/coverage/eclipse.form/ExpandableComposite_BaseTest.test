@@ -1,0 +1,39 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _2jXpEHTyEeKQnp4qYEvDRA
+Element-Name: ExpandableComposite_BaseTest
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _h9xJ0KdBEeKVxpzXv84wSw
+Save-Time: 4/17/13 4:33 PM
+Testcase-Type: ecl
+
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Q7 Quality Mockups" | get-tree | select "eclipse/form/ExpandableComposite"
+with [get-view "Q7 Quality Mockups" | get-group ExpandableComposite | get-section ExpandableComposite] {
+    get-property className | equals "org.eclipse.ui.forms.widgets.ExpandableComposite" | verify-true
+    get-property "getClient().getText()" 
+        | equals "We will now create a somewhat long text so that we can use it as content for the expandable composite. Expandable composite is used to hide or show the text using the toggle control" 
+        | verify-true
+    get-property "getText()" | equals ExpandableComposite | verify-true
+}
+with [get-view "Q7 Quality Mockups" | get-group ExpandableComposite] {
+    get-section ExpandableComposite | get-property "isExpanded()" | equals false | verify-true
+    with [get-section TwistieExpandableComposite] {
+        get-property className | equals "org.eclipse.ui.forms.widgets.ExpandableComposite" | verify-true
+        get-property "getClient().getText()" | equals "This is a text of expandable twistie composite" | verify-true
+        get-property "isExpanded()" | equals false | verify-true
+        get-property "getText()" | equals TwistieExpandableComposite | verify-true
+    }
+    with [get-section -after [get-label "Expandable Composite Mockup"] -index 2] {
+        get-property className | equals "org.eclipse.ui.forms.widgets.ExpandableComposite" | verify-true
+        get-property "getClient().getText()" | equals "This is a text of expandable no title composite" | verify-true
+        get-property "isExpanded()" | equals true | verify-true
+    }
+}
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

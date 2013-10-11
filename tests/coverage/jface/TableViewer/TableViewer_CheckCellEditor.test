@@ -1,0 +1,43 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _2jXpEHTyEeKQnp4qYEvDRA
+Element-Name: TableViewer_CheckCellEditor
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _0yCRsaENEeKCNPa9eTO-Qw
+Save-Time: 4/9/13 7:36 PM
+Testcase-Type: ecl
+
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+with [get-view "Q7 Quality Mockups"] {
+    get-tree | select "jface/tableViewer/TableViewer Test"
+    with [get-group "TableViewer Test" | get-table] {
+        select 1 | activate-cell-edit -column 2
+        get-editbox | set-text "this is the first month in a year"
+        apply-cell-edit
+        select 2 | activate-cell-edit -column 2
+        get-editbox | set-text fff
+        apply-cell-edit
+        select 3 | activate-cell-edit -column 2
+        get-editbox | set-text mmm
+        apply-cell-edit
+        select 10 | activate-cell-edit -column 2
+        with [get-editbox] {
+            set-text ooo
+            key-type Enter
+        }
+        apply-cell-edit
+    }
+}
+with [get-view "Q7 Quality Mockups" | get-group "TableViewer Test" | get-table] {
+    get-item 1 | get-property columns -index 2 | equals "this is the first month in a year" | verify-true
+    get-item 2 | get-property columns -index 2 | equals fff | verify-true
+    get-item 3 | get-property columns -index 2 | equals mmm | verify-true
+    get-item 10 | get-property columns -index 2 | equals ooo | verify-true
+}
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

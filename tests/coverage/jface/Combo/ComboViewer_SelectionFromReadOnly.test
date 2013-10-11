@@ -1,0 +1,39 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _2jXpEHTyEeKQnp4qYEvDRA
+Element-Name: ComboViewer_SelectionFromReadOnly
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _oJzuAKaAEeKO_7Q26-tA-g
+Save-Time: 4/16/13 5:35 PM
+Testcase-Type: ecl
+
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+with [get-view "Q7 Quality Mockups"] {
+    get-tree | select "jface/combo/ComboViewer Test"
+    with [get-group "ComboViewer Test"] {
+        with [get-editbox -after [get-label Name]] {
+            set-text Test
+            key-type "TRAVERSE_TAB_NEXT"
+        }
+        with [get-group "Month of Birth" | get-combo] {
+            select January
+            key-type Down
+            select February
+            key-type Down -times 2
+            select March
+            key-type Down
+            key-type "TRAVERSE_TAB_NEXT"
+        }
+    }
+}
+with [get-view "Q7 Quality Mockups" | get-group "ComboViewer Test" | get-group "Month of Birth" | get-combo] {
+    get-property selection | equals March | verify-true
+    get-property readOnly | equals true | verify-true
+}
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

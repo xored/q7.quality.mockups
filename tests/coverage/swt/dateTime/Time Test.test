@@ -1,0 +1,56 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _2jXpEHTyEeKQnp4qYEvDRA
+Element-Name: Time Test
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _DGDqAJbTEeK184kZHmPTQQ
+Save-Time: 3/27/13 6:41 PM
+Testcase-Type: ecl
+
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Q7 Quality Mockups" | get-tree | select "swt/DateTime/Time Test"
+with [get-view "Q7 Quality Mockups" | get-group "Time Test"] {
+    with [get-date-time] {
+        get-property className | equals "org.eclipse.swt.widgets.DateTime" | verify-true
+        get-property time | equals "11:22:33" | verify-true
+        get-property "getStyle()" | equals "[LEFT_TO_RIGHT, TIME, MEDIUM]" | verify-true
+    }
+    with [get-date-time -index 1] {
+        get-property className | equals "org.eclipse.swt.widgets.DateTime" | verify-true
+        get-property time | equals "11:22:33" | verify-true
+        get-property "getStyle()" | equals "[LEFT_TO_RIGHT, TIME, SHORT]" | verify-true
+    }
+    with [get-date-time -index 2] {
+        get-property className | equals "org.eclipse.swt.widgets.DateTime" | verify-true
+        get-property time | equals "11:22:33" | verify-true
+        get-property "getStyle()" | equals "[LEFT_TO_RIGHT, TIME, LONG]" | verify-true
+    }
+    with [get-date-time -index 3] {
+        get-property className | equals "org.eclipse.swt.widgets.DateTime" | verify-true
+        get-property enablement | equals false | verify-true
+        get-property time | equals "11:22:33" | verify-true
+        get-property "getStyle()" | equals "[LEFT_TO_RIGHT, TIME, MEDIUM]" | verify-true
+    }
+}
+with [get-view "Q7 Quality Mockups" | get-group "Time Test"] {
+    get-date-time | set-value "2013/3/27 8:22:33"
+    with [get-date-time -index 1] {
+        key-type "NUMPAD_0" 0
+        key-type "NUMPAD_9" 9
+        set-value "2013/3/27 9:22:33"
+    }
+    get-date-time -index 2 | set-value "2013/3/27 8:22:30"
+}
+with [get-view "Q7 Quality Mockups" | get-group "Time Test"] {
+    get-date-time | get-property time | equals "8:22:33" | verify-true
+    get-date-time -index 1 | get-property time | equals "9:22:33" | verify-true
+    get-date-time -index 2 | get-property time | equals "8:22:30" | verify-true
+    get-date-time -index 3 | get-property time | equals "11:22:33" | verify-true
+}
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

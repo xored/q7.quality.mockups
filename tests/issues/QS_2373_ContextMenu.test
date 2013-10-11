@@ -1,0 +1,39 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _2jXpEHTyEeKQnp4qYEvDRA
+Element-Name: QS_2373_ContextMenu
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _F7VOMJIWEeKfYL913WzMiQ
+Save-Time: 3/22/13 3:04 PM
+Testcase-Type: ecl
+
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+with [get-view "Q7 Quality Mockups"] {
+    get-tree | select "issues/QS-2373 - Context Menu" | double-click
+    with [get-group "QS-2373 - Context Menu" | get-tree] {
+        select "Category 1" | get-menu "Action for category: Category 1" | click
+        select "Category 3" | get-menu "Sub-menu/Say hello" | click
+        select "Category 4" | get-menu "Action for category: Category 4" | click
+        select "Category 1/Item 5" | get-menu "Sub-menu/Say hello" | click
+    }
+}
+with [get-view "Q7 Quality Mockups" | get-group "QS-2373 - Context Menu" | get-tree] {
+    get-menu "Sub-menu/Say hello" | get-property caption | equals "Say hello" | verify-true
+    get-menu "Action for item: Item 5" | get-property caption | equals "Action for item: Item 5" | verify-true
+}
+with [get-view "Q7 Quality Mockups" | get-group "QS-2373 - Context Menu" | get-tree] {
+    select "Category 3/Item 3" | get-menu "Action for item: Item 3" | click
+    select "Category 2"
+}
+get-view "Q7 Quality Mockups" | get-group "QS-2373 - Context Menu" | get-tree 
+    | get-menu "Action for category: Category 2" | get-property caption | equals "Action for category: Category 2" 
+    | verify-true
+get-view "Q7 Quality Mockups" | get-group "QS-2373 - Context Menu" | get-tree | select "Category 4" 
+    | get-menu "Action for category: Category 4" | click
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

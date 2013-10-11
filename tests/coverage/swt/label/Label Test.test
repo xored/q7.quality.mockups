@@ -1,0 +1,61 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _2jXpEHTyEeKQnp4qYEvDRA
+Element-Name: Label Test
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _hs9n0Zw3EeK6Fo_2xChiPA
+Save-Time: 4/3/13 3:23 PM
+Testcase-Type: ecl
+
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Q7 Quality Mockups" | get-tree | select "swt/label/Label Test"
+with [get-view "Q7 Quality Mockups" | get-group "Label Test"] {
+    with [get-label "Label 1"] {
+        get-property className | equals "org.eclipse.swt.widgets.Label" | verify-true
+        get-property caption | equals "Label 1" | verify-true
+        get-property "getStyle()" | equals "[NO_FOCUS, LEFT_TO_RIGHT, LEAD]" | verify-true
+    }
+    with [get-label "Label 2"] {
+        get-property className | equals "org.eclipse.swt.widgets.Label" | verify-true
+        get-property caption | equals "Label 2" | verify-true
+        get-property "getStyle()" | equals "[NO_FOCUS, LEFT_TO_RIGHT, LEAD]" | verify-true
+    }
+    with [get-label -after [get-label "Label 2"]] {
+        get-property className | equals "org.eclipse.swt.widgets.Label" | verify-true
+        get-property caption | equals "" | verify-true
+        get-property "getStyle()" | equals "[SEPARATOR, SHADOW_OUT, NO_FOCUS, LEFT_TO_RIGHT, HORIZONTAL]" | verify-true
+    }
+    with [get-label -after [get-label "Label 2"] -index 1] {
+        get-property className | equals "org.eclipse.swt.widgets.Label" | verify-true
+        get-property caption | equals "" | verify-true
+        get-property "getStyle()" | equals "[SEPARATOR, SHADOW_OUT, NO_FOCUS, LEFT_TO_RIGHT, VERTICAL]" | verify-true
+    }
+    with [get-label Label] {
+        get-property className | equals "org.eclipse.swt.widgets.Label" | verify-true
+        get-property caption | equals Label | verify-true
+    }
+    get-editbox -after [get-label Label] | get-property text | equals Text1 | verify-true
+    with [get-label Label -after [get-label Label]] {
+        get-property className | equals "org.eclipse.swt.widgets.Label" | verify-true
+        get-property caption | equals Label | verify-true
+    }
+    with [get-editbox -after [get-label Label -after [get-label Label]]] {
+        get-property className | equals "org.eclipse.swt.widgets.Text" | verify-true
+        get-property text | equals Text2 | verify-true
+    }
+    with [get-label Label -after [get-label Label -after [get-label Label]]] {
+        get-property className | equals "org.eclipse.swt.widgets.Label" | verify-true
+        get-property caption | equals Label | verify-true
+    }
+    with [get-editbox -after [get-label Label -after [get-label Label -after [get-label Label]]]] {
+        get-property className | equals "org.eclipse.swt.widgets.Text" | verify-true
+        get-property text | equals Text3 | verify-true
+    }
+}
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

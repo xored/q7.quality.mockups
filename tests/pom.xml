@@ -1,0 +1,62 @@
+<project>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.xored.q7.quality</groupId>
+	<artifactId>tests</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>q7test</packaging>
+	<parent>
+		<groupId>com.xored.q7.quality</groupId>
+		<artifactId>q7.quality.mockups</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>q7-releases</id>
+			<name>Xored Q7 Maven repository</name>
+			<url>http://maven.xored.com/nexus/content/repositories/q7-releases/
+			</url>
+		</pluginRepository>
+		<pluginRepository>
+			<id>q7-snapshots</id>
+			<name>Xored Q7 Snapshot Maven repository</name>
+			<url>http://maven.xored.com/nexus/content/repositories/q7-snapshots/
+			</url>
+		</pluginRepository>
+	</pluginRepositories>
+	<repositories>
+		<repository>
+			<id>eclipses</id>
+			<name>Eclipse packages in Nexus repository</name>
+			<url>http://maven.xored.com/nexus/content/repositories/thirdparty/
+			</url>
+		</repository>
+	</repositories>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>com.xored.q7</groupId>
+				<artifactId>q7-maven-plugin</artifactId>
+				<version>${q7-maven-version}</version>
+				<extensions>true</extensions>
+				<configuration>
+					<aut>
+						<artifactId>sdk</artifactId>
+						<groupId>eclipse</groupId>
+						<version>3.7.0</version>
+						<injections>
+							<injection>
+								<site>${mockupsRepositry}</site>
+							</injection>
+						</injections>
+					</aut>
+					<q7>
+						<version>${q7-runner-version}</version>
+						<clientId>${clientId}</clientId>
+						<clientSecret>${clientSecret}</clientSecret>
+						<organization>${organization}</organization>
+					</q7>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

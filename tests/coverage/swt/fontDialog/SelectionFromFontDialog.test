@@ -1,0 +1,26 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _2jXpEHTyEeKQnp4qYEvDRA
+Element-Name: SelectionFromFontDialog
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _MBuUIJwbEeKUTbHlS7Hh6Q
+Save-Time: 4/3/13 12:01 PM
+Testcase-Type: ecl
+
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Q7 Quality Mockups" | get-tree | select "swt/fontDialog/FontDialog Test" | double-click
+set-dialog-result Font "1|Courier New|12.0|3|WINDOWS|1|-16|0|0|0|700|-1|0|0|-52|3|2|1|49|Courier New"
+get-view "Q7 Quality Mockups" | get-group "FontDialog Test" | get-button "Change Font" | click
+with [get-view "Q7 Quality Mockups" | get-group "FontDialog Test" | get-editbox] {
+    get-property "getFont().getClassName()" | equals "org.eclipse.swt.graphics.Font" | verify-true
+    get-property "getFont().getFontData().FontData[0].height" | equals "12.0" | verify-true
+    get-property "getFont().getFontData().FontData[0].getName()" | equals "Courier New" | verify-true
+    get-property "getFont().getFontData().FontData[0].getStyle()" | equals 3 | verify-true
+}
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

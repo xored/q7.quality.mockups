@@ -1,0 +1,57 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _2jXpEHTyEeKQnp4qYEvDRA
+Element-Name: QS_2309_CheckboxTree
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _KDfBQJIUEeKfYL913WzMiQ
+Save-Time: 3/21/13 5:54 PM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS:
+
+1. Check checkbox and verify that it is checked
+2. Check checked checkbox
+3. Uncheck checkbox
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+with [get-view "Q7 Quality Mockups"] {
+    get-tree | select "issues/customer/QS-2309 - Checkbox Tree" | double-click
+    with [get-group "QS-2309 - Checkbox Tree" | get-tree] {
+        select Root | get-item "Root/Root\\/1" | check
+        get-item Root -index 1 | check
+    }
+}
+with [get-view "Q7 Quality Mockups" | get-group "QS-2309 - Checkbox Tree" | get-tree] {
+    get-item Root | get-property childCount | equals 1 | verify-true
+    get-item "Root/Root\\/1" | get-property checked | equals true | verify-true
+    get-item Root -index 1 | get-property checked | equals true | verify-true
+}
+with [get-view "Q7 Quality Mockups" | get-group "QS-2309 - Checkbox Tree" | get-tree] {
+    get-item "Root/Root\\/1" | uncheck
+    get-item Root | check
+}
+with [get-view "Q7 Quality Mockups" | get-group "QS-2309 - Checkbox Tree" | get-tree] {
+    get-item Root | get-property checked | equals true | verify-true
+    get-item "Root/Root\\/1" | get-property checked | equals false | verify-true
+}
+get-view "Q7 Quality Mockups" | get-group "QS-2309 - Checkbox Tree" | get-tree | get-item Root -index 1 | check
+get-view "Q7 Quality Mockups" | get-group "QS-2309 - Checkbox Tree" | get-tree | get-item Root -index 1 | get-property checked | equals true | verify-true
+get-view "Q7 Quality Mockups" | get-group "QS-2309 - Checkbox Tree" | get-tree | get-item Root -index 1 | uncheck
+with [get-view "Q7 Quality Mockups" | get-group "QS-2309 - Checkbox Tree" | get-tree] {
+	select Root
+    get-item Root | check
+    get-item "Root/Root\\/1" | check
+}
+get-view "Q7 Quality Mockups" | get-group "QS-2309 - Checkbox Tree" | get-tree | get-item Root -index 1 | uncheck
+get-view "Q7 Quality Mockups" | get-group "QS-2309 - Checkbox Tree" | get-tree | get-item Root -index 1 | get-property checked | equals false | verify-true
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

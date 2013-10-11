@@ -1,0 +1,52 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _2jXpEHTyEeKQnp4qYEvDRA
+Element-Name: CheckCheckBoxInTableColumn
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: __7vswJ26EeKUTbHlS7Hh6Q
+Save-Time: 4/5/13 1:41 PM
+Testcase-Type: ecl
+
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+with [get-view "Q7 Quality Mockups"] {
+    get-tree | select "swt/table/TableWithCheckBox Test" | double-click
+    with [get-group "TableWithCheckBox Test" | get-table] {
+        get-item "Item 0" | check
+        get-item "Item 4" | check
+        get-item "Item 4" | check
+        get-item "Item 9" | check
+        get-item "Item 4" | uncheck
+        get-item "Item 4" | uncheck
+    }
+}
+with [get-view "Q7 Quality Mockups" | get-group "TableWithCheckBox Test" | get-table] {
+    get-item "Item 0" | get-property checked | equals true | verify-true
+    get-item "Item 0" | get-property columns -index 0 | equals "Item 0" | verify-true
+    get-item "Item 0" | get-property columns -index 1 | equals "" | verify-true
+    get-item "Item 1" | get-property checked | equals false | verify-true
+    get-item "Item 1" | get-property columns -index 0 | equals "Item 1" | verify-true
+    get-item "Item 1" | get-property columns -index 1 | equals "" | verify-true
+    get-property itemCount | equals 12 | verify-true
+}
+with [get-view "Q7 Quality Mockups" | get-group "TableWithCheckBox Test" | get-table] {
+    select "Item 1"
+    get-item "Item 1" | check
+    select "Item 2"
+    get-item "Item 2" | check
+}
+with [get-view "Q7 Quality Mockups" | get-group "TableWithCheckBox Test" | get-table] {
+    get-item "Item 1" | get-property checked | equals true | verify-true
+    get-item "Item 2" | get-property checked | equals true | verify-true
+    get-item "Item 2" | get-property columns -index 0 | equals "Item 2" | verify-true
+    get-item "Item 2" | get-property columns -index 1 | equals "" | verify-true
+}
+get-view "Q7 Quality Mockups" | get-group "TableWithCheckBox Test" | get-table | get-item "Item 2" | uncheck
+get-view "Q7 Quality Mockups" | get-group "TableWithCheckBox Test" | get-table | get-item "Item 2" 
+    | get-property checked | equals false | verify-true
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

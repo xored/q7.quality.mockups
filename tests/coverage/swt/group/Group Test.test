@@ -1,0 +1,85 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _2jXpEHTyEeKQnp4qYEvDRA
+Element-Name: Group Test
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _u0h18JhQEeK184kZHmPTQQ
+Save-Time: 3/29/13 4:15 PM
+Testcase-Type: ecl
+
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Q7 Quality Mockups" | get-tree | select "swt/group/Group"
+with [get-view "Q7 Quality Mockups" | get-group Group | get-group Group1] {
+    get-property className | equals "org.eclipse.swt.widgets.Group" | verify-true
+    get-property enablement | equals true | verify-true
+    get-property childCount | equals 5 | verify-true
+    get-property caption | equals Group1 | verify-true
+    get-property "getText()" | equals Group1 | verify-true
+    get-property "getChildren().length" | equals 5 | verify-true
+    get-property "getChildren().Control[0].getClassName()" | equals "org.eclipse.swt.widgets.Button" | verify-true
+    get-property "getChildren().Control[0].getText()" | equals Button1 | verify-true
+    get-property "getChildren().Control[1].getClassName()" | equals "org.eclipse.swt.widgets.Button" | verify-true
+    get-property "getChildren().Control[1].getText()" | equals Button2 | verify-true
+    get-property "getChildren().Control[2].getClassName()" | equals "org.eclipse.swt.widgets.Button" | verify-true
+    get-property "getChildren().Control[2].getText()" | equals Button3 | verify-true
+    get-property "getChildren().Control[3].getClassName()" | equals "org.eclipse.swt.widgets.Button" | verify-true
+    get-property "getChildren().Control[3].getText()" | equals Button4 | verify-true
+    get-property "getChildren().Control[4].getClassName()" | equals "org.eclipse.swt.widgets.Button" | verify-true
+    get-property "getChildren().Control[4].getText()" | equals Button5 | verify-true
+    get-property "getStyle()" | equals "[NO_FOCUS, LEFT_TO_RIGHT]" | verify-true
+}
+with [get-view "Q7 Quality Mockups" | get-group Group] {
+    with [get-group Group2] {
+        get-property className | equals "org.eclipse.swt.widgets.Group" | verify-true
+        get-property childCount | equals 1 | verify-true
+        get-property caption | equals Group2 | verify-true
+        get-property "getChildren().Control[0].getClassName()" | equals "org.eclipse.swt.widgets.Text" | verify-true
+        get-property "getChildren().Control[0].getText()" | equals "SHADOW_ETCHED_IN group" | verify-true
+    }
+    with [get-group Group3] {
+        get-property className | equals "org.eclipse.swt.widgets.Group" | verify-true
+        get-property childCount | equals 5 | verify-true
+        get-property caption | equals Group3 | verify-true
+        get-property "getStyle()" | equals "[SHADOW_ETCHED_OUT, NO_FOCUS, LEFT_TO_RIGHT]" | verify-true
+    }
+    with [get-group -index 3] {
+        get-property className | equals "org.eclipse.swt.widgets.Group" | verify-true
+        get-property childCount | equals 1 | verify-true
+        get-property caption | equals "" | verify-true
+        get-property "getChildren().Control[0].getClassName()" | equals "org.eclipse.swt.widgets.Text" | verify-true
+        get-property "getChildren().Control[0].getText()" | equals "SHADOW_IN nonamed group" | verify-true
+        get-property "getStyle()" | equals "[SHADOW_IN, NO_FOCUS, LEFT_TO_RIGHT]" | verify-true
+    }
+    with [get-group Group5] {
+        get-property className | equals "org.eclipse.swt.widgets.Group" | verify-true
+        get-property childCount | equals 1 | verify-true
+        get-property caption | equals Group5 | verify-true
+        get-property "getText()" | equals Group5 | verify-true
+        get-property "getChildren().length" | equals 1 | verify-true
+        get-property "getChildren().Control[0].getClassName()" | equals "org.eclipse.swt.widgets.Text" | verify-true
+        get-property "getChildren().Control[0].getText()" | equals "SHADOW_OUT" | verify-true
+        get-property "getStyle()" | equals "[SHADOW_IN, NO_FOCUS, LEFT_TO_RIGHT]" | verify-true
+    }
+}
+with [get-view "Q7 Quality Mockups" | get-group Group] {
+    with [get-group Group1] {
+        get-button Button1 | click
+        get-button Button3 | click
+        get-button Button5 | click
+    }
+    with [get-group Group3] {
+        get-button Button1 | click
+        get-button Button3 | click
+        get-button Button5 | click
+    }
+    get-group Group2 | get-editbox | set-text "SHADOWhrthrth_ETCHED_IN group"
+    get-group -index 3 | get-editbox | set-text "SHADOW_IN nonahtrhrtmed group"
+    get-group Group5 | get-editbox | set-text "SHADOW_rthrthOUT"
+}
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

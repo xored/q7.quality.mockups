@@ -1,0 +1,50 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _2jXpEHTyEeKQnp4qYEvDRA
+Element-Name: PressOnSimpleMessageBox
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _oKQsQJ0EEeKUTbHlS7Hh6Q
+Save-Time: 4/8/13 12:21 PM
+Testcase-Type: ecl
+
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Q7 Quality Mockups" | get-tree | select "swt/messageBox/MessageBox Test"
+set-dialog-result MessageBox 32
+get-view "Q7 Quality Mockups" | get-group "MessageBox Test" | get-button "Simple Message Box Without Title" | click
+set-dialog-result MessageBox 32
+get-view "Q7 Quality Mockups" | get-group "MessageBox Test" | get-button "Simple Message Box Without Title" | click
+set-dialog-result MessageBox 32
+get-view "Q7 Quality Mockups" | get-group "MessageBox Test" | get-button "Message With Question" | click
+get-view "Q7 Quality Mockups" | get-group "MessageBox Test" | get-editbox | get-property text | equals "Press OK" 
+    | verify-true
+set-dialog-result MessageBox 256
+get-view "Q7 Quality Mockups" | get-group "MessageBox Test" | get-button "Message With Question" | click
+get-view "Q7 Quality Mockups" | get-group "MessageBox Test" | get-editbox | get-property text | equals "Press Cancel" 
+    | verify-true
+set-dialog-result MessageBox 512
+get-view "Q7 Quality Mockups" | get-group "MessageBox Test" | get-button "Message Box with RETRY Button" | click
+get-view "Q7 Quality Mockups" | get-group "MessageBox Test" | get-editbox | get-property text | equals "Press ABORT" 
+    | verify-true
+set-dialog-result MessageBox 1024
+get-view "Q7 Quality Mockups" | get-group "MessageBox Test" | get-button "Message Box with RETRY Button" | click
+get-view "Q7 Quality Mockups" | get-group "MessageBox Test" | get-editbox | get-property text | equals "Press RETRY" 
+    | verify-true
+set-dialog-result MessageBox 2048
+get-view "Q7 Quality Mockups" | get-group "MessageBox Test" | get-button "Message Box with RETRY Button" | click
+get-view "Q7 Quality Mockups" | get-group "MessageBox Test" | get-editbox | get-property text | equals "Press IGNORE" 
+    | verify-true
+set-dialog-result MessageBox 64
+get-view "Q7 Quality Mockups" | get-group "MessageBox Test" | get-button "Message Box with YES/NO Buttons" | click
+get-view "Q7 Quality Mockups" | get-group "MessageBox Test" | get-editbox | get-property text | equals "Press YES" 
+    | verify-true
+set-dialog-result MessageBox 128
+get-view "Q7 Quality Mockups" | get-group "MessageBox Test" | get-button "Message Box with YES/NO Buttons" | click
+get-view "Q7 Quality Mockups" | get-group "MessageBox Test" | get-editbox | get-property text | equals "Press NO" 
+    | verify-true
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

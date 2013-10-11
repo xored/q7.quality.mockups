@@ -1,0 +1,30 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _2jXpEHTyEeKQnp4qYEvDRA
+Element-Name: ExpandableComposite_CheckNestedComposites
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _KjtdsKdCEeKVxpzXv84wSw
+Save-Time: 4/17/13 4:36 PM
+Testcase-Type: ecl
+
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+with [get-view "Q7 Quality Mockups"] {
+    get-tree | select "eclipse/form/ExpandableComposite"
+    get-group ExpandableComposite | get-section "Parent ExpandableComposite" | click
+}
+with [get-view "Q7 Quality Mockups" | get-group ExpandableComposite | get-section "Parent ExpandableComposite"] {
+    get-property "getClient().getClassName()" | equals "org.eclipse.ui.forms.widgets.ExpandableComposite" | verify-true
+    get-property "getClient().getText()" | equals "Nested ExpandableComposite" | verify-true
+}
+get-view "Q7 Quality Mockups" | get-group ExpandableComposite | get-section "Parent ExpandableComposite" 
+    | get-section "Nested ExpandableComposite" | click
+get-view "Q7 Quality Mockups" | get-group ExpandableComposite | get-section "Parent ExpandableComposite" 
+    | get-section "Nested ExpandableComposite" | get-label "This is a text of a nested composite" 
+    | get-property caption | equals "This is a text of a nested composite" | verify-true
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

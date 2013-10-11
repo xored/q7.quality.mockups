@@ -1,0 +1,59 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _2jXpEHTyEeKQnp4qYEvDRA
+Element-Name: NestedSectionsTest
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _yK4E4KcxEeKVxpzXv84wSw
+Save-Time: 4/17/13 2:42 PM
+Testcase-Type: ecl
+
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+with [get-view "Q7 Quality Mockups"] {
+    get-tree | select "eclipse/form/NestedSections"
+    get-group NestedSections | get-section "Section 1" | click
+}
+with [get-view "Q7 Quality Mockups" | get-group NestedSections | get-section "Section 1"] {
+    get-property "getDescription()" | equals "Parent Section" | verify-true
+    get-property "getText()" | equals "Section 1" | verify-true
+    get-property "isExpanded()" | equals false | verify-true
+}
+get-view "Q7 Quality Mockups" | get-group NestedSections | get-section "Section 1" | click
+with [get-view "Q7 Quality Mockups" | get-group NestedSections | get-section "Section 1" | get-control Any -index 3] {
+    get-property "getChildren().length" | equals 2 | verify-true
+    get-property "getChildren().Control[0].getClassName()" | equals "org.eclipse.ui.forms.widgets.Section" | verify-true
+    get-property "getChildren().Control[1].getClassName()" | equals "org.eclipse.ui.forms.widgets.Section" | verify-true
+}
+with [get-view "Q7 Quality Mockups" | get-group NestedSections | get-section "Section 1"] {
+    with [get-section Section2] {
+        get-property "getDescription()" | equals "Child section2" | verify-true
+        get-property "isExpanded()" | equals true | verify-true
+    }
+    with [get-section Section3] {
+        get-property "getText()" | equals Section3 | verify-true
+        get-property "isExpanded()" | equals false | verify-true
+    }
+}
+with [get-view "Q7 Quality Mockups" | get-group NestedSections | get-section "Section 1" | get-section Section3] {
+    click
+    with [get-section Section4] {
+        click
+        click
+    }
+}
+with [get-view "Q7 Quality Mockups" | get-group NestedSections | get-section "Section 1" | get-section Section3 
+    | get-section Section4] {
+    get-property "getText()" | equals Section4 | verify-true
+    get-property "isExpanded()" | equals false | verify-true
+}
+with [get-view "Q7 Quality Mockups" | get-group NestedSections | get-section "Section 1"] {
+    click
+    click
+    get-section Section3 | get-section Section4 | click
+}
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

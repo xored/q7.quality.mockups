@@ -1,0 +1,68 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _2jXpEHTyEeKQnp4qYEvDRA
+Element-Name: SelectFromComboBoxByKeyBoardButton
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _m6y3sJbeEeKUTbHlS7Hh6Q
+Save-Time: 3/27/13 9:27 PM
+Testcase-Type: ecl
+
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+with [get-view "Q7 Quality Mockups"] {
+    get-tree | select "swt/combobox/ComboBox Test" | double-click
+    with [get-group "ComboBox Test"] {
+        with [get-combo -after [get-label "Editable ReadOnly ComboBox"]] {
+            key-type Down
+            select Alpha
+            key-type Down -times 2
+            select Bravo
+            key-type Down
+            key-type "TRAVERSE_TAB_NEXT"
+        }
+        with [get-combo -after [get-label "Editable ComboBox With Default Value"]] {
+            key-type Down
+            select Paris
+            key-type Down -times 2
+            select London
+            key-type Down
+            key-type Up
+            select Paris
+            key-type Up -times 2
+            select Charlie
+            key-type Up -times 2
+            select Bravo
+            key-type Up -times 2
+            select Alpha
+            key-type Up
+            key-type "TRAVERSE_TAB_NEXT"
+        }
+        with [get-combo -after [get-label "Editable ComboBox"]] {
+            key-type Down
+            select Charlie
+            key-type Down
+        }
+    }
+}
+with [get-view "Q7 Quality Mockups" | get-group "ComboBox Test"] {
+    get-combo -after [get-label "Editable ReadOnly ComboBox"] | get-property selection | equals Bravo | verify-true
+    get-combo -after [get-label "Editable ComboBox With Default Value"] | get-property selection | equals Alpha 
+        | verify-true
+    with [get-combo -after [get-label "Editable ComboBox"]] {
+        get-property selection | equals Charlie | verify-true
+        get-property readOnly | equals false | verify-true
+    }
+}
+with [get-view "Q7 Quality Mockups" | get-group "ComboBox Test"] {
+    get-combo -after [get-label "Editable ReadOnly ComboBox"] | get-property "getSelectionIndex()" | equals 1 
+        | verify-true
+    get-combo -after [get-label "Editable ComboBox With Default Value"] | get-property "getSelectionIndex()" | equals 0 
+        | verify-true
+    get-combo -after [get-label "Editable ComboBox"] | get-property "getSelectionIndex()" | equals 2 | verify-true
+}
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

@@ -1,0 +1,62 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _2jXpEHTyEeKQnp4qYEvDRA
+Element-Name: Date Test
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _XAmCoJbPEeK184kZHmPTQQ
+Save-Time: 3/27/13 6:16 PM
+Testcase-Type: ecl
+
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Q7 Quality Mockups" | get-tree | select "swt/DateTime/Date Test"
+with [get-view "Q7 Quality Mockups" | get-group "Date Test"] {
+    with [get-date-time] {
+        get-property className | equals "org.eclipse.swt.widgets.DateTime" | verify-true
+        get-property enablement | equals true | verify-true
+        get-property date | equals "2013/3/8" | verify-true
+        get-property "getStyle()" | equals "[LEFT_TO_RIGHT, DATE, MEDIUM]" | verify-true
+    }
+    with [get-date-time -index 1] {
+        get-property className | equals "org.eclipse.swt.widgets.DateTime" | verify-true
+        get-property enablement | equals true | verify-true
+        get-property date | equals "2013/3/8" | verify-true
+        get-property "getStyle()" | equals "[DROP_DOWN, LEFT_TO_RIGHT, DATE, MEDIUM]" | verify-true
+    }
+    with [get-date-time -index 2] {
+        get-property className | equals "org.eclipse.swt.widgets.DateTime" | verify-true
+        get-property enablement | equals true | verify-true
+        get-property date | equals "2012/3/8" | verify-true
+        get-property "getStyle()" | equals "[LEFT_TO_RIGHT, DATE, SHORT]" | verify-true
+    }
+    with [get-date-time -index 3] {
+        get-property className | equals "org.eclipse.swt.widgets.DateTime" | verify-true
+        get-property enablement | equals false | verify-true
+        get-property date | equals "2011/3/8" | verify-true
+        get-property "getStyle()" | equals "[LEFT_TO_RIGHT, DATE, MEDIUM]" | verify-true
+    }
+    with [get-date-time -index 4] {
+        get-property className | equals "org.eclipse.swt.widgets.DateTime" | verify-true
+        get-property enablement | equals true | verify-true
+        get-property date | equals "2010/3/8" | verify-true
+        get-property "getStyle()" | equals "[LEFT_TO_RIGHT, DATE, LONG]" | verify-true
+    }
+}
+with [get-view "Q7 Quality Mockups" | get-group "Date Test"] {
+    get-date-time | set-value "2013/3/5 18:13:43"
+    get-date-time -index 1 | set-value "2013/3/22 18:13:43"
+    get-date-time -index 2 | set-value "2012/12/8 18:13:43"
+    get-date-time -index 4 | set-value "2010/3/11 18:13:43"
+}
+with [get-view "Q7 Quality Mockups" | get-group "Date Test"] {
+    get-date-time | get-property date | equals "2013/3/5" | verify-true
+    get-date-time -index 1 | get-property date | equals "2013/3/22" | verify-true
+    get-date-time -index 2 | get-property date | equals "2012/12/8" | verify-true
+    get-date-time -index 4 | get-property date | equals "2010/3/11" | verify-true
+}
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

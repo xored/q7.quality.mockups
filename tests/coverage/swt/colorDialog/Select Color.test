@@ -1,0 +1,23 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _2jXpEHTyEeKQnp4qYEvDRA
+Element-Name: Select Color
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _d8ofEJd8EeK184kZHmPTQQ
+Save-Time: 3/28/13 2:58 PM
+Testcase-Type: ecl
+
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Q7 Quality Mockups" | get-tree | select "swt/colorDialog/ColorDialog"
+set-dialog-result Color "128,255,255"
+get-view "Q7 Quality Mockups" | get-group ColorDialog | get-button "Color..." | click
+get-view "Q7 Quality Mockups" | get-group ColorDialog | get-label | get-property backgroundColor | equals "#80FFFF" 
+    | verify-true
+
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

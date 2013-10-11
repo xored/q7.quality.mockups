@@ -1,0 +1,123 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _2jXpEHTyEeKQnp4qYEvDRA
+Element-Name: Single Text Test
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _uVCfkJg6EeK184kZHmPTQQ
+Save-Time: 8/15/13 2:40 PM
+Testcase-Type: ecl
+
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Q7 Quality Mockups" | get-tree | select "swt/text/Text"
+with [get-view "Q7 Quality Mockups" | get-group Text] {
+    with [get-editbox -after [get-label "Plain Limited Text:"]] {
+        get-property className | equals "org.eclipse.swt.widgets.Text" | verify-true
+        get-property enablement | equals true | verify-true
+        get-property borderWith | equals 2 | verify-true
+        get-property readOnly | equals false | verify-true
+        get-property text | equals Left | verify-true
+        get-property "getLineCount()" | equals 1 | verify-true
+        get-property "getCharCount()" | equals 4 | verify-true
+        get-property "getTextLimit()" | equals 5 | verify-true
+        get-property "getOrientation()" | equals 33554432 | verify-true
+        get-property "getLocation().getClassName()" | equals "org.eclipse.swt.graphics.Point" | verify-true
+        get-property "getLocation().x" | equals 120 | verify-true
+        get-property "getLocation().y" | equals 2 | verify-true
+        get-property "getSize().getClassName()" | equals "org.eclipse.swt.graphics.Point" | verify-true
+        get-property "getSize().x" | equals 300 | verify-true
+        get-property "getSize().y" | equals 25 | verify-true
+        get-property "getStyle()" | equals "[SINGLE, BORDER, LEFT_TO_RIGHT, LEFT]" | verify-true
+    }
+    with [get-editbox -after [get-label "Right-oriented text:"]] {
+        get-property className | equals "org.eclipse.swt.widgets.Text" | verify-true
+        get-property enablement | equals true | verify-true
+        get-property text | equals Right | verify-true
+        get-property "getText()" | equals Right | verify-true
+        get-property "getOrientation()" | equals 33554432 | verify-true
+        get-property "getLocation().x" | equals 120 | verify-true
+        get-property "getLocation().y" | equals 30 | verify-true
+        get-property "getSize().x" | equals 300 | verify-true
+        get-property "getSize().y" | equals 25 | verify-true
+        get-property "getBounds().x" | equals 120 | verify-true
+        get-property "getBounds().y" | equals 30 | verify-true
+        get-property "getBounds().width" | equals 300 | verify-true
+        get-property "getBounds().height" | equals 25 | verify-true
+        get-property "getStyle()" | equals "[SINGLE, BORDER, LEFT_TO_RIGHT, RIGHT]" | verify-true
+    }
+    get-editbox -after [get-label "Center-oriented text:"] | get-property "getStyle()" | equals "[SINGLE, BORDER, LEFT_TO_RIGHT, CENTER]" | verify-true
+    with [get-editbox -after [get-label "Icon-Cancel text:"]] {
+        get-property className | equals "org.eclipse.swt.widgets.Text" | verify-true
+        get-property text | equals "Icon Cancel" | verify-true
+        get-property "getStyle()" | equals "[MULTI, H_SCROLL, BORDER, LEFT_TO_RIGHT, LEFT]" | verify-true
+    }
+    with [get-editbox -after [get-label "Password text:"]] {
+        get-property className | equals "org.eclipse.swt.widgets.Text" | verify-true
+        get-property text | equals Password | verify-true
+        get-property "getTextChars().getClassName()" | equals "char[]" | verify-true
+        get-property "getTextChars().length" | equals 8 | verify-true
+        get-property "getTextChars().char[0]" | equals P | verify-true
+        get-property "getTextChars().char[1]" | equals a | verify-true
+        get-property "getTextChars().char[2]" | equals s | verify-true
+        get-property "getTextChars().char[3]" | equals s | verify-true
+        get-property "getTextChars().char[4]" | equals w | verify-true
+        get-property "getTextChars().char[5]" | equals o | verify-true
+        get-property "getTextChars().char[6]" | equals r | verify-true
+        get-property "getTextChars().char[7]" | equals d | verify-true
+        get-property "getEchoChar()" | equals "●" | verify-true
+        get-property "getStyle()" | equals "[SINGLE, PASSWORD, BORDER, LEFT_TO_RIGHT, LEFT]" | verify-true
+    }
+    with [get-editbox -after [get-label "Readonly text:"]] {
+        get-property className | equals "org.eclipse.swt.widgets.Text" | verify-true
+        get-property readOnly | equals true | verify-true
+        get-property text | equals Readonly | verify-true
+        get-property "getStyle()" | equals "[SINGLE, READ_ONLY, BORDER, LEFT_TO_RIGHT, LEFT]" | verify-true
+    }
+}
+with [get-view "Q7 Quality Mockups" | get-group Text] {
+    get-editbox -after [get-label "Plain Limited Text:"] | set-text LeftL
+    with [get-editbox -after [get-label "Right-oriented text:"]] {
+        set-text RighRightRight
+        click-text 1
+        key-type "M1+a"
+        key-type "M1+c"
+    }
+    with [get-editbox -after [get-label "Plain Limited Text:"]] {
+        click-text 6
+        key-type "M1+v"
+    }
+}
+get-view "Q7 Quality Mockups" | get-group Text | get-editbox -after [get-label "Plain Limited Text:"] 
+    | get-property text | equals LeftL | verify-true
+with [get-view "Q7 Quality Mockups" | get-group Text | get-editbox -after [get-label "Plain Limited Text:"]] {
+    click-text 6
+    key-type "M1+a"
+    key-type "M1+v"
+}
+get-view "Q7 Quality Mockups" | get-group Text | get-editbox -after [get-label "Plain Limited Text:"] 
+    | get-property text | equals RighR | verify-true
+get-view "Q7 Quality Mockups" | get-group Text | get-editbox -after [get-label "Center-oriented text:"] 
+    | set-text Centercentercenter
+get-view "Q7 Quality Mockups" | get-group Text | get-editbox -after [get-label "Center-oriented text:"] 
+    | get-property text | equals Centercentercenter | verify-true
+with [get-view "Q7 Quality Mockups" | get-group Text] {
+    with [get-editbox -after [get-label "Icon Search text:"]] {
+        set-text "Icon Searchefwefwefweffwefwefwefwefwefwefwefwefwefwef"
+        key-type Enter
+        set-text "Icon Searchefwefwefweffwefwefwefwefwefwefwefwefwefwef\n"
+        key-type Enter
+        set-text "Icon Searchefwefwefweffwefwefwefwefwefwefwefwefwefwef\n"
+            + "fewfwefwefwef"
+    }
+    get-editbox -after [get-label "Password text:"] | set-text Passwordfffdddssss
+}
+with [get-view "Q7 Quality Mockups" | get-group Text | get-editbox -after [get-label "Password text:"]] {
+    get-property "getText()" | equals Passwordfffdddssss | verify-true
+    get-property "getEchoChar()" | equals "●" | verify-true
+}
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

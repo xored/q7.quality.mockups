@@ -1,0 +1,44 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _2jXpEHTyEeKQnp4qYEvDRA
+Element-Name: MenuBar Test
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _P7Lm8KAWEeK6Fo_2xChiPA
+Save-Time: 4/8/13 1:35 PM
+Testcase-Type: ecl
+
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+with [get-view "Q7 Quality Mockups"] {
+    get-tree | select "swt/menu/MenuBarTest"
+    get-group MenuBarTest | get-button "Push to Launch Menu" | click
+}
+with [get-window "Menu Example"] {
+    get-menu "File/New" | get-property caption | equals New | verify-true
+    get-menu "File/New" | get-property selection | equals false | verify-true
+    get-menu "File/New" | get-property enablement | equals true | verify-true
+    get-menu "File/New" | get-property index | equals 0 | verify-true
+    get-menu "File/New" | get-property cascade | equals false | verify-true
+    get-menu "File/Open..." | get-property caption | equals "Open..." | verify-true
+    get-menu "File/Open..." | get-property selection | equals false | verify-true
+    get-menu "File/Open..." | get-property enablement | equals true | verify-true
+    get-menu "File/Open..." | get-property index | equals 1 | verify-true
+    get-menu "File/Open..." | get-property cascade | equals false | verify-true
+    get-menu Help | get-property caption | equals Help | verify-true
+    get-menu Help | get-property selection | equals false | verify-true
+    get-menu Help | get-property enablement | equals true | verify-true
+    get-menu Help | get-property index | equals 3 | verify-true
+    get-menu Help | get-property cascade | equals true | verify-true
+    get-menu "File/Exit" | get-property caption | equals Exit | verify-true
+    get-menu "File/Exit" | get-property selection | equals false | verify-true
+    get-menu "File/Exit" | get-property enablement | equals true | verify-true
+    get-menu "File/Exit" | get-property index | equals 8 | verify-true
+    get-menu "File/Exit" | get-property cascade | equals false | verify-true
+}
+get-window "Menu Example" | get-menu "File/Exit" | click
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

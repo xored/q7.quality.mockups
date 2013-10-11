@@ -1,0 +1,63 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _2jXpEHTyEeKQnp4qYEvDRA
+Element-Name: TreeViewer_SetDataInCell
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _dUteoKGcEeKUTbHlS7Hh6Q
+Save-Time: 4/10/13 12:20 PM
+Testcase-Type: ecl
+
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+with [get-view "Q7 Quality Mockups"] {
+    get-tree | select "jface/treeViewer/TreeViewer Test"
+    with [get-group "TreeViewer Test" | get-tree] {
+        select "Item 0.4" | double-click
+        select "Item 0.4" | activate-cell-edit -column 1
+        with [get-editbox] {
+            set-text 1234
+            key-type Enter
+        }
+        apply-cell-edit
+    }
+}
+with [get-view "Q7 Quality Mockups" | get-group "TreeViewer Test" | get-tree] {
+    get-item "Item 0.1234" | get-property caption | equals "Item 0.1234" | verify-true
+    get-item "Item 0.1234" | get-property columns -index 0 | equals "Item 0.1234" | verify-true
+    get-item "Item 0.1234" | get-property columns -index 1 | equals "Item 0.1234" | verify-true
+}
+with [get-view "Q7 Quality Mockups" | get-group "TreeViewer Test" | get-tree] {
+    select "Item 0.8/Item 0.8.3/Item 0.8.3.1" | double-click
+    select "Item 0.8/Item 0.8.3/Item 0.8.3.1" | activate-cell-edit -column 1
+    with [get-editbox] {
+        set-text 456
+        key-type "TRAVERSE_ESCAPE"
+    }
+    cancel-cell-edit
+    cancel-cell-edit
+}
+with [get-view "Q7 Quality Mockups" | get-group "TreeViewer Test" | get-tree] {
+    get-item "Item 0.8/Item 0.8.3/Item 0.8.3.1" | get-property caption | equals "Item 0.8.3.1" | verify-true
+    get-item "Item 0.8/Item 0.8.3/Item 0.8.3.1" | get-property columns -index 0 | equals "Item 0.8.3.1" | verify-true
+    get-item "Item 0.8/Item 0.8.3/Item 0.8.3.1" | get-property columns -index 1 | equals "Item 0.8.3.1" | verify-true
+}
+with [get-view "Q7 Quality Mockups" | get-group "TreeViewer Test" | get-tree] {
+    select "Item 0.9/Item 0.9.3/Item 0.9.3.0" | double-click
+    select "Item 0.9/Item 0.9.3/Item 0.9.3.0" | activate-cell-edit -column 1
+    get-editbox | set-text 654
+    apply-cell-edit
+    select "Item 0.9/Item 0.9.3/Item 0.9.3.1"
+}
+with [get-view "Q7 Quality Mockups" | get-group "TreeViewer Test" | get-tree] {
+    get-item "Item 0.9/Item 0.9.3/Item 0.9.3.654" | get-property caption | equals "Item 0.9.3.654" | verify-true
+    get-item "Item 0.9/Item 0.9.3/Item 0.9.3.654" | get-property columns -index 0 | equals "Item 0.9.3.654" 
+        | verify-true
+    get-item "Item 0.9/Item 0.9.3/Item 0.9.3.654" | get-property columns -index 1 | equals "Item 0.9.3.654" 
+        | verify-true
+}
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

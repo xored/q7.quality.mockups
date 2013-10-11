@@ -1,0 +1,29 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _2jXpEHTyEeKQnp4qYEvDRA
+Element-Name: QS_2507_Mouse Command Is Unable To Work With "invisible" Cells
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _bbmL8Jt9EeKUTbHlS7Hh6Q
+Save-Time: 4/3/13 11:49 AM
+Testcase-Type: ecl
+
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+with [get-view "Q7 Quality Mockups"] {
+    get-tree | select "swt/composite/Table With ScrollBar Test" | double-click
+    get-group "Table With ScrollBar Test" | get-table | get-cell 94 5 | mouse down -count 1
+//    get-group "Table With ScrollBar Test" | get-table | get-column
+}
+get-view "Q7 Quality Mockups" | get-group "Table With ScrollBar Test" | get-table | get-column-header Test2 | click
+with [get-view "Q7 Quality Mockups" | get-group "Table With ScrollBar Test" | get-table] {
+    get-item x -index 71 | get-property columns -index 6 | equals "line 71 in nowhere" | verify-true
+    get-item x -index 71 | get-property columns -index 10 | equals "test line for scrolling (3)" | verify-true
+    get-item x -index 71 | get-property "getParent().getColumns().TableColumn[10].getText()" | equals Test2 
+        | verify-true
+}
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

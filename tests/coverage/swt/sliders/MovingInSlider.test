@@ -1,0 +1,35 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _2jXpEHTyEeKQnp4qYEvDRA
+Element-Name: MovingInSlider
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _-JugYJd2EeKUTbHlS7Hh6Q
+Save-Time: 3/28/13 2:17 PM
+Testcase-Type: ecl
+
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Q7 Quality Mockups" | get-tree | select "swt/sliders/Slider Test" | double-click
+with [get-view "Q7 Quality Mockups" | get-group "Slider Test" | get-slider] {
+    get-property enablement | equals true | verify-true
+    get-property value | equals 0 | verify-true
+    get-property "getMaximum()" | equals 100 | verify-true
+    get-property "getMinimum()" | equals 0 | verify-true
+    get-property "getEnabled()" | equals true | verify-true
+}
+get-view "Q7 Quality Mockups" | get-group "Slider Test" | get-slider | set-value 15
+with [get-view "Q7 Quality Mockups" | get-group "Slider Test" | get-slider] {
+    get-property value | equals 15 | verify-true
+    get-property "getSelection()" | equals 15 | verify-true
+}
+get-view "Q7 Quality Mockups" | get-group "Slider Test" | get-slider | set-value 65
+with [get-view "Q7 Quality Mockups" | get-group "Slider Test" | get-slider] {
+    get-property value | equals 65 | verify-true
+    get-property "getSelection()" | equals 65 | verify-true
+}
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

@@ -1,0 +1,49 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _2jXpEHTyEeKQnp4qYEvDRA
+Element-Name: Link Test
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _NKKVUJw7EeK6Fo_2xChiPA
+Save-Time: 4/3/13 3:49 PM
+Testcase-Type: ecl
+
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+with [get-view "Q7 Quality Mockups" | get-tree] {
+    select "swt/link" | double-click
+    select "swt/link/Link"
+}
+with [get-view "Q7 Quality Mockups" | get-group Link 
+    | get-link "The SWT component is designed to provide <a>efficient</a>, <a>portable</a> <a href=\"native\">access to the UI facilities of the OSs</a> on which it is implemented."] {
+    get-property className | equals "org.eclipse.swt.widgets.Link" | verify-true
+    get-property caption 
+        | equals "The SWT component is designed to provide <a>efficient</a>, <a>portable</a> <a href=\"native\">access to the UI facilities of the OSs</a> on which it is implemented." 
+        | verify-true
+}
+with [get-view "Q7 Quality Mockups" | get-group Link 
+    | get-link "The SWT component is designed to provide <a>efficient</a>, <a>portable</a> <a href=\"native\">access to the UI facilities of the OSs</a> on which it is implemented."] {
+    click-link efficient
+    click-link portable
+    click-link native
+}
+get-view "Q7 Quality Mockups" | get-group Link | get-editbox 
+    -after [get-link "The SWT component is designed to provide <a>efficient</a>, <a>portable</a> <a href=\"native\">access to the UI facilities of the OSs</a> on which it is implemented."] 
+    | get-property text | equals native | verify-true
+get-view "Q7 Quality Mockups" | get-group Link 
+    | get-link "The SWT component is designed to provide <a>efficient</a>, <a>portable</a> <a href=\"native\">access to the UI facilities of the OSs</a> on which it is implemented." 
+    | click-link portable
+get-view "Q7 Quality Mockups" | get-group Link | get-editbox 
+    -after [get-link "The SWT component is designed to provide <a>efficient</a>, <a>portable</a> <a href=\"native\">access to the UI facilities of the OSs</a> on which it is implemented."] 
+    | get-property text | equals portable | verify-true
+get-view "Q7 Quality Mockups" | get-group Link 
+    | get-link "The SWT component is designed to provide <a>efficient</a>, <a>portable</a> <a href=\"native\">access to the UI facilities of the OSs</a> on which it is implemented." 
+    | click-link efficient
+get-view "Q7 Quality Mockups" | get-group Link | get-editbox 
+    -after [get-link "The SWT component is designed to provide <a>efficient</a>, <a>portable</a> <a href=\"native\">access to the UI facilities of the OSs</a> on which it is implemented."] 
+    | get-property text | equals efficient | verify-true
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

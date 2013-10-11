@@ -1,0 +1,41 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _2jXpEHTyEeKQnp4qYEvDRA
+Element-Name: TableViewer_CheckBoxCellEditor
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _BEs2QaV5EeKpM48N8tRBYw
+Save-Time: 4/15/13 10:08 AM
+Testcase-Type: ecl
+
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+with [get-view "Q7 Quality Mockups"] {
+    get-tree | select "jface/tableViewer/CheckBoxCellEditor2"
+    get-group CheckBoxCellEditor2 | get-button "Create New Person" | click
+}
+with [get-view "Q7 Quality Mockups" | get-group CheckBoxCellEditor2 | get-table] {
+    select Name
+    get-cell 0 1 | uncheck
+}
+with [get-view "Q7 Quality Mockups" | get-group CheckBoxCellEditor2 | get-table] {
+    //get-cell 0 1 | mouse down -with Left -count 1
+    get-cell 0 1 | check
+    //get-cell 0 1 | mouse down -with Left -count 1
+}
+with [get-view "Q7 Quality Mockups" | get-group CheckBoxCellEditor2 | get-table] {
+    get-item Name | get-property columns -index 0 | equals Name | verify-true
+    get-item Name | get-property columns -index 1 | equals true | verify-true
+    get-item Name | get-property columns -index 2 | equals 0 | verify-true
+    get-item Name | get-property columns -index 3 | equals "RGB {255, 0, 0}" | verify-true
+}
+with [get-view "Q7 Quality Mockups" | get-group CheckBoxCellEditor2 | get-table] {
+    select Name | activate-cell-edit -column 2
+    get-combo | select "8 - 12"
+    apply-cell-edit
+}
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

@@ -1,0 +1,98 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _2jXpEHTyEeKQnp4qYEvDRA
+Element-Name: TreeViewer_SelectionByKeyBoardButtons
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _HCkc0KGdEeKUTbHlS7Hh6Q
+Save-Time: 4/10/13 12:23 PM
+Testcase-Type: ecl
+
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+with [get-view "Q7 Quality Mockups"] {
+    get-tree | select "jface/treeViewer/TreeViewer Test"
+    with [get-group "TreeViewer Test" | get-tree] {
+        select "Item 0.1" | key-type Down
+        select "Item 0.2" | key-type Right
+        key-type Down
+        select "Item 0.2/Item 0.2.1" | key-type Down
+        select "Item 0.3" | key-type Right
+        key-type Down
+        select "Item 0.3/Item 0.3.1" | key-type Down
+        select "Item 0.3/Item 0.3.2" | key-type Right
+        key-type Down
+        select "Item 0.4" | key-type Left
+        key-type Right
+        key-type Down
+        select "Item 0.4/Item 0.4.1" | key-type Down
+        select "Item 0.4/Item 0.4.2" | key-type Down
+        select "Item 0.4/Item 0.4.3" | key-type Right
+        key-type Down
+    }
+}
+with [get-view "Q7 Quality Mockups" | get-group "TreeViewer Test" | get-tree] {
+    get-item "Item 0.4/Item 0.4.3/Item 0.4.3.0" | get-property caption | equals "Item 0.4.3.0" | verify-true
+    get-item "Item 0.4/Item 0.4.3/Item 0.4.3.0" | get-property columns -index 0 | equals "Item 0.4.3.0" | verify-true
+    get-item "Item 0.4/Item 0.4.3/Item 0.4.3.0" | get-property columns -index 1 | equals "Item 0.4.3.0" | verify-true
+}
+with [get-view "Q7 Quality Mockups" | get-group "TreeViewer Test" | get-tree] {
+    key-type Down
+    select "Item 0.4/Item 0.4.3/Item 0.4.3.0" | key-type Down
+    select "Item 0.4/Item 0.4.3/Item 0.4.3.1" | key-type Down
+    select "Item 0.5" | key-type Down
+    select "Item 0.6" | key-type Down
+    select "Item 0.7" | key-type Down
+    select "Item 0.8" | key-type Down
+    select "Item 0.9" | key-type Down
+    select "Item 0.9/Item 0.9.1" | key-type Down
+    select "Item 0.9/Item 0.9.2" | key-type Down
+    select "Item 0.9/Item 0.9.3" | key-type Right
+    key-type Down
+    select "Item 0.9/Item 0.9.3/Item 0.9.3.0" | key-type Down
+    select "Item 0.9/Item 0.9.3/Item 0.9.3.1" | key-type Down
+    select "Item 0.9/Item 0.9.4" | key-type Down
+    select "Item 0.9/Item 0.9.5" | key-type Down
+    select "Item 0.9/Item 0.9.6" | key-type Up
+    select "Item 0.9/Item 0.9.5" | key-type Up
+    select "Item 0.9/Item 0.9.4" | key-type Up
+    select "Item 0.9/Item 0.9.3/Item 0.9.3.1" | key-type Up
+    select "Item 0.9/Item 0.9.3/Item 0.9.3.0" | key-type Up
+    select "Item 0.9/Item 0.9.3" | key-type Up
+    select "Item 0.9/Item 0.9.2" | key-type Up
+    select "Item 0.9/Item 0.9.1" | key-type Up
+    select "Item 0.9" | key-type Up
+    select "Item 0.8" | key-type Right
+    key-type Down
+    select "Item 0.8/Item 0.8.1" | key-type Down
+    select "Item 0.8/Item 0.8.2" | key-type Down
+    select "Item 0.8/Item 0.8.3" | key-type Right
+    key-type Down
+    select "Item 0.8/Item 0.8.3/Item 0.8.3.0" | key-type Down
+    select "Item 0.8/Item 0.8.3/Item 0.8.3.1" | key-type Down
+    select "Item 0.8/Item 0.8.4" | key-type Down
+    select "Item 0.8/Item 0.8.5" | key-type Down
+    select "Item 0.8/Item 0.8.6" | key-type Down
+    select "Item 0.8/Item 0.8.7" | key-type Down
+    select "Item 0.9" | key-type Down
+    select "Item 0.9/Item 0.9.1" | key-type Down
+    select "Item 0.9/Item 0.9.2" | key-type Down
+    select "Item 0.9/Item 0.9.3" | key-type Down
+    select "Item 0.9/Item 0.9.3/Item 0.9.3.0" | key-type Down
+    select "Item 0.9/Item 0.9.3/Item 0.9.3.1" | key-type Right
+    type-text e
+    select "Item 0.9/Item 0.9.3/Item 0.9.3.1" | double-click
+    select "Item 0.9/Item 0.9.3/Item 0.9.3.1" | activate-cell-edit -column 1
+    with [get-editbox] {
+        set-text 34
+        key-type Enter
+    }
+    apply-cell-edit
+}
+get-view "Q7 Quality Mockups" | get-group "TreeViewer Test" | get-tree | get-item "Item 0.9/Item 0.9.3/Item 0.9.3.34" 
+    | get-property caption | equals "Item 0.9.3.34" | verify-true
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

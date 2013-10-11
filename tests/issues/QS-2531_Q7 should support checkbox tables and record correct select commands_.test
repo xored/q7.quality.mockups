@@ -1,0 +1,57 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _2jXpEHTyEeKQnp4qYEvDRA
+Element-Name: QS-2531_Q7 should support checkbox tables and record correct select commands.
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _EHAcsQMbEeOTROtX7RgcwQ
+Save-Time: 8/12/13 1:52 PM
+Testcase-Type: ecl
+
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+with [get-view "Q7 Quality Mockups"] {
+    get-tree | select "swt/table/TableWithEmptyColumns" | double-click
+    with [get-group TableWithEmptyColumns | get-table] {
+        get-item 0 -column Values | check
+        get-item 3 -column Values | check
+        get-item item6 -column "Empty column" | check
+        get-item item9 -column "Empty column" | check
+    }
+}
+with [get-view "Q7 Quality Mockups" | get-group TableWithEmptyColumns | get-table] {
+    get-item 0 -column Values | get-property index | equals 0 | verify-true
+    get-item 0 -column Values | get-property checked | equals true | verify-true
+    get-item 0 -column Values | get-property "columns[0]" | equals "" | verify-true
+    get-item 0 -column Values | get-property "columns[1]" | equals "" | verify-true
+    get-item 0 -column Values | get-property "columns[2]" | equals 0 | verify-true
+    get-item 3 -column Values | get-property checked | equals true | verify-true
+    get-item 3 -column Values | get-property "columns[0]" | equals "" | verify-true
+    get-item 3 -column Values | get-property "columns[1]" | equals "" | verify-true
+    get-item 3 -column Values | get-property "columns[2]" | equals 3 | verify-true
+    get-item item6 -column "Empty column" | get-property checked | equals true | verify-true
+    get-item item6 -column "Empty column" | get-property "columns[0]" | equals "" | verify-true
+    get-item item6 -column "Empty column" | get-property "columns[1]" | equals item6 | verify-true
+    get-item item6 -column "Empty column" | get-property "columns[2]" | equals 6 | verify-true
+    get-item item9 -column "Empty column" | get-property checked | equals true | verify-true
+    get-item item9 -column "Empty column" | get-property "columns[0]" | equals "" | verify-true
+    get-item item9 -column "Empty column" | get-property "columns[1]" | equals item9 | verify-true
+    get-item item9 -column "Empty column" | get-property "columns[2]" | equals 9 | verify-true
+}
+with [get-view "Q7 Quality Mockups" | get-group TableWithEmptyColumns | get-table] {
+    get-item "" -index 11 | check
+    get-item "" -index 10 | check
+    get-item "" -index 10 | uncheck
+}
+with [get-view "Q7 Quality Mockups" | get-group TableWithEmptyColumns | get-table] {
+    get-item "" -index 11 | get-property index | equals 11 | verify-true
+    get-item "" -index 11 | get-property checked | equals true | verify-true
+    get-item "" -index 11 | get-property "columns[0]" | equals "" | verify-true
+    get-item "" -index 11 | get-property "columns[1]" | equals "" | verify-true
+    get-item "" -index 11 | get-property "columns[2]" | equals "" | verify-true
+}
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

@@ -1,0 +1,66 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _2jXpEHTyEeKQnp4qYEvDRA
+Element-Name: ScrolledCompositeTest
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _OKsw8JqpEeKUTbHlS7Hh6Q
+Save-Time: 4/1/13 3:56 PM
+Testcase-Type: ecl
+
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+with [get-view "Q7 Quality Mockups"] {
+    get-tree | select "swt/composite/ScrolledComposite Test" | double-click
+    with [get-group "ScrolledComposite Test"] {
+        with [get-button "add children"] {
+            click
+            click
+            click
+            click
+            click
+        }
+        get-button "button 2" | click
+    }
+}
+get-view "Q7 Quality Mockups" | get-group "ScrolledComposite Test" | get-editbox | get-property text 
+    | equals "button 2" | verify-true
+with [get-view "Q7 Quality Mockups" | get-group "ScrolledComposite Test"] {
+    with [get-button "first button"] {
+        click
+        key-type "TRAVERSE_TAB_NEXT"
+    }
+    get-button "button 1" | key-type "TRAVERSE_TAB_NEXT"
+    get-button "button 2" | key-type "TRAVERSE_TAB_NEXT"
+    get-button "button 3" | key-type "TRAVERSE_TAB_NEXT"
+    get-button "button 4" | key-type "TRAVERSE_TAB_NEXT"
+    get-button "button 5" | click
+}
+get-view "Q7 Quality Mockups" | get-group "ScrolledComposite Test" | get-editbox | get-property text 
+    | equals "button 5" | verify-true
+with [get-view "Q7 Quality Mockups" | get-group "ScrolledComposite Test"] {
+    with [get-button "first button"] {
+        click
+        key-type "TRAVERSE_ARROW_NEXT"
+    }
+    get-button "button 1" | key-type "TRAVERSE_ARROW_NEXT"
+    get-button "button 2" | key-type "TRAVERSE_ARROW_NEXT"
+    get-button "button 3" | key-type "TRAVERSE_ARROW_NEXT"
+    get-button "button 4" | click
+}
+with [get-view "Q7 Quality Mockups" | get-group "ScrolledComposite Test"] {
+    get-editbox | get-property text | equals "button 4" | verify-true
+    with [get-control Any -index 2] {
+        get-property "getParent().getHorizontalBar().getClassName()" | equals "org.eclipse.swt.widgets.ScrollBar" 
+            | verify-true
+        get-property "getParent().getHorizontalBar().getStyle()" | equals "[HORIZONTAL]" | verify-true
+        get-property "getParent().getVerticalBar().getClassName()" | equals "org.eclipse.swt.widgets.ScrollBar" 
+            | verify-true
+        get-property "getParent().getVerticalBar().getStyle()" | equals "[VERTICAL]" | verify-true
+    }
+}
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
