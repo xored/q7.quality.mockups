@@ -329,6 +329,11 @@
             class="org.eclipse.swt.table.TableWithEmptyColumns"
             name="TableWithEmptyColumns">
       </part>
+      <part
+            category="swt.tree"
+            class="com.xored.q7.quality.mockups.swt.tree.TreeWithStyledText"
+            name="TreeWithStyledText Test">
+      </part>
    </extension>
 
 </plugin>

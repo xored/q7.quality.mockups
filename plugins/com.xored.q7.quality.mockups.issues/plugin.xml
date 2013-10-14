@@ -94,5 +94,23 @@
             issue="QS-2641"
             name="QS-2641 - Drag-n-drop">
       </part>      	
+      <part
+            category="issues.customer"
+            class="com.xored.q7.quality.mockups.issues.parts.QS2956_CellEditingIssueOnPropertySheetPage"
+            issue="QS-2956"
+            name="QS-2956 - Cell editing issue on property sheet page">
+      </part>
+      <part
+            category="issues.customer"
+            class="com.xored.q7.quality.mockups.issues.parts.QS2953_GeneratedText"
+            issue="QS2953"
+            name="QS-2953-Tab-GeneratedText">
+      </part>
+      <part
+            category="issues.customer"
+            class="com.xored.q7.quality.mockups.issues.parts.QS2986_ProgressMonitorDialog"
+            issue="QS2986"
+            name="QS2986 - ProgressMonitorDialog">
+      </part>    	      	
    </extension>
 </plugin>

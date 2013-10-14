@@ -2,17 +2,19 @@ package com.xored.q7.quality.mockups.issues;
 
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
-import org.eclipse.ui.IViewSite;
 
 public abstract class BaseMockupPart implements IQ7MockupPart {
 
-	protected IViewSite site;
+	protected Q7MockupsCategoryView view;
 
+	@Override
 	public abstract Control construct(Composite parent);
 
+	@Override
 	public abstract String getLabel();
 
-	public void setSite(IViewSite site) {
-		this.site = site;
+	@Override
+	public void setView(Q7MockupsCategoryView view) {
+		this.view = view;
 	}
 }

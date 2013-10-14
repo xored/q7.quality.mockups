@@ -1,12 +1,15 @@
 package com.xored.q7.quality.mockups.issues;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.jface.action.ToolBarManager;
 import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.jface.layout.GridLayoutFactory;
 import org.eclipse.jface.viewers.ColumnLabelProvider;
+import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
+import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.TreeViewer;
@@ -26,9 +29,11 @@ import org.eclipse.ui.part.ViewPart;
 
 import com.xored.q7.quality.mockups.issues.PartManager.MockupPart;
 
-public class Q7MockupsCategoryView extends ViewPart {
+public class Q7MockupsCategoryView extends ViewPart implements ISelectionProvider {
 
 	public void createPartControl(Composite parent) {
+		getSite().setSelectionProvider(this);
+
 		FormToolkit toolkit = new FormToolkit(parent.getDisplay());
 		GridDataFactory.fillDefaults().grab(true, true).applyTo(parent);
 		ScrolledForm form = toolkit.createScrolledForm(parent);
@@ -117,8 +122,8 @@ public class Q7MockupsCategoryView extends ViewPart {
 				GridLayoutFactory.swtDefaults().numColumns(1).applyTo(s);
 
 				s.setText(element.getName());
+				part.setView(Q7MockupsCategoryView.this);
 				part.construct(s);
-				part.setSite(getViewSite());
 				s.layout();
 				child.layout();
 				child.getParent().layout();
@@ -133,5 +138,33 @@ public class Q7MockupsCategoryView extends ViewPart {
 	 */
 
 	public void setFocus() {
+	}
+
+	private List<ISelectionChangedListener> selectionChangeListeners = new ArrayList<ISelectionChangedListener>();
+	private ISelection selection = null;
+
+	@Override
+	public void addSelectionChangedListener(ISelectionChangedListener listener) {
+		selectionChangeListeners.add(listener);
+	}
+
+	@Override
+	public void removeSelectionChangedListener(ISelectionChangedListener listener) {
+		selectionChangeListeners.remove(listener);
+	}
+
+	@Override
+	public ISelection getSelection() {
+		return selection;
+	}
+
+	@Override
+	public void setSelection(ISelection selection) {
+		if (this.selection == selection)
+			return;
+
+		this.selection = selection;
+		for (ISelectionChangedListener l : selectionChangeListeners)
+			l.selectionChanged(new SelectionChangedEvent(this, selection));
 	}
 }
