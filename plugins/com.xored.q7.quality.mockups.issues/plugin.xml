@@ -111,6 +111,12 @@
             class="com.xored.q7.quality.mockups.issues.parts.QS2986_ProgressMonitorDialog"
             issue="QS2986"
             name="QS2986 - ProgressMonitorDialog">
-      </part>    	      	
+      </part>
+      <part
+            category="issues.customer"
+            class="com.xored.q7.quality.mockups.issues.parts.SUP527_timerExecHung"
+            issue="SUP527"
+            name="SUP527 - TimerExec issue">
+      </part>    	      	      	
    </extension>
 </plugin>
