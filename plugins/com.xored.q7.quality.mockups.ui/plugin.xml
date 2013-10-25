@@ -16,6 +16,12 @@
             class="com.xored.q7.quality.mockups.issues.Q7MockupsCategoryView"
             id="com.xored.q7.quality.mockups.category.view">
       </view>
+      <view
+            class="com.xored.q7.quality.mockups.ui.Q7TextNotes"
+            id="com.xored.q7.quality.mockups.ui.demotext"
+            name="Q7 Demo Text area"
+            restorable="true">
+      </view>
    </extension>
    <extension
          point="org.eclipse.ui.perspectives">
