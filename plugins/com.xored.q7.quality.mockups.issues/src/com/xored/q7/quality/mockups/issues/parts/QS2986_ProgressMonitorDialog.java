@@ -46,13 +46,18 @@ public class QS2986_ProgressMonitorDialog extends BaseMockupPart {
 								@Override
 								public void run(IProgressMonitor monitor) throws InvocationTargetException,
 										InterruptedException {
-									Thread.sleep(2000);
+									monitor.beginTask("Testing", 1000);
+									for( int i = 0; i < 1000; i++) {
+										Thread.sleep(2);
+										monitor.worked(1);
+									}
 									b.getDisplay().asyncExec(new Runnable() {
 										@Override
 										public void run() {
 											b.setEnabled(true);
 										}
 									});
+									monitor.done();
 								}
 							});
 				} catch (InvocationTargetException e1) {
@@ -73,13 +78,18 @@ public class QS2986_ProgressMonitorDialog extends BaseMockupPart {
 								@Override
 								public void run(IProgressMonitor monitor) throws InvocationTargetException,
 										InterruptedException {
-									Thread.sleep(2000);
-									b2.getDisplay().asyncExec(new Runnable() {
+									monitor.beginTask("Testing", 1000);
+									for( int i = 0; i < 1000; i++) {
+										Thread.sleep(2);
+										monitor.worked(1);
+									}
+									b.getDisplay().asyncExec(new Runnable() {
 										@Override
 										public void run() {
 											b2.setEnabled(true);
 										}
 									});
+									monitor.done();
 								}
 							});
 				} catch (InvocationTargetException e1) {
