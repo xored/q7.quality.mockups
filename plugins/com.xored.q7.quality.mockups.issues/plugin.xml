@@ -124,5 +124,11 @@
             issue="QS3036"
             name="QS-3036 - DragAndDrop with LocalTransfer">
       </part>    	      	      	
+      <part
+            category="issues.customer"
+            class="com.xored.q7.quality.mockups.issues.parts.SUP562_allowStatusDialog"
+            issue="SUP562"
+            name="SUP562 - Allow status dialog">
+      </part>    	      	      	
    </extension>
 </plugin>
