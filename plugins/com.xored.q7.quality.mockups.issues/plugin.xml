@@ -117,6 +117,12 @@
             class="com.xored.q7.quality.mockups.issues.parts.SUP527_timerExecHung"
             issue="SUP527"
             name="SUP527 - TimerExec issue">
+      </part>
+      <part
+            category="issues.vozone"
+            class="com.xored.q7.quality.mockups.issues.parts.QS3036_DragAndDropWithLocalTransfer"
+            issue="QS3036"
+            name="QS-3036 - DragAndDrop with LocalTransfer">
       </part>    	      	      	
    </extension>
 </plugin>
