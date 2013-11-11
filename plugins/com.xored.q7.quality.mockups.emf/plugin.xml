@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="com.xored.q7.quality.mockups.ui.part">
+      <part
+            category="issues.vozone"
+            class="com.xored.q7.quality.mockups.emf.edit.QS3036_DragAndDropWithLocalTransfer"
+            issue="QS-3036"
+            name="QS-3036 - DragAndDrop with LocalTransfer">
+      </part>    	      	      	
+         
+   </extension>
+
+</plugin>

@@ -1,7 +1,8 @@
-package com.xored.q7.quality.mockups.issues.parts;
+package com.xored.q7.quality.mockups.emf.edit;
 
 import java.util.ArrayList;
 
+import org.eclipse.emf.edit.ui.dnd.LocalTransfer;
 import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.jface.layout.GridLayoutFactory;
 import org.eclipse.jface.viewers.ArrayContentProvider;
@@ -20,7 +21,6 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
 
 import com.xored.q7.quality.mockups.issues.BaseMockupPart;
-import com.xored.q7.quality.mockups.issues.parts.internal.LocalTransfer;
 
 public class QS3036_DragAndDropWithLocalTransfer extends BaseMockupPart {
 

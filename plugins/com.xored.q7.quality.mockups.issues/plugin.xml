@@ -119,12 +119,6 @@
             name="SUP527 - TimerExec issue">
       </part>
       <part
-            category="issues.vozone"
-            class="com.xored.q7.quality.mockups.issues.parts.QS3036_DragAndDropWithLocalTransfer"
-            issue="QS3036"
-            name="QS-3036 - DragAndDrop with LocalTransfer">
-      </part>    	      	      	
-      <part
             category="issues.customer"
             class="com.xored.q7.quality.mockups.issues.parts.SUP562_allowStatusDialog"
             issue="SUP562"
