@@ -107,6 +107,9 @@ public class Q7MockupsCategoryView extends ViewPart implements ISelectionProvide
 			public void selectionChanged(SelectionChangedEvent event) {
 				MockupPart element = (MockupPart) (((IStructuredSelection) event
 						.getSelection()).getFirstElement());
+				if( element == null) {
+					return;
+				}
 				IQ7MockupPart part = element.getPart();
 				if (part == null) {
 					return;

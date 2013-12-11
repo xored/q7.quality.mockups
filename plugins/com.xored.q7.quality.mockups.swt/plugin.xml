@@ -16,6 +16,16 @@
       </part>
       <part
             category="swt.table"
+            class="com.xored.q7.quality.mockups.swt.table.DialogCellEditMouseListenerPart"
+            name="Dialog CellEdit Mouse Listener Table Test">
+      </part>
+      <part
+            category="swt.table"
+            class="com.xored.q7.quality.mockups.swt.table.CustomComboCellEditPart"
+            name="Dialog Custom Cell Editor Table Test">
+      </part>
+      <part
+            category="swt.table"
             class="org.eclipse.swt.table.SimpleDialogCellEditPart"
             name="Simple Dialog CellEdit Table Test">
       </part>

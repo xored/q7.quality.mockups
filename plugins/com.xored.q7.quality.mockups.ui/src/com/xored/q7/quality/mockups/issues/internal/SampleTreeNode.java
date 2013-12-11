@@ -22,6 +22,7 @@ public class SampleTreeNode {
 	public final List<SampleTreeNode> children;
 	public final String column1;
 	public String column2;
+	public String column3;
 	public SampleTreeNode parent;
 
 	public static List<SampleTreeNode> createSample() {
