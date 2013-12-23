@@ -123,6 +123,29 @@
             class="com.xored.q7.quality.mockups.issues.parts.SUP562_allowStatusDialog"
             issue="SUP562"
             name="SUP562 - Allow status dialog">
+      </part>
+      <part
+            category="issues.customer"
+            class="com.xored.q7.quality.mockups.issues.parts.QS2912_ContextToAffectKeyBindings"
+            issue="QS-2912"
+            name="QS-2912 Context and keybindings">
       </part>    	      	      	
+   </extension>
+   <extension
+         point="org.eclipse.ui.contexts">
+      <context
+            description="Disables delete hotkey QS-2912"
+            id="com.xored.q7.quality.mockups.issues.nodelete"
+            name="No delete">
+      </context>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="org.eclipse.ui.edit.copy"
+            contextId="com.xored.q7.quality.mockups.issues.nodelete"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="M2+DEL">
+      </key>
    </extension>
 </plugin>
