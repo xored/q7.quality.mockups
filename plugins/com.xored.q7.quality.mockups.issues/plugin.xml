@@ -130,6 +130,19 @@
             issue="QS-2912"
             name="QS-2912 Context and keybindings">
       </part>    	      	      	
+
+      <part
+            category="issues.customer"
+            class="com.xored.q7.quality.mockups.issues.parts.SUP657TreeItemWithSlash"
+            issue="SUP657"
+            name="SUP657 - Tree item with slash">
+	  </part>
+      <part
+            category="issues.customer"
+            class="com.xored.q7.quality.mockups.issues.parts.QS3160BundleResourceImage"
+            issue="QS3160"
+            name="QS-3160 - Image descriptors">
+      </part>          	      	      	
    </extension>
    <extension
          point="org.eclipse.ui.contexts">
