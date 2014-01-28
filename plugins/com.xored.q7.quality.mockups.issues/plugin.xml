@@ -142,6 +142,12 @@
             class="com.xored.q7.quality.mockups.issues.parts.QS3160BundleResourceImage"
             issue="QS3160"
             name="QS-3160 - Image descriptors">
+      </part>
+      <part
+            category="issues.customer"
+            class="com.xored.q7.quality.mockups.issues.parts.QS3169_ComboTree"
+            issue="QS3169"
+            name="QS-3169 - Combo Tree">
       </part>          	      	      	
    </extension>
    <extension
