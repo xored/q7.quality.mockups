@@ -5,8 +5,11 @@ import org.eclipse.jface.layout.GridLayoutFactory;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.SashForm;
 import org.eclipse.swt.custom.StyledText;
+import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.layout.FillLayout;
+import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
@@ -44,11 +47,12 @@ public class ExpandBar_Mockup extends BaseMockupPart {
 		Composite rightComposite = new Composite(sashForm, SWT.NONE);
 		rightComposite.setLayout(new FillLayout());
 		ExpandBar expandBar = new ExpandBar(composite, SWT.NONE);
-		expandBar.setBounds(2, 2, 200, 200);
+		expandBar.setBounds(2, 2, 400, 400);
 		final ExpandItem expandItem1 = new ExpandItem(expandBar, SWT.NONE);
-		expandItem1.setText("item 1");
+		expandItem1.setText("item");
 		final ExpandItem expandItem2 = new ExpandItem(expandBar, SWT.NONE); /* expandItem2 */
-		expandItem2.setText("item 2");
+		expandItem2.setText("item");
+		
 		final StyledText text = new StyledText(expandBar, SWT.MULTI | SWT.WRAP);
 
 		expandItem1.setControl(text);
@@ -57,11 +61,44 @@ public class ExpandBar_Mockup extends BaseMockupPart {
 		final StyledText text2 = new StyledText(expandBar, SWT.MULTI | SWT.WRAP);
 
 		text2.setText("This is a text of Expand Item 2");
+		text2.setEditable(true);
 		expandItem2.setControl(text2);
 		/*
 		 * update the item's height if needed in response to changes in the
 		 * text's size
 		 */
+		
+		
+		
+		Image image = display.getSystemImage(SWT.ICON_QUESTION);
+		Composite composite2 = new Composite(expandBar, SWT.NONE);
+	    GridLayout layout = new GridLayout();
+	    layout.marginLeft = layout.marginTop = layout.marginRight = layout.marginBottom = 10;
+	    layout.verticalSpacing = 10;
+	    composite2.setLayout(layout);
+	    Button button = new Button(composite2, SWT.PUSH);
+	    button.setText("SWT.PUSH");
+	    button = new Button(composite2, SWT.RADIO);
+	    button.setText("SWT.RADIO");
+	    button = new Button(composite2, SWT.CHECK);
+	    button.setText("SWT.CHECK");
+	    button = new Button(composite2, SWT.TOGGLE);
+	    button.setText("SWT.TOGGLE");
+	    ExpandItem item0 = new ExpandItem(expandBar, SWT.NONE, 0);
+	    item0.setText("What is your favorite button");
+	    item0.setHeight(composite2.computeSize(SWT.DEFAULT, SWT.DEFAULT).y);
+	    item0.setControl(composite2);
+	    item0.setImage(image);
+
+	    item0.setExpanded(true);
+
+	    //bar.setSpacing(8);
+		
+		
+		
+		
+		
+		
 		final int TRIAL_WIDTH = 100;
 		final int trimWidth = text.computeTrim(0, 0, TRIAL_WIDTH, 100).width - TRIAL_WIDTH;
 		text.addListener(SWT.Modify, new Listener() {
@@ -90,7 +127,7 @@ public class ExpandBar_Mockup extends BaseMockupPart {
 		Point size2 = text2.computeSize(expandBar.getClientArea().width, SWT.DEFAULT);
 		expandItem2.setHeight(size2.y);
 		expandItem2.setExpanded(false);
-//q
+
 		return null;
 	}
 
