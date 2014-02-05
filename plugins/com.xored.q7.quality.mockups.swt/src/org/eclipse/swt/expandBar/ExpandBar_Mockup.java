@@ -90,7 +90,7 @@ public class ExpandBar_Mockup extends BaseMockupPart {
 		Point size2 = text2.computeSize(expandBar.getClientArea().width, SWT.DEFAULT);
 		expandItem2.setHeight(size2.y);
 		expandItem2.setExpanded(false);
-
+//q
 		return null;
 	}
 
