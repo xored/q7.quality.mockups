@@ -344,6 +344,11 @@
             class="com.xored.q7.quality.mockups.swt.tree.TreeWithStyledText"
             name="TreeWithStyledText Test">
       </part>
+      <part
+            category="swt.list"
+            class="org.eclipse.swt.list.View"
+            name="ListsFromPeter">
+      </part>
    </extension>
 
 </plugin>
