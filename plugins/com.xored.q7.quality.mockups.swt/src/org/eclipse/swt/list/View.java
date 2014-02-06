@@ -65,7 +65,7 @@ public class View extends BaseMockupPart {
 	}*/
 	public String getLabel() {
 		// TODO Auto-generated method stub
-		return "PeterList Test";
+		return "AntonList Test";
 	}
 	
 }

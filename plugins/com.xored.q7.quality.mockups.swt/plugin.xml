@@ -347,7 +347,7 @@
       <part
             category="swt.list"
             class="org.eclipse.swt.list.View"
-            name="ListsFromPeter">
+            name="ListsFromAnton">
       </part>
    </extension>
 
