@@ -2,9 +2,12 @@ package org.eclipse.swt.expandBar;
 
 import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.jface.layout.GridLayoutFactory;
+import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.SashForm;
 import org.eclipse.swt.custom.StyledText;
+import org.eclipse.swt.events.DisposeEvent;
+import org.eclipse.swt.events.DisposeListener;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.layout.FillLayout;
@@ -52,7 +55,7 @@ public class ExpandBar_Mockup extends BaseMockupPart {
 		expandItem1.setText("item");
 		final ExpandItem expandItem2 = new ExpandItem(expandBar, SWT.NONE); /* expandItem2 */
 		expandItem2.setText("item");
-		
+
 		final StyledText text = new StyledText(expandBar, SWT.MULTI | SWT.WRAP);
 
 		expandItem1.setControl(text);
@@ -67,38 +70,40 @@ public class ExpandBar_Mockup extends BaseMockupPart {
 		 * update the item's height if needed in response to changes in the
 		 * text's size
 		 */
-		
-		
-		
-		Image image = display.getSystemImage(SWT.ICON_QUESTION);
+
 		Composite composite2 = new Composite(expandBar, SWT.NONE);
-	    GridLayout layout = new GridLayout();
-	    layout.marginLeft = layout.marginTop = layout.marginRight = layout.marginBottom = 10;
-	    layout.verticalSpacing = 10;
-	    composite2.setLayout(layout);
-	    Button button = new Button(composite2, SWT.PUSH);
-	    button.setText("SWT.PUSH");
-	    button = new Button(composite2, SWT.RADIO);
-	    button.setText("SWT.RADIO");
-	    button = new Button(composite2, SWT.CHECK);
-	    button.setText("SWT.CHECK");
-	    button = new Button(composite2, SWT.TOGGLE);
-	    button.setText("SWT.TOGGLE");
-	    ExpandItem item0 = new ExpandItem(expandBar, SWT.NONE, 0);
-	    item0.setText("What is your favorite button");
-	    item0.setHeight(composite2.computeSize(SWT.DEFAULT, SWT.DEFAULT).y);
-	    item0.setControl(composite2);
-	    item0.setImage(image);
+		GridLayout layout = new GridLayout();
+		layout.marginLeft = layout.marginTop = layout.marginRight = layout.marginBottom = 10;
+		layout.verticalSpacing = 10;
+		composite2.setLayout(layout);
+		Button button = new Button(composite2, SWT.PUSH);
+		button.setText("SWT.PUSH");
+		button = new Button(composite2, SWT.RADIO);
+		button.setText("SWT.RADIO");
+		button = new Button(composite2, SWT.CHECK);
+		button.setText("SWT.CHECK");
+		button = new Button(composite2, SWT.TOGGLE);
+		button.setText("SWT.TOGGLE");
+		ExpandItem item0 = new ExpandItem(expandBar, SWT.NONE, 0);
+		item0.setText("What is your favorite button");
+		item0.setHeight(composite2.computeSize(SWT.DEFAULT, SWT.DEFAULT).y);
+		item0.setControl(composite2);
 
-	    item0.setExpanded(true);
+		ImageDescriptor descriptor = ImageDescriptor.createFromFile(getClass(), "/icons/q7.png");
+		final Image img = descriptor.createImage();
+		expandBar.addDisposeListener(new DisposeListener() {
 
-	    //bar.setSpacing(8);
-		
-		
-		
-		
-		
-		
+			@Override
+			public void widgetDisposed(DisposeEvent e) {
+				img.dispose();
+			}
+		});
+		item0.setImage(img);
+
+		item0.setExpanded(true);
+
+		// bar.setSpacing(8);
+
 		final int TRIAL_WIDTH = 100;
 		final int trimWidth = text.computeTrim(0, 0, TRIAL_WIDTH, 100).width - TRIAL_WIDTH;
 		text.addListener(SWT.Modify, new Listener() {
