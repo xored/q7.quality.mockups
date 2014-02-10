@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Draw2D mockups
+Bundle-SymbolicName: com.xored.q7.quality.mockups.draw2d;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: com.xored.q7.quality.mockups.draw2d.Activator
+Bundle-Vendor: Xored Software Inc
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ com.xored.q7.quality.mockups.ui;bundle-version="1.0.0",
+ org.eclipse.draw2d;bundle-version="3.7.1",
+ org.eclipse.gef;bundle-version="3.7.1"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
