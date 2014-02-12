@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="com.xored.q7.quality.mockups.ui.part">
+      <part
+            category="zest"
+            class="com.xored.q7.quality.mockups.zest.ZestMockup"
+	    issue="QS-3190"
+            name="QS-3190 Zest Sample">
+      </part>
+   </extension>
+
+</plugin>

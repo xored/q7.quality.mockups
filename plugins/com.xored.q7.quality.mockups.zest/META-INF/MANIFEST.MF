@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Zest Mockups
+Bundle-SymbolicName: com.xored.q7.quality.mockups.zest;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: com.xored.q7.quality.mockups.zest.Activator
+Bundle-Vendor: Xored Software Inc
+Require-Bundle: org.eclipse.core.runtime,
+ com.xored.q7.quality.mockups.ui;bundle-version="1.0.0",
+ org.eclipse.ui;bundle-version="3.7.0",
+ org.eclipse.zest.core;bundle-version="1.3.0",
+ org.eclipse.zest.layouts;bundle-version="1.1.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
