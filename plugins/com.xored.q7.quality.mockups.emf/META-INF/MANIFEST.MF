@@ -4,6 +4,6 @@ Bundle-Name: Emf
 Bundle-SymbolicName: com.xored.q7.quality.mockups.emf;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: XORED
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Require-Bundle: com.xored.q7.quality.mockups.ui;bundle-version="1.0.0",
  org.eclipse.emf.edit.ui

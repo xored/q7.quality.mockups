@@ -349,6 +349,12 @@
             class="org.eclipse.swt.list.View"
             name="ListsFromAnton">
       </part>
+      <part
+            category="swt.tree"
+            class="com.xored.q7.quality.mockups.swt.tree.TreeItemBackground"
+            issue="SUP-857"
+            name="TreeItemBackground Test">
+      </part>
    </extension>
 
 </plugin>
