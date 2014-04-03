@@ -4,10 +4,10 @@ Q7-vendor: www.xored.com/q7
 Element-Name: SUP857_IColorProvider
 Element-Type: testcase
 Element-Version: 3.0
-External-Reference: 
+External-Reference: http://support.xored.com/helpdesk/tickets/857
 Id: _yQCIULsrEeOWSPKRauEfVw
 Q7-Runtime-Version: 1.3.11.qualifier
-Save-Time: 4/3/14 8:14 PM
+Save-Time: 4/3/14 8:22 PM
 Testcase-Type: ecl
 
 ------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
@@ -15,6 +15,6 @@ Content-Type: text/ecl
 Entry-Name: .content
 
 get-view "Q7 Quality Mockups" | get-tree | select "swt/tree/TreeItemBackground Test"
-get-view "Q7 Quality Mockups" | get-group "TreeItemBackground Test" | get-tree | get-cell -row 2 -column 0 | get-object |
+get-view "Q7 Quality Mockups" | get-group "TreeItemBackground Test" | get-tree | get-item Blue | get-object |
     invoke "getBackground" 0 | invoke toString | equals "Color {0, 0, 255}" | verify-true
 ------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
