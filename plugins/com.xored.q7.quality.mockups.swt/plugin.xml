@@ -355,6 +355,11 @@
             issue="SUP-857"
             name="TreeItemBackground Test">
       </part>
+      <part
+            category="swt.CLabel"
+            class="org.eclipse.swt.CLabel.CLabelExample"
+            name="CLabel">
+      </part>
    </extension>
 
 </plugin>
