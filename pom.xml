@@ -13,7 +13,7 @@
 		<aspectj_dep>1.7.0</aspectj_dep>
 		<q7Repository>http://download.xored.com/q7/1.3.9/repository</q7Repository>
 		<q7-maven-version>1.3.12-SNAPSHOT</q7-maven-version>
-        <q7-maven-group>com.xored.q7-m30</q7-maven-group>
+		<q7-maven-group>com.xored.q7</q7-maven-group>
 		<q7-runner-version>1.3.12-SNAPSHOT</q7-runner-version>
 		<mockupsRepositry>file:/${basedir}/../repository/target/repository</mockupsRepositry>
 		<clientId>PLEASE_SPECIFY</clientId>
