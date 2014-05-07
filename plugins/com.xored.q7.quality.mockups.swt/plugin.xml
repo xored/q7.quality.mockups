@@ -360,6 +360,11 @@
             class="org.eclipse.swt.CLabel.CLabelExample"
             name="CLabel">
       </part>
+      <part
+            category="jface.tableViewer"
+            class="org.eclipse.jface.viewer.TableViewerMockupWithEditableFirstColumn"
+            name="TableViewerWithEditableFirstColumn">
+      </part>
    </extension>
 
 </plugin>
