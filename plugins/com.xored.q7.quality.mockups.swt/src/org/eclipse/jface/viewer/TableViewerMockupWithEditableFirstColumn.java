@@ -51,6 +51,62 @@ public class TableViewerMockupWithEditableFirstColumn extends BaseMockupPart {
 			v.getTable().setHeaderVisible(true);
 			ColumnViewerToolTipSupport.enableFor(v, ToolTip.NO_RECREATE);
 
+			
+			////
+			TableViewerColumn tableViewerColumn_0 = new TableViewerColumn(v,
+					SWT.NONE);
+			TableColumn tblclmnF = tableViewerColumn_0.getColumn();
+			layout.setColumnData(tblclmnF, new ColumnWeightData(1,
+					ColumnWeightData.MINIMUM_WIDTH, true));
+			tblclmnF.setText("Num...");
+			tableViewerColumn_0.setLabelProvider(new ColumnLabelProvider() {
+
+				public String getText(Object element) {
+
+					MonthModel m = (MonthModel) element;
+					return m.comment;
+
+				}
+
+				public Color getForeground(Object element) {
+
+					Color color = display.getSystemColor(SWT.COLOR_DARK_GREEN);
+					return color;
+				}
+
+			});
+
+			tableViewerColumn_0.setEditingSupport(new EditingSupport(v) {
+				@Override
+				protected boolean canEdit(Object element) {
+					return true;
+				}
+
+				@Override
+				protected CellEditor getCellEditor(Object element) {
+					return new TextCellEditor((Table) v.getControl());
+				}
+
+				@Override
+				protected Object getValue(Object element) {
+					return ((MonthModel) element).comment;
+				}
+
+				@Override
+				protected void setValue(Object element, Object value) {
+					((MonthModel) element).comment = (String) value;
+					v.refresh();
+				}
+			});
+
+			
+			
+			
+			
+			
+			
+			
+			/////
 			TableViewerColumn tableViewerColumn = new TableViewerColumn(v, SWT.NONE);
 			TableColumn tblclmnFirst = tableViewerColumn.getColumn();
 			layout.setColumnData(tblclmnFirst, new ColumnWeightData(1,
