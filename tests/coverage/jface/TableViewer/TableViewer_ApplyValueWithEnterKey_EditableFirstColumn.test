@@ -1,0 +1,148 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _2jXpEHTyEeKQnp4qYEvDRA
+Element-Name: TableViewer_ApplyValueWithEnterKey_EditableFirstColumn
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _L4hBMNXBEeOZHbYGQLe2Gg
+Q7-Runtime-Version: 1.3.9.201310241332
+Save-Time: 5/7/14 3:44 PM
+Testcase-Type: ecl
+
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+with [get-view "Q7 Quality Mockups"] {
+    get-tree | select "jface/tableViewer/TableViewerWithEditableFirstColumn"
+    with [get-group TableViewerWithEditableFirstColumn | get-table] {
+        select "..." | activate-cell-edit
+        select "..." | get-editbox | set-text 1
+        get-editbox | key-type Enter
+        apply-cell-edit
+        select 1 | activate-cell-edit -column 3
+        select 1 | get-editbox | set-text 11
+        get-editbox | key-type Enter
+        apply-cell-edit
+        select "..." | activate-cell-edit
+        select "..." | get-editbox | set-text 2
+        get-editbox | key-type Enter
+        apply-cell-edit
+        select 2 | activate-cell-edit -column 3
+        select 2 | get-editbox | set-text 33
+        get-editbox | key-type Enter
+        apply-cell-edit
+        select "..." | activate-cell-edit
+        select "..." | get-editbox | set-text 3
+        get-editbox | key-type Enter
+        apply-cell-edit
+        select 3 | activate-cell-edit -column 3
+        select 3 | get-editbox | set-text 33
+        get-editbox | key-type Enter
+        apply-cell-edit
+        select "..." | activate-cell-edit
+        select "..." | get-editbox | set-text 4
+        get-editbox | key-type Enter
+        apply-cell-edit
+        select 4 | activate-cell-edit -column 3
+        select 4 | get-editbox | set-text 44
+        get-editbox | key-type Enter
+        apply-cell-edit
+        select "..." | activate-cell-edit
+        select "..." | get-editbox | set-text 5
+        get-editbox | key-type Enter
+        apply-cell-edit
+        select 5 | activate-cell-edit -column 3
+        select 5 | get-editbox | set-text 55
+        get-editbox | key-type Enter
+        apply-cell-edit
+        select "..." | activate-cell-edit
+        select "..." | get-editbox | set-text 6
+        get-editbox | key-type Enter
+        apply-cell-edit
+        select 6 | activate-cell-edit -column 3
+        select 6 | apply-cell-edit
+        select 6 | double-click
+        select 6 | activate-cell-edit -column 3
+        select 6 | get-editbox | set-text 66
+        get-editbox | key-type Enter
+        apply-cell-edit
+        select "..." | activate-cell-edit
+        select "..." | get-editbox | set-text 7
+        get-editbox | key-type Enter
+        apply-cell-edit
+        select 7 | activate-cell-edit -column 3
+        select 7 | get-editbox | set-text 77
+        get-editbox | key-type Enter
+        apply-cell-edit
+        select "..." | activate-cell-edit
+        select "..." | get-editbox | set-text 8
+        get-editbox | key-type Enter
+        apply-cell-edit
+        select 8 | activate-cell-edit -column 3
+        select 8 | get-editbox | set-text 88
+        get-editbox | key-type Enter
+        apply-cell-edit
+        select "..." | activate-cell-edit
+        select "..." | get-editbox | set-text 9
+        get-editbox | key-type Enter
+        apply-cell-edit
+        select 9 | activate-cell-edit -column 3
+        select 9 | get-editbox | set-text 99
+        get-editbox | key-type Enter
+        apply-cell-edit
+        select 1 | activate-cell-edit
+        select 1 | get-editbox | set-text 11
+        get-editbox | key-type Enter
+        apply-cell-edit
+        select 11 | activate-cell-edit
+        select 11 | get-editbox | set-text 111
+        get-editbox | key-type Enter
+        apply-cell-edit
+        select 111 | activate-cell-edit
+        select 111 | get-editbox | set-text 1111
+        get-editbox | key-type Enter
+        apply-cell-edit
+    }
+}
+with [get-view "Q7 Quality Mockups" | get-group TableViewerWithEditableFirstColumn | get-table] {
+    get-item 1111 | get-property "columns[0]" | equals 1111 | verify-true
+    get-item 1111 | get-property "columns[1]" | equals 1 | verify-true
+    get-item 1111 | get-property "columns[2]" | equals January | verify-true
+    get-item 1111 | get-property "columns[3]" | equals 11 | verify-true
+    get-item 2 | get-property "columns[0]" | equals 2 | verify-true
+    get-item 2 | get-property "columns[1]" | equals 10 | verify-true
+    get-item 2 | get-property "columns[2]" | equals October | verify-true
+    get-item 2 | get-property "columns[3]" | equals 33 | verify-true
+    get-item 3 | get-property "columns[0]" | equals 3 | verify-true
+    get-item 3 | get-property "columns[1]" | equals 11 | verify-true
+    get-item 3 | get-property "columns[2]" | equals November | verify-true
+    get-item 3 | get-property "columns[3]" | equals 33 | verify-true
+    get-item 4 | get-property "columns[0]" | equals 4 | verify-true
+    get-item 4 | get-property "columns[1]" | equals 12 | verify-true
+    get-item 4 | get-property "columns[2]" | equals December | verify-true
+    get-item 4 | get-property "columns[3]" | equals 44 | verify-true
+    get-item 5 | get-property "columns[0]" | equals 5 | verify-true
+    get-item 5 | get-property "columns[1]" | equals 2 | verify-true
+    get-item 5 | get-property "columns[2]" | equals February | verify-true
+    get-item 5 | get-property "columns[3]" | equals 55 | verify-true
+    get-item 6 | get-property "columns[0]" | equals 6 | verify-true
+    get-item 6 | get-property "columns[1]" | equals 3 | verify-true
+    get-item 6 | get-property "columns[2]" | equals March | verify-true
+    get-item 6 | get-property "columns[3]" | equals 66 | verify-true
+    get-item 7 | get-property "columns[0]" | equals 7 | verify-true
+    get-item 7 | get-property "columns[1]" | equals 4 | verify-true
+    get-item 7 | get-property "columns[2]" | equals April | verify-true
+    get-item 7 | get-property "columns[3]" | equals 77 | verify-true
+    get-item 8 | get-property "columns[0]" | equals 8 | verify-true
+    get-item 8 | get-property "columns[1]" | equals 5 | verify-true
+    get-item 8 | get-property "columns[2]" | equals May | verify-true
+    get-item 8 | get-property "columns[3]" | equals 88 | verify-true
+    get-item 9 | get-property "columns[0]" | equals 9 | verify-true
+    get-item 9 | get-property "columns[1]" | equals 6 | verify-true
+    get-item 9 | get-property "columns[2]" | equals June | verify-true
+    get-item 9 | get-property "columns[3]" | equals 99 | verify-true
+}
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

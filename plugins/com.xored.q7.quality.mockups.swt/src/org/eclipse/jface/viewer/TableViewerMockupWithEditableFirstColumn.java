@@ -64,7 +64,7 @@ public class TableViewerMockupWithEditableFirstColumn extends BaseMockupPart {
 				public String getText(Object element) {
 
 					MonthModel m = (MonthModel) element;
-					return m.comment;
+					return m.monthIndex;
 
 				}
 
@@ -89,12 +89,12 @@ public class TableViewerMockupWithEditableFirstColumn extends BaseMockupPart {
 
 				@Override
 				protected Object getValue(Object element) {
-					return ((MonthModel) element).comment;
+					return ((MonthModel) element).monthIndex;
 				}
 
 				@Override
 				protected void setValue(Object element, Object value) {
-					((MonthModel) element).comment = (String) value;
+					((MonthModel) element).monthIndex = (String) value;
 					v.refresh();
 				}
 			});
@@ -351,10 +351,12 @@ public class TableViewerMockupWithEditableFirstColumn extends BaseMockupPart {
 				MonthModel p = (MonthModel) element;
 				switch (columnIndex) {
 				case 0:
-					return p.monthNum + "";
+					return p.monthIndex;
 				case 1:
-					return p.monthName;
+					return p.monthNum + "";
 				case 2:
+					return p.monthName;
+				case 3:
 					return p.comment;
 
 				}
@@ -388,11 +390,13 @@ public class TableViewerMockupWithEditableFirstColumn extends BaseMockupPart {
 			public int monthNum;
 			public String monthName;
 			public String comment;
+			public String monthIndex;
 
 			public MonthModel(int counter) {
 
 				this.monthNum = counter;
 				this.comment = "";
+				this.monthIndex = "...";
 
 				switch (counter) {
 				case 1:
