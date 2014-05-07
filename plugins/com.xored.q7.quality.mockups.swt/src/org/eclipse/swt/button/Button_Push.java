@@ -40,6 +40,7 @@ public class Button_Push extends BaseMockupPart {
 		pushButton1.setToolTipText("Press if OK");
 		
 		
+		
 		final Button pushButton2 = new Button(composite, SWT.PUSH);
 		pushButton2.setText("CANCEL");
 		pushButton2.setEnabled(false);
@@ -78,6 +79,12 @@ public class Button_Push extends BaseMockupPart {
 		    	   	  
 		        		      }
 		    });
+		
+		Button pushButton4 = new Button(composite, SWT.PUSH);
+		pushButton4.setText("Button With Data");
+		pushButton4.setFocus();
+		pushButton4.setToolTipText("button with data set");
+		pushButton4.setData("myKey", "myValue");
 		
 		
 		return null;
