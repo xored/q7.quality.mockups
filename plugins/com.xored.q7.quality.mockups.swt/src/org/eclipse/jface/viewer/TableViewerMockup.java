@@ -1,5 +1,9 @@
 package org.eclipse.jface.viewer;
 
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
+import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.jface.layout.TableColumnLayout;
 import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.jface.viewers.ColumnLabelProvider;
@@ -177,9 +181,27 @@ public class TableViewerMockup extends BaseMockupPart {
 			}
 
 			@Override
-			protected void setValue(Object element, Object value) {
-				((MonthModel) element).comment = (String) value;
-				v.refresh();
+			protected void setValue(final Object element, Object value) {
+				final String str = (String) value;
+				new Job("Very heavy calculations") {
+					@Override
+					protected IStatus run(IProgressMonitor monitor) {
+						try {
+							Thread.sleep(1000);
+							v.getControl().getDisplay()
+									.asyncExec(new Runnable() {
+										@Override
+										public void run() {
+											((MonthModel) element).comment = str;
+											v.refresh();
+										}
+									});
+						} catch (InterruptedException e) {
+						}
+						return Status.OK_STATUS;
+					}
+
+				}.schedule();
 			}
 		});
 
