@@ -365,6 +365,12 @@
             class="org.eclipse.jface.viewer.TableViewerMockupWithEditableFirstColumn"
             name="TableViewerWithEditableFirstColumn">
       </part>
+      <part
+            category="swt.menu"
+            class="org.eclipse.swt.menu.TextMenuWithLocation"
+            issue="SUP908"
+            name="Text menu with custom location">
+      </part>
    </extension>
 
 </plugin>
