@@ -2,6 +2,10 @@ package org.eclipse.jface.viewer;
 
 import java.util.ArrayList;
 
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
+import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.jface.viewers.ColumnLabelProvider;
 import org.eclipse.jface.viewers.ColumnViewerEditor;
@@ -28,7 +32,6 @@ public class TreeViewerMockup extends BaseMockupPart {
 
 	@Override
 	public Control construct(Composite parent) {
-		// TODO Auto-generated method stub
 		parent.setLayout(new FillLayout());
 
 		final TreeViewer tv = new TreeViewer(parent, SWT.BORDER | SWT.FULL_SELECTION);
@@ -93,10 +96,27 @@ public class TreeViewerMockup extends BaseMockupPart {
 				return ((MyModel) element).counter + "";
 			}
 
-			protected void setValue(Object element, Object value) {
-				((MyModel) element).counter = Integer
-						.parseInt(value.toString());
-				tv.update(element, null);
+			protected void setValue(final Object element, final Object value) {
+				Job job = new Job("Thinking deeply") {
+					@Override
+					protected IStatus run(IProgressMonitor monitor) {
+						try {
+							Thread.sleep(1000);
+							tv.getControl().getDisplay().asyncExec(new Runnable() {
+								
+								@Override
+								public void run() {
+									((MyModel) element).counter = Integer
+											.parseInt(value.toString());
+									tv.update(element, null);
+								}
+							});
+						} catch (InterruptedException e) {
+						}
+						return Status.OK_STATUS;
+					}
+				};
+				job.schedule();
 			}
 		});
 
