@@ -371,6 +371,11 @@
             issue="SUP908"
             name="Text menu with custom location">
       </part>
+      <part
+            category="swt.tree"
+            class="com.xored.q7.quality.mockups.swt.tree.TreeWithSlashes"
+            name="TreeWithSlashes">
+      </part>
    </extension>
 
 </plugin>

@@ -333,7 +333,6 @@ public class TreeWithStyledText extends BaseMockupPart {
 
 	@Override
 	public String getLabel() {
-		// TODO Auto-generated method stub
 		return "Table with styled text test";
 	}
 }

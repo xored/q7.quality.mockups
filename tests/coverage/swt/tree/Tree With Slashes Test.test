@@ -1,0 +1,52 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _2jXpEHTyEeKQnp4qYEvDRA
+Element-Name: Tree With Slashes Test
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _oNZ5IPU8EeOddZOSEGf-yg
+Q7-Runtime-Version: 1.5.0.qualifier
+Save-Time: 6/16/14 6:43 PM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+Driven by issue QS-3132. Checks correct commands behaviour on items with slashes.
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+// Select right control
+get-view "Q7 Quality Mockups" | get-tree | select "swt/tree/TreeWithSlashes"
+
+// Select each element
+get-view "Q7 Quality Mockups" | get-group TreeWithSlashes | get-tree | select "parent1/child1name\\/with\\/slash"
+
+get-view "Q7 Quality Mockups" | get-group TreeWithSlashes | get-tree | select "parent1/child2name\\/with\\/slash"
+
+get-view "Q7 Quality Mockups" | get-group TreeWithSlashes | get-tree | select "parent2\\/with-slash/child4name\\/with\\different\\slashes"
+
+// Get items
+get-view "Q7 Quality Mockups" | get-group TreeWithSlashes | get-tree 
+		| get-item "parent1/child2name\\/with\\/slash" | get-property "columns[0]" | equals "child2name\\/with\\/slash" | verify-true
+get-view "Q7 Quality Mockups" | get-group TreeWithSlashes | get-tree 
+		| get-item "parent1/child2name\\/with\\/slash" | get-property "columns[1]" | equals "child2value\\/with\\/slash" | verify-true
+get-view "Q7 Quality Mockups" | get-group TreeWithSlashes | get-tree
+		| get-item "parent2\\/with-slash/child4name\\/with\\different\\slashes" | get-property "columns[0]" 
+		| equals "child4name/with\different\slashes" | verify-true
+
+// Iterate elements
+get-view "Q7 Quality Mockups" | get-group TreeWithSlashes | get-tree | get-items | foreach {
+	get-property "columns[1]"
+}
+
+
+get-view "Q7 Quality Mockups" | get-group TreeWithSlashes | get-tree 
+    | get-item "parent2\\/with-slash/child4name\\/with\\different\\slashes" | get-property "columns[1]" 
+    | equals "child4value/with\\different\\slashes" | verify-true
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
