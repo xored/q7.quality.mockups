@@ -3,6 +3,9 @@ package org.eclipse.swt.menu;
 import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.jface.layout.GridLayoutFactory;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.SelectionListener;
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
@@ -17,8 +20,6 @@ public class MenuMockup extends BaseMockupPart {
 
 	@Override
 	public Control construct(Composite parent) {
-		// TODO Auto-generated method stub
-
 		final Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
 
 		Composite composite = new Composite(parent, SWT.BORDER);
@@ -30,7 +31,29 @@ public class MenuMockup extends BaseMockupPart {
 		Label l = new Label(composite, SWT.NONE);
 		l.setText("Right-click to launch pop-up menu");
 
-		Menu m1 = new Menu(shell, SWT.POP_UP);
+		l.setMenu(createMenu(shell));
+		
+		final Button button = new Button(composite, SWT.NONE);
+		button.setText("Left-click to launch pop-up menu");
+		final Menu buttonMenu = createMenu(button);
+		button.addSelectionListener(new SelectionListener() {
+			
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				buttonMenu.setVisible(true);
+			}
+			
+			@Override
+			public void widgetDefaultSelected(SelectionEvent e) {
+
+			}
+		});
+
+		return null;
+	}
+
+	private Menu createMenu(final Control control) {
+		Menu m1 = new Menu(control);
 
 		MenuItem item1 = new MenuItem(m1, SWT.CASCADE);
 		item1.setText("Item1_Cascade");
@@ -50,10 +73,7 @@ public class MenuMockup extends BaseMockupPart {
 		MenuItem item5 = new MenuItem(m1, SWT.RADIO);
 		item5.setText("Item5_Radio");
 		item5.setEnabled(false);
-
-		l.setMenu(m1);
-
-		return null;
+		return m1;
 	}
 
 	@Override
