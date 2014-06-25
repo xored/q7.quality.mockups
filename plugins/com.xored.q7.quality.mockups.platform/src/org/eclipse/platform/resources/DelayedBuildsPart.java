@@ -47,7 +47,6 @@ public class DelayedBuildsPart extends BaseMockupPart {
 						try {
 							Thread.sleep(10000);
 						} catch (InterruptedException e) {
-							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
 						doAJob();
@@ -71,7 +70,6 @@ public class DelayedBuildsPart extends BaseMockupPart {
 						try {
 							Thread.sleep(1000);
 						} catch (InterruptedException e) {
-							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
 					}

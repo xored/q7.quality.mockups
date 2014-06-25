@@ -14,6 +14,11 @@
             class="org.eclipse.platform.resources.LockResourcesPart"
             name="Resource Locking">
       </part>
+      <part
+            category="platform.resources"
+            class="org.eclipse.platform.resources.HangingJobPart"
+            name="Hanging Jobs">
+      </part>
    </extension>
 
 </plugin>
