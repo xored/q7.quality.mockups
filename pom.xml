@@ -44,6 +44,12 @@
 			<layout>p2</layout>
 			<url>http://download.xored.com/mirrors/q7mirror/</url>
 		</repository>
+		<repository>
+			<id>q7-releases</id>
+			<name>Q7 Releases</name>
+			<url>http://download.xored.com/nexus/content/repositories/q7-releases/</url>
+		</repository>
+
 	</repositories>
 	<distributionManagement>
 		<repository>
