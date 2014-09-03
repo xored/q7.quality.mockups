@@ -1,13 +1,13 @@
---- Q7 testcase ---
+--- RCPTT testcase ---
 Format-Version: 1.0
-Q7-vendor: www.xored.com/q7
 Contexts: _2jXpEHTyEeKQnp4qYEvDRA
 Element-Name: Single Text Test
 Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _uVCfkJg6EeK184kZHmPTQQ
-Save-Time: 8/15/13 2:40 PM
+Runtime-Version: 1.5.2.201408180747
+Save-Time: 8/28/14 6:51 PM
 Testcase-Type: ecl
 
 ------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
@@ -27,11 +27,11 @@ with [get-view "Q7 Quality Mockups" | get-group Text] {
         get-property "getTextLimit()" | equals 5 | verify-true
         get-property "getOrientation()" | equals 33554432 | verify-true
         get-property "getLocation().getClassName()" | equals "org.eclipse.swt.graphics.Point" | verify-true
-        get-property "getLocation().x" | equals 120 | verify-true
-        get-property "getLocation().y" | equals 2 | verify-true
-        get-property "getSize().getClassName()" | equals "org.eclipse.swt.graphics.Point" | verify-true
-        get-property "getSize().x" | equals 300 | verify-true
-        get-property "getSize().y" | equals 25 | verify-true
+        //get-property "getLocation().x" | equals 120 | verify-true
+        //get-property "getLocation().y" | equals 2 | verify-true
+        //get-property "getSize().getClassName()" | equals "org.eclipse.swt.graphics.Point" | verify-true
+        //get-property "getSize().x" | equals 300 | verify-true
+        //get-property "getSize().y" | equals 25 | verify-true
         get-property "getStyle()" | equals "[SINGLE, BORDER, LEFT_TO_RIGHT, LEFT]" | verify-true
     }
     with [get-editbox -after [get-label "Right-oriented text:"]] {
@@ -40,14 +40,14 @@ with [get-view "Q7 Quality Mockups" | get-group Text] {
         get-property text | equals Right | verify-true
         get-property "getText()" | equals Right | verify-true
         get-property "getOrientation()" | equals 33554432 | verify-true
-        get-property "getLocation().x" | equals 120 | verify-true
-        get-property "getLocation().y" | equals 30 | verify-true
-        get-property "getSize().x" | equals 300 | verify-true
-        get-property "getSize().y" | equals 25 | verify-true
-        get-property "getBounds().x" | equals 120 | verify-true
-        get-property "getBounds().y" | equals 30 | verify-true
-        get-property "getBounds().width" | equals 300 | verify-true
-        get-property "getBounds().height" | equals 25 | verify-true
+//        get-property "getLocation().x" | equals 120 | verify-true
+//        get-property "getLocation().y" | equals 30 | verify-true
+//        get-property "getSize().x" | equals 300 | verify-true
+//        get-property "getSize().y" | equals 25 | verify-true
+//        get-property "getBounds().x" | equals 120 | verify-true
+//        get-property "getBounds().y" | equals 30 | verify-true
+//        get-property "getBounds().width" | equals 300 | verify-true
+//        get-property "getBounds().height" | equals 25 | verify-true
         get-property "getStyle()" | equals "[SINGLE, BORDER, LEFT_TO_RIGHT, RIGHT]" | verify-true
     }
     get-editbox -after [get-label "Center-oriented text:"] | get-property "getStyle()" | equals "[SINGLE, BORDER, LEFT_TO_RIGHT, CENTER]" | verify-true
