@@ -42,12 +42,12 @@
 		<repository>
 			<id>indigo</id>
 			<layout>p2</layout>
-			<url>http://download.xored.com/mirrors/q7mirror/</url>
+			<url>http://download.eclipse.org/releases/indigo</url>
 		</repository>
 		<repository>
 			<id>q7-releases</id>
 			<name>Q7 Releases</name>
-			<url>http://download.xored.com/nexus/content/repositories/q7-releases/</url>
+			<url>http://maven.xored.com/nexus/content/repositories/q7-releases/</url>
 		</repository>
 
 	</repositories>
