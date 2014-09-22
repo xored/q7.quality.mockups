@@ -1,0 +1,20 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Context-Type: com.xored.q7.ecl.context
+Element-Name: SUP1149_StartModalDialog
+Element-Type: context
+Element-Version: 2.0
+Id: _DekDEEIyEeScm-pDKCWR-A
+Save-Time: 9/22/14 3:25 PM
+
+------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998
+Content-Type: text/ecl
+Entry-Name: .ecl.context
+
+with [get-view "Q7 Quality Mockups"] {
+    get-tree | select "issues/customer/QS2986 - ProgressMonitorDialog"
+    with [get-group "QS2986 - ProgressMonitorDialog" | get-button "Show dialog"] {
+        click
+    }
+}
+------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998--
