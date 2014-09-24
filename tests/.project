@@ -12,6 +12,6 @@
 		</buildCommand>
 	</buildSpec>
 	<natures>
-		<nature>com.xored.q7.core.q7nature</nature>
+		<nature>org.eclipse.rcptt.core.rcpttnature</nature>
 	</natures>
 </projectDescription>
