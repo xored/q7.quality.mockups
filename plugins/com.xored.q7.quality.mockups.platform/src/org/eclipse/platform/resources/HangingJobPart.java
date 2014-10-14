@@ -8,6 +8,7 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;
@@ -32,6 +33,7 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Spinner;
 
 import com.xored.q7.quality.mockups.issues.BaseMockupPart;
+import com.xored.q7.quality.mockups.swt.internal.QualityPlatformPlugin;
 
 /**
  * Emulates hanged job with specified parameters.
@@ -76,7 +78,6 @@ public class HangingJobPart extends BaseMockupPart {
 		label.setText("Return status:");
 		final ComboViewer statusCombo = createCombo(parent, asList(STATUSES));
 		statusCombo.setLabelProvider(new LabelProvider() {
-
 			@Override
 			public String getText(Object element) {
 				if (element instanceof IStatus)
@@ -84,6 +85,10 @@ public class HangingJobPart extends BaseMockupPart {
 				return super.getText(element);
 			}
 		});
+
+		label = new Label(parent, SWT.NONE);
+		label.setText("Return method:");
+		final ComboViewer returnPolicyCombo = createCombo(parent, asList(ReturnPolicy.values()));
 
 		label = new Label(parent, SWT.NONE);
 		label.setText("Hang time (ms):");
@@ -104,7 +109,9 @@ public class HangingJobPart extends BaseMockupPart {
 				HangType hang = (HangType) getSelected(hangTypeCombo);
 				ThreadType thread = (ThreadType) getSelected(threadTypeCombo);
 				IStatus status = (IStatus) getSelected(statusCombo);
-				startNewJob(hang, delaySpinner.getSelection(), jobHangTimeoutSpinner.getSelection(), thread, status);
+				ReturnPolicy returnPolicy = (ReturnPolicy) getSelected(returnPolicyCombo);
+				startNewJob(hang, delaySpinner.getSelection(), jobHangTimeoutSpinner.getSelection(), thread, status,
+						returnPolicy);
 			}
 
 		});
@@ -156,7 +163,8 @@ public class HangingJobPart extends BaseMockupPart {
 		}
 	};
 
-	private void startNewJob(final HangType hangType, int delay, final int timeout, ThreadType thread, final IStatus rv) {
+	private void startNewJob(final HangType hangType, int delay, final int timeout, ThreadType thread,
+			final IStatus rv, final ReturnPolicy returnPolicy) {
 		final String name;
 		synchronized (this) {
 			name = "Wait type: " + hangType + ", threading: " + thread + ", return: " + rv.getMessage() + ", delay "
@@ -175,7 +183,7 @@ public class HangingJobPart extends BaseMockupPart {
 					activeJobs.remove(name);
 					refresh();
 				}
-				return rv;
+				return returnPolicy.processReturnValue(rv);
 			}
 
 			private void refresh() {
@@ -249,6 +257,29 @@ public class HangingJobPart extends BaseMockupPart {
 		};
 	}
 
+	private enum ReturnPolicy {
+		RETURN
+		{
+			@Override
+			IStatus processReturnValue(IStatus status) {
+				return status;
+			}
+		},
+		LOG {
+			@Override
+			IStatus processReturnValue(IStatus status) {
+				QualityPlatformPlugin.getDefault().getLog().log(status);
+				return Status.OK_STATUS;
+			}
+		},
+		THROW {
+			@Override
+			IStatus processReturnValue(IStatus status) {
+				throw new RuntimeException(new CoreException(status));
+			}
+		};
+		abstract IStatus processReturnValue(IStatus status);
+	}
 	private enum HangType {
 		LOOP {
 			@Override

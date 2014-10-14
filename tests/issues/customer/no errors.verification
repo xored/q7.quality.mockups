@@ -1,0 +1,19 @@
+--- Q7 verification ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Element-Name: no errors
+Element-Type: verification
+Element-Version: 2.0
+Id: _XOsS8FN7EeSJ2ZBuJqltwA
+Q7-Runtime-Version: 1.3.13.201408051345
+Save-Time: 10/14/14 3:23 PM
+Verification-Type: com.xored.q7.log.verification
+
+------=_.errorlog.verification-3ceb5b18-8b7c-3939-9191-416e6e78eb57
+Content-Type: text/errorlog-verification
+Entry-Name: .errorlog.verification
+
+DENIED:
+4 0 .* Message:.*
+
+------=_.errorlog.verification-3ceb5b18-8b7c-3939-9191-416e6e78eb57--
