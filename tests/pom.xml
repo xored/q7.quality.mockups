@@ -40,6 +40,10 @@
 								<site>${mockupsRepository}</site>
 							</injection>
 						</injections>
+            <args>
+              <arg>-nosplash</arg>
+              <arg>-consoleLog</arg>	      
+            </args>
 					</aut>
 					<q7>
 						<version>${q7-runner-version}</version>
