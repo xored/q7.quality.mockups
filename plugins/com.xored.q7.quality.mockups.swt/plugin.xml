@@ -376,6 +376,11 @@
             class="com.xored.q7.quality.mockups.swt.tree.TreeWithSlashes"
             name="TreeWithSlashes">
       </part>
+      <part
+            category="swt.swing"
+            class="com.xored.q7.quality.mockups.swt.swing.SwingPart"
+            name="Swing component in SWT control">
+      </part>
    </extension>
 
 </plugin>
