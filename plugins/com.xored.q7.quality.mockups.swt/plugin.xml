@@ -381,6 +381,11 @@
             class="com.xored.q7.quality.mockups.swt.swing.SwingPart"
             name="Swing component in SWT control">
       </part>
+      <part
+            category="eclipse.form"
+            class="org.eclipse.form.NonClosingDialog"
+            name="NonClosingDialog">
+      </part>
    </extension>
 
 </plugin>
