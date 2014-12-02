@@ -62,11 +62,6 @@ public class TreeWithSlashes extends BaseMockupPart {
 		return treeViewer.getControl();
 	}
 
-	@Override
-	public String getLabel() {
-		return "Tree with Slashes";
-	}
-
 	private static List<Node> createModel() {
 		final List<Node> result = new ArrayList<Node>();
 

@@ -90,10 +90,4 @@ public class Button_Push extends BaseMockupPart {
 		return null;
 	}
 
-	@Override
-	public String getLabel() {
-		// TODO Auto-generated method stub
-		return "Button Push Test";
-	}
-
 }

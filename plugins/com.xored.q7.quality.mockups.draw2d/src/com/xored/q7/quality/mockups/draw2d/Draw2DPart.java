@@ -23,9 +23,4 @@ public class Draw2DPart extends BaseMockupPart {
 		return content;
 	}
 
-	@Override
-	public String getLabel() {
-		return null;
-	}
-
 }

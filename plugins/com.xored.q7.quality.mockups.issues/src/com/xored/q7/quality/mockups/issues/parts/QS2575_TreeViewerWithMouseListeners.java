@@ -38,9 +38,4 @@ public class QS2575_TreeViewerWithMouseListeners extends BaseMockupPart {
 		return null;
 	}
 
-	@Override
-	public String getLabel() {
-		return "QS-2575, Issue with tree items selection";
-	}
-
 }

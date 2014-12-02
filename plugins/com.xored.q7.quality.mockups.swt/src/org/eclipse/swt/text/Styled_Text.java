@@ -74,10 +74,4 @@ public class Styled_Text extends BaseMockupPart {
 
 	}
 
-	@Override
-	public String getLabel() {
-		// TODO Auto-generated method stub
-		return "Styled Text Test";
-	}
-
 }

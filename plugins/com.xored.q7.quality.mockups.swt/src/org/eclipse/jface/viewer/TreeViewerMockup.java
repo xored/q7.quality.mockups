@@ -126,11 +126,6 @@ public class TreeViewerMockup extends BaseMockupPart {
 		return null;
 	}
 
-	@Override
-	public String getLabel() {
-		// TODO Auto-generated method stub
-		return "JFace Tree Viewer Test";
-	}
 
 	public class MyTreeContentProvider implements ITreeContentProvider {
 		public Object[] getChildren(Object parentElement) {

@@ -250,11 +250,4 @@ public class CheckBoxCellEditorMockup extends BaseMockupPart {
 		
 		return elements;
 	}
-	
-	@Override
-	public String getLabel() {
-		// TODO Auto-generated method stub
-		return "CheckBox Cell Editor Test";
-	}
-
 }

@@ -74,10 +74,4 @@ public class TextMenuWithLocation extends BaseMockupPart {
 		});
 		return null;
 	}
-
-	@Override
-	public String getLabel() {
-		return "Text control with customized menu location";
-	}
-
 }

@@ -135,10 +135,4 @@ public class QS2508_CheckedStateColumn extends BaseMockupPart {
 		viewer.setInput(SampleData.createSample());
 		return viewer.getControl();
 	}
-
-	@Override
-	public String getLabel() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }

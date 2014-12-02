@@ -52,8 +52,4 @@ public class QS3160BundleResourceImage extends BaseMockupPart {
 		return content;
 	}
 
-	@Override
-	public String getLabel() {
-		return null;
-	}
 }

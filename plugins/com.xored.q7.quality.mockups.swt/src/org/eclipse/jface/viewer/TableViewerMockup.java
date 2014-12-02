@@ -210,12 +210,6 @@ public class TableViewerMockup extends BaseMockupPart {
 		return null;
 	}
 
-	@Override
-	public String getLabel() {
-		// TODO Auto-generated method stub
-		return "JFace Table Viewer Test";
-	}
-
 	private static abstract class TableColumnSorter extends ViewerComparator {
 		public static final int ASC = 1;
 

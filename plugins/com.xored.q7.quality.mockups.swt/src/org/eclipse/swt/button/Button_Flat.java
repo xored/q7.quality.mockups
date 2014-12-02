@@ -68,10 +68,4 @@ public class Button_Flat extends BaseMockupPart {
 		return null;
 	}
 
-	@Override
-	public String getLabel() {
-		// TODO Auto-generated method stub
-		return "Flat Button Test";
-	}
-
 }

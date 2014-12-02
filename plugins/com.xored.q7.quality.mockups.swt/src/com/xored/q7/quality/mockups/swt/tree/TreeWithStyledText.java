@@ -330,9 +330,4 @@ public class TreeWithStyledText extends BaseMockupPart {
 			}
 		});
 	}
-
-	@Override
-	public String getLabel() {
-		return "Table with styled text test";
-	}
 }

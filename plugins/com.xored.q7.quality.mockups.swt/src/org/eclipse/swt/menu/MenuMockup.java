@@ -76,10 +76,4 @@ public class MenuMockup extends BaseMockupPart {
 		return m1;
 	}
 
-	@Override
-	public String getLabel() {
-		// TODO Auto-generated method stub
-		return "Menu Test";
-	}
-
 }

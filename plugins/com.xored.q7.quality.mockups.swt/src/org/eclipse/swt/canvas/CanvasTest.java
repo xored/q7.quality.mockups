@@ -49,11 +49,4 @@ public class CanvasTest extends BaseMockupPart {
 
 		return null;
 	}
-
-	@Override
-	public String getLabel() {
-		// TODO Auto-generated method stub
-		return "Canvas Test";
-	}
-
 }

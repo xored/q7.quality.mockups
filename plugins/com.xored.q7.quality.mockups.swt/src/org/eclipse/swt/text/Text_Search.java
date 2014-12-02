@@ -67,10 +67,4 @@ public class Text_Search extends BaseMockupPart {
 		return null;
 	}
 
-	@Override
-	public String getLabel() {
-		// TODO Auto-generated method stub
-		return "Serach Text Test";
-	}
-
 }

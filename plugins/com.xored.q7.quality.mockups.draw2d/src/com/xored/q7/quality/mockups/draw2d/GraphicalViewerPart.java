@@ -43,9 +43,4 @@ public class GraphicalViewerPart extends BaseMockupPart {
 		return content;
 	}
 
-	@Override
-	public String getLabel() {
-		return null;
-	}
-
 }

@@ -95,11 +95,6 @@ public class QS2373_ContextMenu extends BaseMockupPart {
 		return parent;
 	}
 
-	@Override
-	public String getLabel() {
-		return "QS2373, Context Menu";
-	}
-
 	private void initActions() {
 		actionsToShow = new ArrayList<Action>();
 		actionsShowed = new ArrayList<Action>();

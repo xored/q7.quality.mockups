@@ -91,9 +91,4 @@ public class SUP527_timerExecHung extends BaseMockupPart {
 
 	}
 
-	@Override
-	public String getLabel() {
-		return "SUP527 - Timer exec hung";
-	}
-
 }

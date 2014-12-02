@@ -167,10 +167,4 @@ public class ComboboxCellEditorMockup extends BaseMockupPart {
 
 	private final static MonthModel[] MONTHS = createMonths();
 
-	@Override
-	public String getLabel() {
-		// TODO Auto-generated method stub
-		return "Combobox Cell Editor Test";
-	}
-
 }

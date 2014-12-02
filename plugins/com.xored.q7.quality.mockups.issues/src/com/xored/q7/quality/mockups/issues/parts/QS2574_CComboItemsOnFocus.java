@@ -36,10 +36,4 @@ public class QS2574_CComboItemsOnFocus extends BaseMockupPart {
 
 		return null;
 	}
-
-	@Override
-	public String getLabel() {
-		return "QS-2574 Combo/CCombo provides items on focus";
-	}
-
 }

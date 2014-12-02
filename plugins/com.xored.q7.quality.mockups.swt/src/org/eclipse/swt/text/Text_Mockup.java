@@ -33,7 +33,6 @@ public class Text_Mockup extends BaseMockupPart {
 	@Override
 	public Control construct(Composite parent) {
 
-		Composite composite = parent;
 		Table tab = new Table(parent);
 
 		tab.add("Plain Limited Text:", "Left", SWT.BORDER).setTextLimit(5);
@@ -46,12 +45,6 @@ public class Text_Mockup extends BaseMockupPart {
 		tab.add("Echo char text:", "Echo chars", SWT.BORDER).setEchoChar('e');
 
 		return null;
-	}
-
-	@Override
-	public String getLabel() {
-		// TODO Auto-generated method stub
-		return "Text Test";
 	}
 
 }

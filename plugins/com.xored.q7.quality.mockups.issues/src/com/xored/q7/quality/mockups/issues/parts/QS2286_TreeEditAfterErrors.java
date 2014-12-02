@@ -113,9 +113,4 @@ public class QS2286_TreeEditAfterErrors extends BaseMockupPart {
 		return viewer.getTree();
 	}
 
-	@Override
-	public String getLabel() {
-		return "QS-2286 - Tree edit after errors";
-	}
-
 }

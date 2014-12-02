@@ -10,9 +10,7 @@ public abstract class BaseMockupPart implements IQ7MockupPart {
 	@Override
 	public abstract Control construct(Composite parent);
 
-	@Override
-	public abstract String getLabel();
-
+	
 	@Override
 	public void setView(Q7MockupsCategoryView view) {
 		this.view = view;

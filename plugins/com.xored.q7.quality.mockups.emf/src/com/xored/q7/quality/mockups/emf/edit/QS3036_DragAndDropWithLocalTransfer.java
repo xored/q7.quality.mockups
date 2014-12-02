@@ -70,10 +70,4 @@ public class QS3036_DragAndDropWithLocalTransfer extends BaseMockupPart {
 		return parent;
 	}
 
-	@Override
-	public String getLabel() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }

@@ -36,10 +36,4 @@ public class QS2614_ComboIndectUpdate extends BaseMockupPart {
 		});
 		return button;
 	}
-
-	@Override
-	public String getLabel() {
-		return "QS-2614 Combo create and select on recorded event";
-	}
-
 }

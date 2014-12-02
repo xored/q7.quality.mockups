@@ -25,11 +25,4 @@ public class Calendar extends BaseMockupPart {
 
 		return null;
 	}
-
-	@Override
-	public String getLabel() {
-		// TODO Auto-generated method stub
-		return "Calendar Test";
-	}
-
 }

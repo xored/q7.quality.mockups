@@ -46,11 +46,6 @@ public class SUP657TreeItemWithSlash implements IQ7MockupPart {
 	}
 
 	@Override
-	public String getLabel() {
-		return null;
-	}
-
-	@Override
 	public void setView(Q7MockupsCategoryView view) {
 	}
 

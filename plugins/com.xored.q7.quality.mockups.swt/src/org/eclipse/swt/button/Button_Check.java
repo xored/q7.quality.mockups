@@ -42,11 +42,4 @@ public class Button_Check extends BaseMockupPart {
 		
 		return null;
 	}
-
-	@Override
-	public String getLabel() {
-		// TODO Auto-generated method stub
-		return "Button Check Test";
-	}
-
 }

@@ -9,7 +9,6 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.awt.SWT_AWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
-import org.eclipse.swt.widgets.Text;
 
 import com.xored.q7.quality.mockups.issues.BaseMockupPart;
 
@@ -31,11 +30,6 @@ public class SwingPart extends BaseMockupPart {
 	    panel.add(scrollPane);
 		
 		return composite;
-	}
-
-	@Override
-	public String getLabel() {
-		return "Swing component in SWT control";
 	}
 
 }

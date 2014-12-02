@@ -40,11 +40,4 @@ public class Button_Radio extends BaseMockupPart {
 		
 		return null;
 	}
-
-	@Override
-	public String getLabel() {
-		// TODO Auto-generated method stub
-		return "Radio Button Test";
-	}
-
 }

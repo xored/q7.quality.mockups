@@ -136,10 +136,4 @@ public class ExpandBar_Mockup extends BaseMockupPart {
 		return null;
 	}
 
-	@Override
-	public String getLabel() {
-		// TODO Auto-generated method stub
-		return "Expand Bar Test";
-	}
-
 }

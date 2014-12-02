@@ -48,10 +48,4 @@ public class ComboBox extends BaseMockupPart {
 		return null;
 	}
 
-	@Override
-	public String getLabel() {
-		// TODO Auto-generated method stub
-		return "ComboBox Test";
-	}
-
 }

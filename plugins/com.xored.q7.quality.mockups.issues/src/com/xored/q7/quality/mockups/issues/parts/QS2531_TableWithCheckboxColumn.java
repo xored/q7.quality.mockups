@@ -73,11 +73,6 @@ public class QS2531_TableWithCheckboxColumn extends BaseMockupPart {
 	private static final Object[][] data = { { true, "Row1" },
 			{ false, "Row2" } };
 
-	@Override
-	public String getLabel() {
-		return "QS-2531 Table with checkbox column";
-	}
-
 	private class QS2531EditingSupport extends EditingSupport {
 		private ColumnViewer viewer;
 

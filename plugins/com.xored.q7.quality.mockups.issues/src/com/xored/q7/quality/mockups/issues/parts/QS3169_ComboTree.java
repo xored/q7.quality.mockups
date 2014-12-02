@@ -43,12 +43,6 @@ public class QS3169_ComboTree extends BaseMockupPart {
 		return content;
 	}
 
-	@Override
-	public String getLabel() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 	private void setProviders(ComboTree combo) {
 		// fake instance of the same model, as used by mockups UI on the left
 		TreeViewerModel input = new TreeViewerModel();

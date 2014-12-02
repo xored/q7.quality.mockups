@@ -70,11 +70,4 @@ public class Color_Dialog extends BaseMockupPart {
 		return null;
 	    
 	}
-
-	@Override
-	public String getLabel() {
-		// TODO Auto-generated method stub
-		return "Color Dialog test";
-	}
-
 }

@@ -28,11 +28,6 @@ public class QS1893_HangingSwitch extends BaseMockupPart {
 		return content;
 	}
 
-	@Override
-	public String getLabel() {
-		return null;
-	}
-
 	private Text log;
 	private Runnable refreshTextAsync = new Runnable() {
 		@Override

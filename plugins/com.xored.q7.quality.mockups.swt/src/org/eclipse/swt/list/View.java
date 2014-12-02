@@ -59,13 +59,4 @@ public class View extends BaseMockupPart {
 		return null;
 	}
 
-	@Override
-	/*public void setFocus() {
-		viewer.getList().setFocus();
-	}*/
-	public String getLabel() {
-		// TODO Auto-generated method stub
-		return "AntonList Test";
-	}
-	
 }

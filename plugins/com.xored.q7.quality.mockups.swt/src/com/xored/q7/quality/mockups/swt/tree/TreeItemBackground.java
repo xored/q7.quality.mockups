@@ -75,9 +75,4 @@ public class TreeItemBackground extends BaseMockupPart {
 		return viewer.getControl();
 	}
 
-	@Override
-	public String getLabel() {
-		return "TreeItemBackground";
-	}
-
 }

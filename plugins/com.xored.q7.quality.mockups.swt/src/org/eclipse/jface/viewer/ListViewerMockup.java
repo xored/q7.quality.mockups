@@ -87,10 +87,5 @@ public class ListViewerMockup extends BaseMockupPart {
 
 	}
 
-	@Override
-	public String getLabel() {
-		// TODO Auto-generated method stub
-		return "List Viewer Test";
-	}
 
 }

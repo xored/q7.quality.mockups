@@ -103,10 +103,4 @@ public class QS2986_ProgressMonitorDialog extends BaseMockupPart {
 		return null;
 
 	}
-
-	@Override
-	public String getLabel() {
-		return "QS2986 - ProgressMonitorDialog";
-	}
-
 }

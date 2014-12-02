@@ -90,10 +90,4 @@ public class Button_Toggle extends BaseMockupPart {
 		return null;
 	}
 
-	@Override
-	public String getLabel() {
-		// TODO Auto-generated method stub
-		return "Toggle Button Test";
-	}
-
 }

@@ -62,10 +62,4 @@ public class Directory_Dialog extends BaseMockupPart {
 		return null;
 	}
 
-	@Override
-	public String getLabel() {
-		// TODO Auto-generated method stub
-		return "Directory Dialog Test";
-	}
-
 }

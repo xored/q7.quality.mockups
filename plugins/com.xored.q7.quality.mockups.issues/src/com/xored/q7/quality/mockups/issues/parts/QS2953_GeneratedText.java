@@ -43,9 +43,4 @@ public class QS2953_GeneratedText extends BaseMockupPart {
 		t.setFocus();
 	}
 
-	@Override
-	public String getLabel() {
-		return "QS2953 - Generated dialog";
-	}
-
 }

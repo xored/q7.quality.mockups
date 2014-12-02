@@ -68,10 +68,4 @@ public class TreeViewerWithMenu extends BaseMockupPart {
 		return parent;
 	}
 
-	@Override
-	public String getLabel() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }

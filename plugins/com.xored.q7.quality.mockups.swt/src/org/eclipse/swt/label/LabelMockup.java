@@ -58,10 +58,4 @@ public class LabelMockup extends BaseMockupPart {
 		return null;
 	}
 
-	@Override
-	public String getLabel() {
-		// TODO Auto-generated method stub
-		return "Label Test";
-	}
-
 }

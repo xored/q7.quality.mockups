@@ -74,11 +74,4 @@ public class Group_Mockup extends BaseMockupPart {
 		
 		return null;
 	}
-
-	@Override
-	public String getLabel() {
-		// TODO Auto-generated method stub
-		return "Group Test";
-	}
-
 }

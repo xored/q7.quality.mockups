@@ -72,10 +72,4 @@ public class CoolBarWithResizing extends BaseMockupPart {
 	    return item;
 	}
 
-	@Override
-	public String getLabel() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }

@@ -64,9 +64,4 @@ public class SUP251_HandWrittenCheckboxTree extends BaseMockupPart {
 	private Image checked = null;
 	private Image unchecked = null;
 
-	@Override
-	public String getLabel() {
-		return getClass().getSimpleName();
-	}
-
 }

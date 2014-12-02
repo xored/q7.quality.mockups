@@ -75,10 +75,4 @@ public class NestedSections extends BaseMockupPart {
 		return null;
 	}
 
-	@Override
-	public String getLabel() {
-		// TODO Auto-generated method stub
-		return "Nested Sections Test";
-	}
-
 }

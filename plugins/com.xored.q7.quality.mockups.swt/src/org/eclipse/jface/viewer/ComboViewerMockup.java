@@ -75,11 +75,4 @@ public class ComboViewerMockup extends BaseMockupPart {
 
 		return null;
 	}
-
-	@Override
-	public String getLabel() {
-		// TODO Auto-generated method stub
-		return "Combo Test";
-	}
-
 }

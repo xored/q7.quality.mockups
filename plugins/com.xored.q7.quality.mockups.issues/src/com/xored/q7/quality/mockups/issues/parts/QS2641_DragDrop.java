@@ -35,11 +35,6 @@ import com.xored.q7.quality.mockups.issues.BaseMockupPart;
 
 public class QS2641_DragDrop extends BaseMockupPart {
 	@Override
-	public String getLabel() {
-		return "QS-2641 - Drag-n-drop";
-	}
-
-	@Override
 	public Control construct(Composite parent) {
 		Composite content = new Composite(parent, SWT.NONE);
 		GridDataFactory.swtDefaults().align(FILL, FILL).grab(true, true)

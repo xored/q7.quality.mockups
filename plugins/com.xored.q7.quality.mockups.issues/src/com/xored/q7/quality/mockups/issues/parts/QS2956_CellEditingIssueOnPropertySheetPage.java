@@ -12,10 +12,6 @@ import com.xored.q7.quality.mockups.issues.parts.internal.VeryCustomComboPropert
 
 public class QS2956_CellEditingIssueOnPropertySheetPage extends BaseMockupPart {
 
-	@Override
-	public String getLabel() {
-		return "QS-2956 - Cell editing issue on property sheet page";
-	}
 
 	@Override
 	public Control construct(Composite parent) {

@@ -196,11 +196,6 @@ public class HangingJobPart extends BaseMockupPart {
 		Job.getJobManager().cancel(ThreadType.jobGroup);
 	}
 
-	@Override
-	public String getLabel() {
-		return "Hanging Jobs";
-	}
-
 	private enum ThreadType {
 		DIRECT {
 			@Override

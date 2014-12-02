@@ -40,9 +40,4 @@ public class TabFoldetTest extends BaseMockupPart {
 		return null;
 	}
 
-	@Override
-	public String getLabel() {
-		// TODO Auto-generated method stub
-		return "Button Push Test";
-	}
 }

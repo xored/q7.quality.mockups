@@ -61,10 +61,4 @@ public class SpinnerTest extends BaseMockupPart {
 		
 	}
 			
-	@Override
-	public String getLabel() {
-	// TODO Auto-generated method stub
-		return "ComboBox Test";
-	}
-
 }

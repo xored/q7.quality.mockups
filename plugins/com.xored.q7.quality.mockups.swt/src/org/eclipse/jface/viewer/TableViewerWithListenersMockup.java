@@ -306,11 +306,4 @@ public class TableViewerWithListenersMockup extends BaseMockupPart {
 		return elements;
 
 	}
-
-	@Override
-	public String getLabel() {
-		// TODO Auto-generated method stub
-		return "Table Viewer With Listeners Test";
-	}
-
 }

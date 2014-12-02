@@ -68,9 +68,4 @@ public class SUP562_allowStatusDialog extends BaseMockupPart {
 		return null;
 	}
 
-	@Override
-	public String getLabel() {
-		return "SUP527 - Timer exec hung";
-	}
-
 }

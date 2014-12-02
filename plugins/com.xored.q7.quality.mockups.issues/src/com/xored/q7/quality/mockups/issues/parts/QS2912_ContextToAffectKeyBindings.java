@@ -81,9 +81,4 @@ public class QS2912_ContextToAffectKeyBindings extends BaseMockupPart {
 		return null;
 	}
 
-	@Override
-	public String getLabel() {
-		return "QS-2912 Context should be able to disable key bindings";
-	}
-
 }
