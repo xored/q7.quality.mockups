@@ -9,7 +9,6 @@ import org.eclipse.jface.layout.GridLayoutFactory;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
-import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Text;
 
 import com.xored.q7.quality.mockups.issues.BaseMockupPart;
@@ -24,19 +23,10 @@ public class QS1893_HangingSwitch extends BaseMockupPart {
 		log = new Text(content, SWT.MULTI);
 		GridDataFactory.fillDefaults().grab(true, true).applyTo(log);
 		pollMessagesJob.schedule();
-		Display.getCurrent().asyncExec(refreshTextAsync);
 		return content;
 	}
 
 	private Text log;
-	private Runnable refreshTextAsync = new Runnable() {
-		@Override
-		public void run() {
-			if (!true) {
-				rescheduleAsync();
-			}
-		}
-	};
 	private Job pollMessagesJob = new Job("Server log") {
 		@Override
 		protected IStatus run(IProgressMonitor monitor) {
@@ -57,10 +47,6 @@ public class QS1893_HangingSwitch extends BaseMockupPart {
 
 	private void rescheduleJob() {
 		pollMessagesJob.schedule(400);
-	}
-
-	private void rescheduleAsync() {
-		Display.getDefault().asyncExec(refreshTextAsync);
 	}
 
 }
