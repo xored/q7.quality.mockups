@@ -7,7 +7,8 @@ Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _8SPAEJbCEeK184kZHmPTQQ
-Save-Time: 3/27/13 4:50 PM
+Q7-Runtime-Version: 1.3.15.201412191630
+Save-Time: 12/29/14 1:18 PM
 Testcase-Type: ecl
 
 ------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
@@ -22,7 +23,7 @@ with [get-view "Q7 Quality Mockups" | get-group "ButtonFlat Test"] {
         get-property caption | equals Flat1 | verify-true
         get-property selected | equals false | verify-true
         get-property kind | equals Push | verify-true
-        get-property "getStyle()" | equals "[PUSH, FLAT, LEFT_TO_RIGHT, CENTER]" | verify-true
+        get-property "getStyle()" | equals [get-by-os -win "[PUSH, FLAT, LEFT_TO_RIGHT, CENTER]" -default "[PUSH, FLAT, LEFT_TO_RIGHT, DOUBLE_BUFFERED, CENTER]"] | verify-true
     }
     with [get-button Flat4] {
         get-property className | equals "org.eclipse.swt.widgets.Button" | verify-true
