@@ -1,13 +1,13 @@
---- Q7 testcase ---
+--- RCPTT testcase ---
 Format-Version: 1.0
-Q7-vendor: www.xored.com/q7
 Contexts: _2jXpEHTyEeKQnp4qYEvDRA
 Element-Name: Button Push Test
 Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _OJrJQJajEeK184kZHmPTQQ
-Save-Time: 4/4/13 12:27 PM
+Runtime-Version: 1.5.5.201501141051
+Save-Time: 1/16/15 3:49 PM
 Testcase-Type: ecl
 
 ------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
@@ -22,7 +22,7 @@ with [get-view "Q7 Quality Mockups" | get-group "ButtonPush Test"] {
         get-property caption | equals OK | verify-true
         get-property tooltip | equals "Press if OK" | verify-true
         get-property kind | equals Push | verify-true
-       get-property foregroundColor | equals "#000000" | verify-true
+       get-property foregroundColor | equals [get-by-os -default "#000000" -linux "#4C4C4C"] | verify-true
     }
     with [get-button CANCEL] {
         get-property className | equals "org.eclipse.swt.widgets.Button" | verify-true
@@ -30,7 +30,7 @@ with [get-view "Q7 Quality Mockups" | get-group "ButtonPush Test"] {
         get-property caption | equals CANCEL | verify-true
         get-property selected | equals false | verify-true
         get-property kind | equals Push | verify-true
-       get-property foregroundColor | equals "#000000" | verify-true
+       get-property foregroundColor | equals [get-by-os -default "#000000" -linux "#4C4C4C"] | verify-true
     }
     with [get-button "NEXT >"] {
         get-property className | equals "org.eclipse.swt.widgets.Button" | verify-true
