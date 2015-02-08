@@ -215,6 +215,11 @@
             name="List">
       </part>
       <part
+            category="swt.list"
+            class="org.eclipse.swt.list.ListEventsMockup"
+            name="List Events">
+      </part>
+      <part
             category="swt.sash"
             class="org.eclipse.swt.sash.SashFormTest"
             name="SashForm Test">
@@ -298,6 +303,11 @@
             category="jface.listViewer"
             class="org.eclipse.jface.viewer.ListViewerMockup"
             name="ListViewer">
+      </part>
+      <part
+            category="jface.listViewer"
+            class="org.eclipse.jface.viewer.ListViewerEventsMockup"
+            name="ListViewer Events">
       </part>
       <part
             category="eclipse.form"
