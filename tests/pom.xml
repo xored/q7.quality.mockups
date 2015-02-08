@@ -37,6 +37,9 @@
 							<injection>
 								<site>${mockupsRepository}</site>
 							</injection>
+							<injection>
+								<site>${runtimeRepository}</site>
+							</injection>
 						</injections>
             <args>
               <arg>-nosplash</arg>
