@@ -152,7 +152,13 @@
       <part
             class="com.xored.q7.quality.mockups.issues.parts.TreeViewerWithMenu"
             name="TreeViewerWithMenu">
-      </part>          	      	      	
+      </part>
+      <part
+            category="issues.customer.extol"
+            class="com.xored.q7.quality.mockups.issues.parts.RCPTT304_RadioButtonTwiceAction"
+            issue="RCPTT-304"
+            name="RCPTT-304 - Radio button invoke action twice">
+      </part>
    </extension>
    <extension
          point="org.eclipse.ui.contexts">
