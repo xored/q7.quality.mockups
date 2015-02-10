@@ -19,6 +19,7 @@ public class RCPTT304_RadioButtonTwiceAction extends BaseMockupPart {
 	private Composite composite = null;
 	private Text text = null;
 	private Button btnDisabled = null;
+	private Button btnInProcess = null;
 	private Button btnEnabled = null;
 
 	private LdapConfig ldapConfig = new LdapConfig();
@@ -40,6 +41,10 @@ public class RCPTT304_RadioButtonTwiceAction extends BaseMockupPart {
 		btnDisabled = new Button(composite, SWT.RADIO);
 		btnDisabled.setText("Disabled");
 		btnDisabled.addSelectionListener(new RadioButtonSelectionListener());
+
+		btnInProcess = new Button(composite, SWT.RADIO);
+		btnInProcess.setText("InProcess");
+		btnInProcess.addSelectionListener(new RadioButtonSelectionListener());
 
 		btnEnabled = new Button(composite, SWT.RADIO);
 		btnEnabled.setText("Enabled");
