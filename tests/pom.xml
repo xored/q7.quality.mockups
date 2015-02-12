@@ -37,14 +37,11 @@
 							<injection>
 								<site>${mockupsRepository}</site>
 							</injection>
-							<injection>
-								<site>${runtimeRepository}</site>
-							</injection>
 						</injections>
-            <args>
-              <arg>-nosplash</arg>
-              <arg>-consoleLog</arg>	      
-            </args>
+						<args>
+							<arg>-nosplash</arg>
+							<arg>-consoleLog</arg>	      
+						</args>
 					</aut>
 					<runner>
 						<version>${q7-runner-version}</version>
@@ -56,4 +53,32 @@
 			</plugin>
 		</plugins>
 	</build>
+	<profiles>
+		<profile>
+			<activation>
+				<property>
+					<name>runtimeRepository</name>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>${q7-maven-group}</groupId>
+						<artifactId>ci4rcptt-maven-plugin</artifactId>
+						<version>${q7-maven-version}</version>
+						<extensions>true</extensions>
+						<configuration>
+							<aut>
+								<injections combine.children="append">
+									<injection>
+										<site>${runtimeRepository}</site>
+									</injection>
+								</injections>
+							</aut>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+			</profile>
+	</profiles>
 </project>
