@@ -4,9 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.jface.layout.GridDataFactory;
-import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.ColumnLabelProvider;
-import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
@@ -47,21 +45,6 @@ public class TreeItemBackground extends BaseMockupPart {
 		@Override
 		public Color getBackground(Object element) {
 			return ((Node)element).color;
-		}
-	}
-	
-	class TreeContentProvider extends ArrayContentProvider implements ITreeContentProvider {
-		@Override
-		public Object[] getChildren(Object parentElement) {
-			return null;
-		}
-		@Override
-		public Object getParent(Object element) {
-			return null;
-		}
-		@Override
-		public boolean hasChildren(Object element) {
-			return false;
 		}
 	}
 	

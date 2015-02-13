@@ -396,6 +396,12 @@
             class="org.eclipse.form.NonClosingDialog"
             name="NonClosingDialog">
       </part>
+      <part
+            category="swt.tree"
+            class="com.xored.q7.quality.mockups.swt.tree.TreeWithImages"
+            issue="https://bugs.eclipse.org/bugs/show_bug.cgi?id=459801"
+            name="TreeWithImages">
+      </part>
    </extension>
 
 </plugin>
