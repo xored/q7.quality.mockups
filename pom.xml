@@ -25,6 +25,7 @@
 		<module>plugins/com.xored.q7.quality.mockups.platform</module>
 		<module>plugins/com.xored.q7.quality.mockups.swt</module>
 		<module>plugins/com.xored.q7.quality.mockups.emf</module>
+		<module>plugins/com.xored.q7.quality.mockups.draw2d</module>
 		<module>features/com.xored.q7.quality.mockups-feature</module>
 		<module>repository</module>
 		<!--module>tests</module-->

@@ -15,6 +15,12 @@
             name="QS-2855 Embedded GraphicalViewer">
       </part>
       
+      <part
+            category="draw2d"
+            class="com.xored.q7.quality.mockups.draw2d.DiagramItemWithImage"
+            name="Diagram Item With Image">
+      </part>
+      
    </extension>
 
 </plugin>

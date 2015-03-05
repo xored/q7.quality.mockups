@@ -35,6 +35,13 @@
 						<version>3.7.2</version>
 						<injections>
 							<injection>
+								<site>http://download.eclipse.org/releases/indigo/201202240900</site>
+								<features>
+									<feature>org.eclipse.gef</feature>
+									<feature>org.eclipse.draw2d</feature>
+								</features>
+							</injection>
+							<injection>
 								<site>${mockupsRepository}</site>
 							</injection>
 						</injections>

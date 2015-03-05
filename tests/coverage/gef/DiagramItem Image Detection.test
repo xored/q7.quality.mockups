@@ -1,0 +1,22 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Contexts: _2jXpEHTyEeKQnp4qYEvDRA
+Element-Name: DiagramItem Image Detection
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _zeujwMJNEeShNOaVdvx_1w
+Runtime-Version: 1.5.6.qualifier
+Save-Time: 3/4/15 4:26 PM
+Testcase-Type: ecl
+
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+wait 100000
+get-view "Q7 Quality Mockups" | get-tree | select "draw2d/Diagram Item With Image"
+get-view "Q7 Quality Mockups" | get-group "Diagram Item With Image" | get-diagram | get-edit-part 
+    -className SimpleEditPart | get-figure 0 | get-property "image.path" 
+    | equals "com.xored.q7.quality.mockups.draw2d/icons/icon.png" | verify-true
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
