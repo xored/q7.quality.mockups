@@ -160,6 +160,12 @@
             name="RCPTT-304 - Radio button invoke action twice">
       </part>
       <part
+            category="issues.customer"
+            class="com.xored.q7.quality.mockups.issues.parts.RCPTT356_ButtonPushTwice"
+            issue="RCPTT-304"
+            name="RCPTT-356 Button push twice">
+      </part>
+      <part
             category="issues"
             class="com.xored.q7.quality.mockups.issues.parts.RCPTT211_EmptyWindowInAssertionMode"
             issue="RCPTT-211"
