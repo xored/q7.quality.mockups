@@ -56,6 +56,9 @@
 						<clientSecret>${clientSecret}</clientSecret>
 						<organization>${organization}</organization>
 					</runner>
+					<testOptions>
+						<testExecTimeout>30</testExecTimeout>
+					</testOptions>
 				</configuration>
 			</plugin>
 		</plugins>
