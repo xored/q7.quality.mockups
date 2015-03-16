@@ -57,7 +57,7 @@
 						<organization>${organization}</organization>
 					</runner>
 					<testOptions>
-						<testExecTimeout>30</testExecTimeout>
+						<testExecTimeout>50</testExecTimeout>
 					</testOptions>
 				</configuration>
 			</plugin>
