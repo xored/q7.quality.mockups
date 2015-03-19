@@ -93,6 +93,16 @@ public class NestedDialog extends BaseMockupPart {
 			};
 		}
 
+		Builder async() {
+			final Runnable temp = this;
+			return new Builder() {
+				@Override
+				public void run() {
+					getShell().getDisplay().asyncExec(temp);
+				}
+			};
+		}
+
 		@Override
 		public void run() {
 		}
@@ -118,6 +128,9 @@ public class NestedDialog extends BaseMockupPart {
 				new Builder().question("Question").wizard("Simple wizard"));
 		createButton(parent, "Simple wizard with workspace confirmation", new Builder().question("Workspace question")
 				.workspace().wizard("Workspace wizard"));
+		createButton(parent, "Simple wizard with async workspace confirmation",
+				new Builder().question("Workspace question")
+						.workspace().async().wizard("Workspace wizard"));
 		createButton(parent, "Simple wizard with double workspace confirmation",
 				new Builder().question("Workspace question2").question("Workspace question")
 						.workspace().wizard("Workspace wizard"));
