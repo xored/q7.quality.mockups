@@ -1,0 +1,28 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Contexts: _2jXpEHTyEeKQnp4qYEvDRA
+Element-Name: NestedDialogs
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: https://jira4.xored.com/browse/RCPTT-356
+Id: _6jpnMc4CEeSuWPcF2ulBrQ
+Runtime-Version: 1.5.5.201502250453
+Save-Time: 3/19/15 2:57 PM
+Testcase-Type: ecl
+
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Q7 Quality Mockups" | get-group NestedDialog | get-button "Simple wizard with double workspace confirmation" 
+    | click
+get-window "Workspace wizard" | get-button Finish | click
+get-window "Workspace question" | get-button Yes | click
+get-window "Workspace question2" | get-button Yes | click
+get-view "Q7 Quality Mockups" | get-group NestedDialog | get-button "Simple wizard with workspace confirmation" | click
+get-window "Workspace wizard" | get-button Finish | click
+get-window "Workspace question" | get-button Yes | click
+get-view "Q7 Quality Mockups" | get-group NestedDialog | get-button "Simple wizard with confirmation" | click
+get-window "Simple wizard" | get-button Finish | click
+get-window Question | get-button Yes | click
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
