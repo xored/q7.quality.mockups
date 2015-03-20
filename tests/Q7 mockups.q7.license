@@ -1,8 +1,0 @@
-#
-#Thu Sep 25 00:02:17 NOVT 2014
-Signature=36f21311c35bf7c0c39eef0d5785a022fe7d2c3462264dc680e1dcd7b5d680fb4cb231cbfb8eab03fd40cd8899b87a12d78f0227cafbacd6de5547659b7728f21507f2516f0d9b226c91dc97f0989b29d7a1a989b0f4ba2ada175c7ef1f89559f3d6cbc7242794ff3a5624a0c5b74171ff31cd828a2e5b07bcb3cecbfe80bb74
-Type=Opensource
-Allowed-Bundles=*.source,ch.qos.logback*,com.google.guava,com.google.inject,com.ibm.icu*,com.jcraft.jsch,com.sun.*,javaewah,javax.*,lpg.runtime.java,org.apache.*,org.eclipse.*,org.h2,org.hamcrest*,org.jdom,org.jsoup,org.junit*,org.mortbay.jetty*,org.objectweb.asm,org.sat4j*,org.slf4j*,org.w3c,org.w3c.*,com.xored.*,com.google.gson,org.aspectj.*,org.fantom*,net.sourceforge.*,java_cup.*,com.jcraft.jzlib,org.xmlpull,org.custommonkey.xmlunit*,org.restlet*,org.json,com.vaadin,com.thoughtworks.xstream,com.thoughtworks.selenium,org.uddi4j,org.mozilla*,org.antlr*,ch.ethz.iks.slp,org.easymock,com.thoughtworks.qdox,edu.emory.mathcs*,org.xbill.dns,org.codehaus.jackson*,org.opensaml*,org.aopalliance*,commonj.sdo*,org.dojotoolkit*,com.lowagie.text*,org.kohsuke.args4j,com.google.gwt*,com.google.gerrit*,com.google.protobuf*,net.miginfocom.layout*,org.prefuse*,org.objenesis*,org.mockito*,org.cyberneko*,org.openid4java*,org.quartz*,me.prettyprint*,osgi.enterprise*,org.cliffc.high_scale_lib*,org.jmock,com.novell.ldap,org.swtchart,org.ccil.cowan.tagsoup,org.ow2*,cdi.api,javassist,scannotation,org.glassfish*,bcprov,bcpg,ca.odell.glazedlists,org.pushingpixels.trident,org.tukaani.xz
-Version=1.0
-Email=vasili.gulevich@xored.com
-Opensource-Project=Q7 mockups
