@@ -2,9 +2,12 @@ package org.eclipse.swt.dialogs;
 
 import org.eclipse.core.resources.IWorkspaceRunnable;
 import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.resources.WorkspaceJob;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.jface.wizard.WizardDialog;
@@ -93,6 +96,23 @@ public class NestedDialog extends BaseMockupPart {
 			};
 		}
 
+		Builder workspaceJob() {
+			final Runnable temp = this;
+			return new Builder() {
+				@Override
+				public void run() {
+					new WorkspaceJob("meh") {
+						
+						@Override
+						public IStatus runInWorkspace(IProgressMonitor monitor) throws CoreException {
+							temp.run();
+							return Status.OK_STATUS;
+						}
+					}.schedule();
+				}
+			};
+		}
+
 		Builder async() {
 			final Runnable temp = this;
 			return new Builder() {
@@ -103,6 +123,15 @@ public class NestedDialog extends BaseMockupPart {
 			};
 		}
 
+		Builder sync() {
+			final Runnable temp = this;
+			return new Builder() {
+				@Override
+				public void run() {
+					getShell().getDisplay().syncExec(temp);
+				}
+			};
+		}
 		@Override
 		public void run() {
 		}
@@ -131,9 +160,15 @@ public class NestedDialog extends BaseMockupPart {
 		createButton(parent, "Simple wizard with async workspace confirmation",
 				new Builder().question("Workspace question")
 						.workspace().async().wizard("Workspace wizard"));
+		createButton(parent, "Simple wizard with sync workspace confirmation",
+				new Builder().question("Workspace question")
+						.workspace().sync().wizard("Workspace wizard"));
 		createButton(parent, "Simple wizard with double workspace confirmation",
 				new Builder().question("Workspace question2").question("Workspace question")
 						.workspace().wizard("Workspace wizard"));
+		createButton(parent, "Simple wizard with sync WorkspaceJob confirmation",
+				new Builder().question("Workspace question")
+						.sync().workspaceJob().wizard("Workspace wizard"));
 		return null;
 	}
 
