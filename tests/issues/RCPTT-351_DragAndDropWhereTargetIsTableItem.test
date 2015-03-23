@@ -1,0 +1,52 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Contexts: _2jXpEHTyEeKQnp4qYEvDRA
+Element-Name: RCPTT-351_DragAndDropWhereTargetIsTableItem
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _3UFkwNFAEeSBSt5w-3YzYQ
+Runtime-Version: 1.5.6.qualifier
+Save-Time: 3/23/15 4:48 PM
+Testcase-Type: ecl
+
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+with [get-view "Q7 Quality Mockups"] {
+    get-tree | select "issues/customer/RCPTT-351 Drag and drop at table"
+    with [get-group "RCPTT-351 Drag and drop at table"] {
+        with [get-table] {
+            select Indigo
+            get-item Indigo | drag-start 38 9
+        }
+        with [get-table -index 1] {
+            get-item Default | drag-enter 0 13 -detail move
+            get-item Default | drag-over 31 0 -detail move
+            get-item Default | drag-exit
+            get-item Default | drag-enter 31 0 -detail move
+            get-item Default | drag-over 32 6 -detail move
+            get-item Default | drag-exit
+            get-item Default | drag-accept 32 6 -detail move
+        }
+        get-table | drag-set-data
+        get-table -index 1 | get-item Default | drop 32 6 -detail move
+        get-table | drag-end
+        with [get-table -index 2] {
+            select Europa
+            get-item Europa | drag-start 21 15
+        }
+        with [get-table -index 1] {
+            drag-enter 153 32 -detail move
+            drag-over 43 15 -detail move
+            get-item Indigo | drag-over 41 11 -detail move
+            drag-exit
+            get-item Indigo | drag-accept 41 11 -detail move
+        }
+        get-table -index 2 | drag-set-data
+        get-table -index 1 | get-item Indigo | drop 41 11 -detail move
+        get-table -index 2 | drag-end
+    }
+}
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
