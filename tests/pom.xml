@@ -64,6 +64,29 @@
 		</plugins>
 	</build>
 	<profiles>
+    <profile>
+      <id>runner</id>
+      <activation>
+        <property>
+          <name>explicitRunner</name>
+        </property>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+						<groupId>${q7-maven-group}</groupId>
+						<artifactId>ci4rcptt-maven-plugin</artifactId>
+						<version>${q7-maven-version}</version>
+            <extensions>true</extensions>
+            <configuration>
+              <runner>
+                <explicit>${explicitRunner}</explicit>
+              </runner>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
 		<profile>
 			<activation>
 				<property>
