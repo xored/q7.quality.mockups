@@ -1,14 +1,14 @@
---- Q7 testcase ---
+--- RCPTT testcase ---
 Format-Version: 1.0
-Q7-vendor: www.xored.com/q7
 Contexts: _2jXpEHTyEeKQnp4qYEvDRA
 Element-Name: Toggle
 Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _m9lG8QmSEeOg-tKUX8dAnA
-Save-Time: 8/20/13 7:35 PM
-Tags: jira/QS-2850
+Runtime-Version: 1.5.6.qualifier
+Save-Time: 4/1/15 12:04 PM
+Tags: jira/QS-2850, swt
 Testcase-Type: ecl
 
 ------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
