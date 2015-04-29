@@ -3,7 +3,10 @@ package com.xored.q7.quality.mockups.issues.parts;
 import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.jface.layout.GridLayoutFactory;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.events.FocusEvent;
+import org.eclipse.swt.events.FocusListener;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
@@ -15,6 +18,7 @@ public class RCPTT532_SetFocusInTextFieldDisablesButton extends BaseMockupPart {
 
 	private Composite composite = null;
 	private Text text = null;
+	private Text text2 = null;
 	private Button button = null;
 	private Button chkBox = null;
 	
@@ -30,10 +34,6 @@ public class RCPTT532_SetFocusInTextFieldDisablesButton extends BaseMockupPart {
 		return null;	
 	}
 	
-	private void addTextField(Composite parent) {
-		text = new Text(parent, SWT.MULTI | SWT.BORDER | SWT.WRAP );
-    }
-	
 	private void addButton(Composite parent) {
 		button = new Button (parent, SWT.PUSH);
 		button.setText("I'm button");
@@ -42,6 +42,26 @@ public class RCPTT532_SetFocusInTextFieldDisablesButton extends BaseMockupPart {
 	
 	private void addCheckBox(Composite parent) {
 		chkBox = new Button (parent, SWT.CHECK);
+		
+		chkBox.addSelectionListener (new SelectionListener(){
+
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				// TODO Auto-generated method stub
+				text2.setText("Checkbox is pressed");
+				
+			}
+
+			@Override
+			public void widgetDefaultSelected(SelectionEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			
+			
+		});
+		
 	}
 	
 	
@@ -51,6 +71,39 @@ public class RCPTT532_SetFocusInTextFieldDisablesButton extends BaseMockupPart {
 				.grab(true, true).applyTo(composite);
 		GridLayoutFactory.swtDefaults().numColumns(1).applyTo(composite);
 	}
+	
+	private void addTextField(Composite parent) {
+		text = new Text(parent, SWT.MULTI | SWT.BORDER | SWT.WRAP );
+		text2 = new Text(parent, SWT.MULTI | SWT.BORDER | SWT.WRAP );
+		
+		text.addFocusListener(new FocusListener(){
+
+			@Override
+			public void focusGained(FocusEvent e) {
+				// TODO Auto-generated method stub
+				
+				button.setEnabled(false);
+				
+			}
+
+			@Override
+			public void focusLost(FocusEvent e) {
+				// TODO Auto-generated method stub
+				button.setEnabled(true);
+				
+			}
+			
+			
+			
+			
+			
+			
+		});
+		
+    }
+	
+	
+	
 
 
 }
