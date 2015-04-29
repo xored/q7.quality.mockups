@@ -31,9 +31,8 @@ public class RCPTT532_SetFocusInTextFieldDisablesButton extends BaseMockupPart {
 	}
 	
 	private void addTextField(Composite parent) {
-		text = new Text(parent, SWT.MULTI | SWT.BORDER | SWT.WRAP | SWT.V_SCROLL);
-		text.setLayoutData(new GridData(GridData.FILL_BOTH));
-	}
+		text = new Text(parent, SWT.MULTI | SWT.BORDER | SWT.WRAP );
+    }
 	
 	private void addButton(Composite parent) {
 		button = new Button (parent, SWT.PUSH);
