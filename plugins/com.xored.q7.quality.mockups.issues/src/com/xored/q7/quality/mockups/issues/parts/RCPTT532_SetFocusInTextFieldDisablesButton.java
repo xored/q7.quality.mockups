@@ -48,14 +48,20 @@ public class RCPTT532_SetFocusInTextFieldDisablesButton extends BaseMockupPart {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				// TODO Auto-generated method stub
-				text2.setText("Checkbox is pressed");
+				if (chkBox.getSelection()){
+					text.setEnabled(true);
+					text2.setText("Yes");
+				} else {
+			    text.setEnabled(false);
+				text2.setText("No");}
+				
 				
 			}
 
 			@Override
 			public void widgetDefaultSelected(SelectionEvent e) {
 				// TODO Auto-generated method stub
-				
+		
 			}
 			
 			
@@ -74,6 +80,7 @@ public class RCPTT532_SetFocusInTextFieldDisablesButton extends BaseMockupPart {
 	
 	private void addTextField(Composite parent) {
 		text = new Text(parent, SWT.MULTI | SWT.BORDER | SWT.WRAP );
+		text.setEnabled(false);
 		text2 = new Text(parent, SWT.MULTI | SWT.BORDER | SWT.WRAP );
 		
 		text.addFocusListener(new FocusListener(){
