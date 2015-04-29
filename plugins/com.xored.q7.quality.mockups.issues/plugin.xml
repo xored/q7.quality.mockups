@@ -179,7 +179,7 @@
       </part>
       <part
             category="issues.customer.extol"
-            class="com.xored.q7.quality.mockups.issues.Q7MockupPart1"
+            class="com.xored.q7.quality.mockups.issues.parts.RCPTT532_SetFocusInTextFieldDisablesButton"
             issue="RCPTT-532"
             name="RCPTT-532_SetFocusInTextFieldDisablesButton">
       </part>
