@@ -177,6 +177,12 @@
             issue="RCPTT-211"
             name="RCPTT-211 - Empty window in Assertion mode if tree or table column is unnamed">
       </part>
+      <part
+            category="issues.customer.extol"
+            class="com.xored.q7.quality.mockups.issues.Q7MockupPart1"
+            issue="RCPTT-532"
+            name="RCPTT-532_SetFocusInTextFieldDisablesButton">
+      </part>
    </extension>
    <extension
          point="org.eclipse.ui.contexts">
