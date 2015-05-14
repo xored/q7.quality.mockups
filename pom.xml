@@ -6,18 +6,15 @@
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<properties>
-		<tycho-version>0.19.0</tycho-version>
+		<tycho-version>0.22.0</tycho-version>
 		<tycho-groupid>org.eclipse.tycho</tycho-groupid>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<aspectj_version>1.4</aspectj_version>
 		<aspectj_dep>1.7.0</aspectj_dep>
-		<q7-maven-version>1.5.6-SNAPSHOT</q7-maven-version>
-		<q7-maven-group>com.xored.ci4rcptt</q7-maven-group>
-		<q7-runner-version>1.5.6-SNAPSHOT</q7-runner-version>
+		<q7-maven-version>2.0.0-SNAPSHOT</q7-maven-version>
+		<q7-maven-group>org.eclipse.rcptt</q7-maven-group>
+		<q7-runner-version>2.0.0-SNAPSHOT</q7-runner-version>
 		<mockupsRepository>file:/${basedir}/../repository/target/repository</mockupsRepository>
-		<clientId>PLEASE_SPECIFY</clientId>
-		<clientSecret>PLEASE_SPECIFY</clientSecret>
-		<organization>PLEASE_SPECIFY</organization>
 	</properties>
 	<modules>
 		<module>plugins/com.xored.q7.quality.mockups.ui</module>
@@ -41,36 +38,20 @@
 			<name>Xored Maven repository</name>
 			<url>http://maven.xored.com/nexus/content/repositories/ci4rcptt-releases/</url>
 		</repository>
-
 	</repositories>
-	<distributionManagement>
-		<repository>
-			<id>xored-releases</id>
-			<name>Xored Maven repository</name>
-			<url>http://maven.xored.com/nexus/content/repositories/ci4rcptt-releases/</url>
-		</repository>
-		<snapshotRepository>
-			<id>xored-snapshots</id>
-			<name>Xored Maven repository</name>
-			<url>http://maven.xored.com/nexus/content/repositories/ci4rcptt-snapshots/</url>
-		</snapshotRepository>
-	</distributionManagement>
 	<pluginRepositories>
 		<pluginRepository>
-			<snapshots>
-				<updatePolicy>always</updatePolicy>
-			</snapshots>
-			<id>maven</id>
-			<name>Xored Maven repository</name>
-			<url>http://repo.maven.apache.org</url>
+			<id>rcptt-releases</id>
+			<name>RCPTT Maven repository</name>
+			<url>http://maven.xored.com/nexus/content/repositories/rcptt-releases/</url>
 		</pluginRepository>
 		<pluginRepository>
+			<id>rcptt-snapshots</id>
+			<name>RCPTT Maven Snapshots repository</name>
 			<snapshots>
 				<updatePolicy>always</updatePolicy>
 			</snapshots>
-			<id>xored</id>
-			<name>Xored Maven repository</name>
-			<url>http://maven.xored.com/nexus/content/repositories/snapshots/</url>
+			<url>https://repo.eclipse.org/content/repositories/rcptt-snapshots/</url>
 		</pluginRepository>
 	</pluginRepositories>
 	<build>
