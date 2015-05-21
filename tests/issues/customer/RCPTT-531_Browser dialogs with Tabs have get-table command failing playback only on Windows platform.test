@@ -1,0 +1,30 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Contexts: _2jXpEHTyEeKQnp4qYEvDRA
+Element-Name: RCPTT-531_Browser dialogs with Tabs have get-table command failing playback only on Windows platform
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: https://jira4.xored.com/browse/RCPTT-531
+Id: _rBycwP-PEeSoxqva7Q_Gbw
+Runtime-Version: 2.0.0.201505200325
+Save-Time: 5/21/15 3:02 PM
+Testcase-Type: ecl
+
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+with [get-view "Q7 Quality Mockups"] {
+    get-tree | select "issues/customer/extol/RCPTT-531_BrowserDialogWithCTabFolder"
+    get-group "RCPTT-531_BrowserDialogWithCTabFolder" | get-button "Open shell" | click
+}
+with [get-window -from "RCPTT531_BrowserDialogWithTabFolder._openShell()" | get-table] {
+    get-column-header "Column 1" | click
+    get-column-header "Column 2" | click
+    get-column-header "Column 0" | click
+}
+get-window -from "RCPTT531_BrowserDialogWithTabFolder._openShell()" | get-table | get-property className 
+    | equals "org.eclipse.swt.widgets.Table" | verify-true
+get-window -from "RCPTT531_BrowserDialogWithTabFolder._openShell()" | get-tab-folder | get-tab-item "Application Route" 
+    | click
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
