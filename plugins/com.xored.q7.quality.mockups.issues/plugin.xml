@@ -189,6 +189,12 @@
             issue="RCPTT-531"
             name="RCPTT-531_BrowserDialogWithCTabFolder">
       </part>
+      <part
+            category="issues.customer.extol"
+            class="com.xored.q7.quality.mockups.issues.parts.RCPTT533_ExternaProgramImageDescriptor"
+            issue="RCPTT-533"
+            name="RCPTT-533_ExternaProgramImageDescriptor">
+      </part>
    </extension>
    <extension
          point="org.eclipse.ui.contexts">
