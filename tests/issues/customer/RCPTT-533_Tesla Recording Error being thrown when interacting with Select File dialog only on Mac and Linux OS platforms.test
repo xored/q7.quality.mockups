@@ -1,0 +1,24 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Contexts: _2jXpEHTyEeKQnp4qYEvDRA
+Element-Name: RCPTT-533_Tesla Recording Error being thrown when interacting with Select File dialog only on Mac and Linux OS platforms
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: https://bugs.eclipse.org/bugs/show_bug.cgi?id=469374
+Id: _vMakcAqjEeWpmOEt50tD-g
+Runtime-Version: 1.5.6.201505120550
+Save-Time: 6/4/15 5:23 PM
+Testcase-Type: ecl
+
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+with [get-view "Q7 Quality Mockups"] {
+    get-tree | select "issues/customer/extol/RCPTT-533_ExternaProgramImageDescriptor" 
+        | select "issues/customer/extol/RCPTT-533_ExternaProgramImageDescriptor" | double-click
+    get-group "RCPTT-533_ExternaProgramImageDescriptor" | get-button Test | click
+}
+get-view "Q7 Quality Mockups" | get-group "RCPTT-533_ExternaProgramImageDescriptor" | get-editbox | get-property text 
+    | equals "" | verify-true
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
