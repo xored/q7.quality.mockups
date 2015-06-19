@@ -6,9 +6,8 @@ Element-Type: testcase
 Element-Version: 3.0
 External-Reference: http://jira4.xored.com/browse/QS-2530
 Id: _VH8hkbYhEeKqqemODfr8hQ
-Runtime-Version: 1.5.5.201502250453
-Save-Time: 3/19/15 8:39 AM
-Tags: skipExecution
+Runtime-Version: 2.0.0.201506180836
+Save-Time: 6/19/15 3:11 PM
 Testcase-Type: ecl
 
 ------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
@@ -31,6 +30,19 @@ with [get-window "Workspace Launcher"] {
     get-button OK | click
 }
 wait-until-eclipse-is-ready
+
+get-menu "Window/Open Perspective/Other..." | click
+with [get-window "Open Perspective"] {
+    get-table | select "Q7 Quality"
+    get-button OK | click
+}
+get-menu "Window/Show View/Other..." | click
+with [get-window "Show View"] {
+    get-tree | select "Q7 Quality/Q7 Quality Mockups"
+    get-button OK | click
+}
+
+
 get-view "Q7 Quality Mockups" | get-tree | select "platform/resources/Resource Locking" | double-click
 get-view "Q7 Quality Mockups" | get-group "Resource Locking" | get-property caption | equals "Resource Locking" | verify-true
 get-view "Q7 Quality Mockups" | get-tree | select "platform/resources/Invoke AutoBuild with timeout" | double-click
