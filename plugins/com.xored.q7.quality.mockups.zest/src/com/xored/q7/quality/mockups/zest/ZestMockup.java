@@ -19,11 +19,6 @@ import com.xored.q7.quality.mockups.issues.BaseMockupPart;
 public class ZestMockup extends BaseMockupPart {
 
 	@Override
-	public String getLabel() {
-		return null;
-	}
-
-	@Override
 	public Control construct(Composite parent) {
 		Composite content = new Composite(parent, SWT.NONE);
 		GridDataFactory.fillDefaults().grab(true, true).applyTo(content);

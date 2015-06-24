@@ -42,6 +42,7 @@
 								<features>
 									<feature>org.eclipse.gef</feature>
 									<feature>org.eclipse.draw2d</feature>
+									<feature>org.eclipse.zest</feature>
 								</features>
 							</injection>
 							<injection>
