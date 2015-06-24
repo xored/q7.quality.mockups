@@ -42,8 +42,13 @@
 								<features>
 									<feature>org.eclipse.gef</feature>
 									<feature>org.eclipse.draw2d</feature>
-									<feature>org.eclipse.zest</feature>
 								</features>
+							</injection>
+							<injection>
+								<site>http://download.eclipse.org/tools/gef/updates-pre-3_8/releases/</site>
+								<features>
+									<feature>org.eclipse.zest.feature.group</feature>
+								</features>                      
 							</injection>
 							<injection>
 								<site>${mockupsRepository}</site>
