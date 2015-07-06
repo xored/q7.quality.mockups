@@ -37,14 +37,14 @@
 		<repository>
 			<id>xored-releases</id>
 			<name>Xored Maven repository</name>
-			<url>http://maven.xored.com/nexus/content/repositories/ci4rcptt-releases/</url>
+			<url>http://archive.eclipse.org/eclipse/downloads/drops/R-3.7.2-201202080800/</url>
 		</repository>
 	</repositories>
 	<pluginRepositories>
 		<pluginRepository>
 			<id>rcptt-releases</id>
 			<name>RCPTT Maven repository</name>
-			<url>http://maven.xored.com/nexus/content/repositories/rcptt-releases/</url>
+			<url>http://repo.eclipse.org/content/repositories/rcptt-releases/</url>
 		</pluginRepository>
 		<pluginRepository>
 			<id>rcptt-snapshots</id>
