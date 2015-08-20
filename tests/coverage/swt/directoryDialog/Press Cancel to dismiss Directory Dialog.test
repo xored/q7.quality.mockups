@@ -1,0 +1,28 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Contexts: _2jXpEHTyEeKQnp4qYEvDRA
+Element-Name: Press Cancel to dismiss Directory Dialog
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: https://bugs.eclipse.org/bugs/show_bug.cgi?id=474225
+Id: _Ltqw8EcJEeWrBISdHyiqEg
+Runtime-Version: 2.0.0.201508190652
+Save-Time: 8/20/15 2:05 PM
+Testcase-Type: ecl
+
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Q7 Quality Mockups" | get-tree | select "swt/directoryDialog/DirectoryDialog Test" | double-click
+set-dialog-result Folder
+get-view "Q7 Quality Mockups" | get-group "DirectoryDialog Test" | get-button "Browse..." | click
+get-view "Q7 Quality Mockups" | get-group "DirectoryDialog Test" | get-editbox -after [get-label "File location:"] 
+    | get-property text | equals "" | verify-true
+set-dialog-result Folder ""
+get-view "Q7 Quality Mockups" | get-group "DirectoryDialog Test" | get-button "Browse..." | click
+get-view "Q7 Quality Mockups" | get-group "DirectoryDialog Test" | get-editbox -after [get-label "File location:"] 
+    | get-property text | equals "" | verify-true
+get-view "Q7 Quality Mockups" | get-group "DirectoryDialog Test" | get-editbox -after [get-label "File location:"] 
+    | click-text
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

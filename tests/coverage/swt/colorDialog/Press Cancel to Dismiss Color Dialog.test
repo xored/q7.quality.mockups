@@ -1,0 +1,23 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Contexts: _2jXpEHTyEeKQnp4qYEvDRA
+Element-Name: Press Cancel to Dismiss Color Dialog
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: https://bugs.eclipse.org/bugs/show_bug.cgi?id=474225
+Id: _3JHSUEcJEeWrBISdHyiqEg
+Runtime-Version: 2.0.0.201508190652
+Save-Time: 8/20/15 2:12 PM
+Testcase-Type: ecl
+
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Q7 Quality Mockups" | get-tree | select "swt/colorDialog/ColorDialog"
+set-dialog-result Color
+get-view "Q7 Quality Mockups" | get-group ColorDialog | get-button "Color..." | click
+get-view "Q7 Quality Mockups" | get-group ColorDialog | get-label "" | get-property backgroundColor | equals "#00FF00" 
+    | verify-true
+get-view "Q7 Quality Mockups" | get-group ColorDialog | get-button "Color..." | click    
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

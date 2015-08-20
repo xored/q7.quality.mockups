@@ -50,9 +50,9 @@ public class Directory_Dialog extends BaseMockupPart {
 
 	        dlg.setText("Choose a location");
 	        dlg.setMessage("Please select a directory");
-	        dlg.open();
 	        
-	        t.setText(dlg.getFilterPath());
+	        
+	        t.setText(dlg.open());
 	        
 	        
 	      }
