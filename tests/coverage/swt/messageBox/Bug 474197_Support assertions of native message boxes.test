@@ -1,0 +1,39 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Contexts: _2jXpEHTyEeKQnp4qYEvDRA
+Element-Name: Bug 474197_Support assertions of native message boxes
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _7MlIwEb-EeWU1bkheDbfQQ
+Runtime-Version: 2.0.0.201508191320
+Save-Time: 8/20/15 12:49 PM
+Testcase-Type: ecl
+
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Q7 Quality Mockups" | get-tree | select "swt/messageBox/MessageBox Test" 
+    | select "swt/messageBox/MessageBox Test" | double-click
+
+set-dialog-result MessageBox 32
+get-view "Q7 Quality Mockups" | get-group "MessageBox Test" | get-button "Simple Message Box Without Title" | click
+get-last-message-box | get-property title | equals "" | verify-true
+get-last-message-box | get-property message | equals "This MessageBox with simple text" | verify-true
+
+set-dialog-result MessageBox 256
+get-view "Q7 Quality Mockups" | get-group "MessageBox Test" | get-button "Message With Question" | click
+get-last-message-box | get-property title | equals "Question" | verify-true
+get-last-message-box | get-property message | equals "This MessageBox with question" | verify-true
+
+set-dialog-result MessageBox 2048
+get-view "Q7 Quality Mockups" | get-group "MessageBox Test" | get-button "Message Box with RETRY Button" | click
+get-last-message-box | get-property title | equals "Error" | verify-true
+get-last-message-box | get-property message | equals "This MessageBox with error" | verify-true
+
+set-dialog-result MessageBox 128
+get-view "Q7 Quality Mockups" | get-group "MessageBox Test" | get-button "Message Box with YES/NO Buttons" | click
+get-last-message-box | get-property title | equals "Warning" | verify-true
+get-last-message-box | get-property message | equals "This MessageBox with warning" | verify-true
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
