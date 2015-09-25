@@ -408,6 +408,16 @@
             issue="https://jira4.xored.com/browse/RCPTT-356"
             name="NestedDialog">
       </part>
+      <part
+            category="swt.text"
+            class="org.eclipse.swt.text.Styled_Text"
+            name="StyledTextCaretHandler">
+      </part>
+      <part
+            category="swt.text"
+            class="org.eclipse.swt.text.Styled_Text"
+            name="StyledTextMouseHandler">
+      </part>
    </extension>
 
 </plugin>

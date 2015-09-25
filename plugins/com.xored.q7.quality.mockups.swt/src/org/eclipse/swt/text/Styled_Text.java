@@ -1,16 +1,27 @@
 package org.eclipse.swt.text;
 
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.jface.layout.GridLayoutFactory;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.custom.CaretEvent;
+import org.eclipse.swt.custom.CaretListener;
 import org.eclipse.swt.custom.StyleRange;
 import org.eclipse.swt.custom.StyledText;
+import org.eclipse.swt.events.MouseAdapter;
+import org.eclipse.swt.events.MouseEvent;
+import org.eclipse.swt.events.MouseListener;
+import org.eclipse.swt.events.TouchEvent;
+import org.eclipse.swt.events.TouchListener;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.RGB;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Listener;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.text.StyledTextHandler;
 
 import com.xored.q7.quality.mockups.issues.BaseMockupPart;
 
@@ -69,7 +80,26 @@ public class Styled_Text extends BaseMockupPart {
 		t5.setText("WRAP");
 		
 		
+		StyledText t6 = new StyledText(composite, SWT.MULTI | SWT.BORDER);
+		t6.setLayoutData(new GridData(GridData.FILL_BOTH));
+		t6.setText("This is a text for testing Caret Offset");
+		CaretListener caretListener = new CaretListener() {
+			@Override
+			public void caretMoved(CaretEvent event) {
+				Shell shell = event.widget.getDisplay().getActiveShell();
+				MessageDialog.openInformation( shell, "Info", "Info for you");
+			}
+		};
+		t6.addCaretListener(caretListener);
+		
 
+		
+		StyledText t7 = new StyledText(composite, SWT.MULTI | SWT.BORDER);
+		t7.setLayoutData(new GridData(GridData.FILL_BOTH));
+		t7.setText("Handler on mouse Listener");
+		t7.addMouseListener(new StyledTextHandler(t7));
+
+		
 		return null;
 
 	}
