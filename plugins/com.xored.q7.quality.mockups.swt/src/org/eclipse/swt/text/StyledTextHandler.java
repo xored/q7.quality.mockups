@@ -21,4 +21,7 @@ public class StyledTextHandler extends MouseAdapter {
 		styledText.notifyListeners(SWT.MouseUp, null);
 	}
 
+	public void mouseUp(MouseEvent e) {
+	}
+
 }

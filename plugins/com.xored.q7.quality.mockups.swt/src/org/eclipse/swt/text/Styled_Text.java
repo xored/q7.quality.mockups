@@ -94,6 +94,12 @@ public class Styled_Text extends BaseMockupPart {
 		t7.addMouseListener(new StyledTextHandler(t7));
 
 		
+		StyledText t8 = new StyledText(composite, SWT.MULTI | SWT.BORDER);
+		t8.setLayoutData(new GridData(GridData.FILL_BOTH));
+		t8.setText("Custom Argument Handler on mouse with case e.button=SWT.KeyDown");
+		@SuppressWarnings("unused")
+		ArgumentHandler argumentHandler = new ArgumentHandler(t8);
+		
 		return null;
 
 	}
