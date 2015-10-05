@@ -24,6 +24,7 @@
 		<module>plugins/com.xored.q7.quality.mockups.emf</module>
 		<module>plugins/com.xored.q7.quality.mockups.draw2d</module>
 		<module>plugins/com.xored.q7.quality.mockups.zest</module>
+		<module>plugins/com.xored.q7.quality.mockups.nattable</module>
 		<module>features/com.xored.q7.quality.mockups-feature</module>
 		<module>repository</module>
 		<!--module>tests</module-->
@@ -33,6 +34,11 @@
 			<id>indigo</id>
 			<layout>p2</layout>
 			<url>http://download.eclipse.org/releases/indigo</url>
+		</repository>
+		<repository>
+			<id>nat-table</id>
+			<layout>p2</layout>
+			<url>http://download.eclipse.org/nattable/releases/1.3.0/repository/</url>
 		</repository>
 		<repository>
 			<id>xored-releases</id>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="com.xored.q7.quality.mockups.ui.part">
+      <part
+            category="natTable"
+            class="com.xored.q7.quality.mockups.nattable.NatTableDemo1"
+            name="NatTable-SpanningDataLayer">
+      </part>
+      <part
+            category="natTable"
+            class="com.xored.q7.quality.mockups.nattable.NatTableDemo2"
+            name="NatTable-EditableGridExample">
+      </part>
+   </extension>
+
+</plugin>
