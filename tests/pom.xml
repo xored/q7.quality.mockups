@@ -33,19 +33,22 @@
 				<extensions>true</extensions>
 				<configuration>
 					<aut>
-						<artifactId>sdk</artifactId>
+						<!--artifactId>sdk</artifactId>
 						<groupId>org.eclipse</groupId>
-						<version>3.7.2</version>
+						<version>4.5.1</version-->
+						
+						<explicit>http://download.eclipse.org/eclipse/downloads/drops4/R-4.5.1-201509040015/eclipse-SDK-4.5.1-win32-x86_64.zip</explicit>
+					
 						<injections>
 							<injection>
-								<site>http://download.eclipse.org/releases/indigo/201202240900</site>
+								<site>http://download.eclipse.org/releases/mars</site>
 								<features>
 									<feature>org.eclipse.gef</feature>
 									<feature>org.eclipse.draw2d</feature>
 								</features>
 							</injection>
 							<injection>
-								<site>http://download.eclipse.org/tools/gef/updates-pre-3_8/releases/</site>
+								<site>http://download.eclipse.org/tools/gef/updates/releases/</site>
 								<features>
 									<feature>org.eclipse.zest.feature.group</feature>
 								</features>                      

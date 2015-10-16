@@ -13,6 +13,61 @@
             class="com.xored.q7.quality.mockups.nattable.NatTableDemo2"
             name="NatTable-EditableGridExample">
       </part>
+      <part
+            category="natTable"
+            class="com.xored.q7.quality.mockups.nattable.NatTableDemoDynamicColumn"
+            name="NatTable-DynamicColumn">
+      </part>
+      <part
+            category="natTable"
+            class="com.xored.q7.quality.mockups.nattable.NatTableDemoSortableColumnGrouping"
+            name="NatTable-SortableColumnGrouping">
+      </part>
+      <part
+            category="natTable"
+            class="com.xored.q7.quality.mockups.nattable.NatTableDemoSortableFilterableColumn"
+            name="NatTable-SortableFilterableColumn">
+      </part>
+	  <part
+            category="natTable"
+            class="com.xored.q7.quality.mockups.nattable.NatTableDemoTree"
+            name="NatTable-Tree">
+      </part>
+      <part
+            category="natTable"
+            class="com.xored.q7.quality.mockups.nattable.NatTableDemoTreeWithCheckBoxes"
+            name="NatTable-TreeCheckboxes">
+      </part>
+      <part
+            category="natTable"
+            class="com.xored.q7.quality.mockups.nattable.NatTableDemoSortableGrid"
+            name="NatTable-SortableGrid">
+      </part>
+      <part
+            category="natTable"
+            class="com.xored.q7.quality.mockups.nattable.NatTableDemoFilterRowGrid"
+            name="NatTable-FilterRowGrid">
+      </part>
+      <part
+            category="natTable"
+            class="com.xored.q7.quality.mockups.nattable.NatTableDemoCustomStylingCell"
+            name="NatTable-CustomStylingCell">
+      </part>
+      <part
+            category="natTable"
+            class="com.xored.q7.quality.mockups.nattable.NatTableDemoApplyingStyleToCell"
+            name="NatTable-ApplyingStyleToCell">
+      </part>
+      <part
+            category="natTable"
+            class="com.xored.q7.quality.mockups.nattable.NatTableDemoCellPainter"
+            name="NatTable-CellPainter">
+      </part>
+      <part
+            category="natTable"
+            class="com.xored.q7.quality.mockups.nattable.NatTableDemoNebulaRichText"
+            name="NatTable-NebulaRichText">
+      </part>
    </extension>
 
 </plugin>
