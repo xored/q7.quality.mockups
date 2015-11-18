@@ -195,6 +195,12 @@
             issue="RCPTT-533"
             name="RCPTT-533_ExternaProgramImageDescriptor">
       </part>
+      <part
+            category="issues"
+            class="com.xored.q7.quality.mockups.issues.parts.RCPTT640_AsyncGUI"
+            issue="RCPTT-640"
+            name="RCPTT-640 - Handle async GUI execution">
+      </part>
    </extension>
    <extension
          point="org.eclipse.ui.contexts">
