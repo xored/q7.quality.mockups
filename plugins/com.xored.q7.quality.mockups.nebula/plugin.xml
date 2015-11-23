@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="com.xored.q7.quality.mockups.ui.part">
+      <part
+            category="nebula"
+            class="com.xored.q7.quality.mockups.nebula.GridDemo"
+            name="Nebula-Grid">
+      </part>
+   </extension>
+
+</plugin>

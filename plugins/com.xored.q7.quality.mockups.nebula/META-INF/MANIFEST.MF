@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Nebula Mockups
+Bundle-SymbolicName: com.xored.q7.quality.mockups.nebula;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: Xored Software Inc
+Require-Bundle: com.xored.q7.quality.mockups.ui;bundle-version="1.0.0",
+ org.eclipse.ui;bundle-version="3.7.0",
+ org.eclipse.nebula.widgets.grid
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
