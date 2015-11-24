@@ -27,31 +27,33 @@ public class GridDemo extends BaseMockupPart {
 		Grid grid = new Grid(content, SWT.BORDER | SWT.V_SCROLL | SWT.H_SCROLL);
 		grid.setHeaderVisible(true);
 
-		GridColumn emptyHeaderColumn = new GridColumn(grid, SWT.NONE);
-		GridColumn duplicateHeaderColumn1 = new GridColumn(grid, SWT.NONE);
-		GridColumn duplicateHeaderColumn2 = new GridColumn(grid, SWT.NONE);
-		emptyHeaderColumn.setWidth(120);
-		duplicateHeaderColumn1.setWidth(120);
-		duplicateHeaderColumn2.setWidth(120);
-		duplicateHeaderColumn1.setText("Duplicated name");
-		duplicateHeaderColumn2.setText("Duplicated name");
+		GridColumn treeColumn = new GridColumn(grid, SWT.NONE);
+		treeColumn.setWidth(120);
+		treeColumn.setText("Name");
+		treeColumn.setTree(true);
+
+		GridColumn emptyHeaderColumn = new GridColumn(grid, SWT.CHECK);
+		emptyHeaderColumn.setWidth(30);
+
+		GridColumn duplicateHeaderColumn = new GridColumn(grid, SWT.NONE);
+		duplicateHeaderColumn.setWidth(120);
+		duplicateHeaderColumn.setText("Name");
 
 		GridItem item = new GridItem(grid, SWT.NONE);
 		item.setText("Item");
 		GridItem editItem = new GridItem(grid, SWT.NONE);
 		editItem.setText("Editable Item");
 
+		GridItem childItem1 = new GridItem(item, SWT.NONE);
+		childItem1.setText("Child 1");
+		GridItem childItem2 = new GridItem(item, SWT.NONE);
+		childItem2.setText("Child 2");
+
 		GridEditor editor = new GridEditor(grid);
 		editor.grabHorizontal = true;
 		Text text = new Text(grid, SWT.NONE);
 		text.setText("Editable");
-		editor.setEditor(text, editItem, 1);
-
-		GridEditor editor2 = new GridEditor(grid);
-		editor2.grabHorizontal = true;
-		Text text2 = new Text(grid, SWT.NONE);
-		text2.setText("Editable 2");
-		editor2.setEditor(text2, editItem, 2);
+		editor.setEditor(text, editItem, 2);
 
 		GridDataFactory.fillDefaults().grab(true, true).applyTo(grid);
 		return content;
