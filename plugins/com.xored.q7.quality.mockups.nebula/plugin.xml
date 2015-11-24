@@ -8,6 +8,11 @@
             class="com.xored.q7.quality.mockups.nebula.GridDemo"
             name="Nebula-Grid">
       </part>
+      <part
+            category="nebula"
+            class="com.xored.q7.quality.mockups.nebula.TwoGrids"
+            name="Nebula-TwoGrids">
+      </part>
    </extension>
 
 </plugin>
