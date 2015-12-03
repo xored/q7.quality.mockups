@@ -8,6 +8,7 @@ import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
@@ -17,6 +18,7 @@ import com.xored.q7.quality.mockups.issues.BaseMockupPart;
 
 public class MessageBoxTest extends BaseMockupPart {
 
+	@Override
 	public Control construct(Composite parent) {
 		final Composite composite = new Composite(parent, SWT.NONE);
 		GridDataFactory.swtDefaults().align(SWT.FILL, SWT.FILL)
@@ -30,6 +32,7 @@ public class MessageBoxTest extends BaseMockupPart {
 		button.setBounds(2, 30, 100, 30);
 
 		button.addSelectionListener(new SelectionAdapter() {
+			@Override
 			public void widgetSelected(SelectionEvent e) {
 				MessageBox mb = new MessageBox(shell, SWT.NONE | SWT.ICON_INFORMATION | SWT.OK);
 				mb.setMessage("This MessageBox with simple text");
@@ -48,6 +51,7 @@ public class MessageBoxTest extends BaseMockupPart {
 		t.setBounds(80, 2, 300, 20);
 
 		button2.addSelectionListener(new SelectionAdapter() {
+			@Override
 			public void widgetSelected(SelectionEvent e) {
 				MessageBox mb = new MessageBox(shell, SWT.NONE | SWT.ICON_QUESTION | SWT.OK | SWT.CANCEL);
 				mb.setText("Question");
@@ -67,6 +71,7 @@ public class MessageBoxTest extends BaseMockupPart {
 		button3.setBounds(80, 2, 300, 20);
 
 		button3.addSelectionListener(new SelectionAdapter() {
+			@Override
 			public void widgetSelected(SelectionEvent e) {
 				MessageBox mb = new MessageBox(shell, SWT.NONE | SWT.ICON_ERROR | SWT.ABORT | SWT.RETRY | SWT.IGNORE);
 				mb.setText("Error");
@@ -87,6 +92,7 @@ public class MessageBoxTest extends BaseMockupPart {
 		button4.setBounds(80, 2, 300, 20);
 
 		button4.addSelectionListener(new SelectionAdapter() {
+			@Override
 			public void widgetSelected(SelectionEvent e) {
 				MessageBox mb = new MessageBox(shell, SWT.NONE | SWT.ICON_WARNING | SWT.YES | SWT.NO);
 				mb.setText("Warning");
@@ -96,6 +102,41 @@ public class MessageBoxTest extends BaseMockupPart {
 					t.setText("Press YES");
 				if (response == SWT.NO)
 					t.setText("Press NO");
+			}
+
+		});
+
+		Button button5 = new Button(composite, SWT.PUSH);
+		button5.setText("Delayed message from background thread");
+		button5.setBounds(80, 2, 300, 20);
+
+		final Display display = Display.getCurrent();
+		button5.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				new Thread(new Runnable() {
+					@Override
+					public void run() {
+						try {
+							Thread.sleep(2000);
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+						}
+						display.asyncExec(new Runnable() {
+							@Override
+							public void run() {
+								MessageBox mb = new MessageBox(shell, SWT.NONE | SWT.ICON_WARNING | SWT.YES | SWT.NO);
+								mb.setText("Warning");
+								mb.setMessage("Will you press the \"No\" button?");
+								int response = mb.open();
+								if (response == SWT.YES)
+									t.setText("Press YES");
+								if (response == SWT.NO)
+									t.setText("Press NO");
+							}
+						});
+					}
+				}).start();
 			}
 
 		});
