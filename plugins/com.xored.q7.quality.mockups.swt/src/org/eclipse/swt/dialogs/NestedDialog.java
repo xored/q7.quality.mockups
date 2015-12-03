@@ -18,6 +18,7 @@ import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 
@@ -132,6 +133,27 @@ public class NestedDialog extends BaseMockupPart {
 				}
 			};
 		}
+
+		Builder asyncDelayed(final Display display) {
+			final Runnable temp = this;
+			return new Builder() {
+				@Override
+				public void run() {
+					new Thread(new Runnable() {
+						@Override
+						public void run() {
+							try {
+								Thread.sleep(2000);
+							} catch (InterruptedException e) {
+								e.printStackTrace();
+							}
+							display.asyncExec(temp);
+						}
+					}).start();
+				}
+			};
+		}
+
 		@Override
 		public void run() {
 		}
@@ -169,6 +191,9 @@ public class NestedDialog extends BaseMockupPart {
 		createButton(parent, "Simple wizard with sync WorkspaceJob confirmation",
 				new Builder().question("Workspace question")
 						.sync().workspaceJob().wizard("Workspace wizard"));
+		createButton(parent, "Simple wizard with delayed async workspace confirmation",
+				new Builder().question("Workspace question")
+						.workspace().asyncDelayed(Display.getCurrent()).wizard("Workspace wizard"));
 		return null;
 	}
 
