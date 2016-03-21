@@ -349,6 +349,11 @@
             class="org.eclipse.swt.table.TableWithEmptyColumns"
             name="TableWithEmptyColumns">
       </part>
+        <part
+            category="swt.table"
+            class="org.eclipse.swt.table.TableWithColumnMenu"
+            name="TableWithColumnMenu">
+      </part>
       <part
             category="swt.tree"
             class="com.xored.q7.quality.mockups.swt.tree.TreeWithStyledText"
