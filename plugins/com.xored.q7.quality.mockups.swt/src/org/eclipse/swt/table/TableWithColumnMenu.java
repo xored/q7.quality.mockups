@@ -22,7 +22,6 @@ import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Tree;
 
-import com.sun.glass.ui.mac.MacFileNSURL;
 import com.xored.q7.quality.mockups.issues.BaseMockupPart;
 
 public class TableWithColumnMenu extends BaseMockupPart {
