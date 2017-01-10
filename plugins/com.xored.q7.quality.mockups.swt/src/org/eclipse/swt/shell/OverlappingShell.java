@@ -1,5 +1,16 @@
 package org.eclipse.swt.shell;
 
+import java.util.Collections;
+
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
+import org.eclipse.core.runtime.jobs.Job;
+import org.eclipse.jface.layout.GridDataFactory;
+import org.eclipse.jface.viewers.ColumnLabelProvider;
+import org.eclipse.jface.viewers.LabelProvider;
+import org.eclipse.jface.viewers.TreeViewer;
+import org.eclipse.jface.viewers.TreeViewerColumn;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.DisposeEvent;
 import org.eclipse.swt.events.DisposeListener;
@@ -11,10 +22,14 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Shell;
 
 import com.xored.q7.quality.mockups.issues.BaseMockupPart;
+import com.xored.q7.quality.mockups.issues.internal.SampleTreeContentProvider;
+import com.xored.q7.quality.mockups.issues.internal.SampleTreeNode;
 
 public class OverlappingShell extends BaseMockupPart {
 
 	private Shell shell = null;
+	private TreeViewer viewer = null; 
+	
 	@Override
 	public Control construct(final Composite parent) {
 		Button openButton = new Button(parent, SWT.NONE);
@@ -39,7 +54,27 @@ public class OverlappingShell extends BaseMockupPart {
 				closeShell();
 			}
 		});
-		
+		viewer = new TreeViewer(parent, SWT.FULL_SELECTION);
+		GridDataFactory.fillDefaults().grab(true, false).applyTo(viewer.getTree());
+		viewer.setLabelProvider(new LabelProvider());
+		viewer.setContentProvider(new SampleTreeContentProvider());
+		TreeViewerColumn column = new TreeViewerColumn(viewer, SWT.FILL);
+		column.getColumn().setWidth(100);
+		column.setLabelProvider(new ColumnLabelProvider(){
+			@Override
+			public String getText(Object element) {
+				return ((SampleTreeNode)element).column1;
+			}
+		});
+		column = new TreeViewerColumn(viewer, SWT.FILL);
+		column.getColumn().setWidth(100);
+		column.setLabelProvider(new ColumnLabelProvider(){
+			@Override
+			public String getText(Object element) {
+				return ((SampleTreeNode)element).column2;
+			}
+		});
+		viewer.setInput(Collections.emptyList());
 		return null;
 	}
 
@@ -48,6 +83,7 @@ public class OverlappingShell extends BaseMockupPart {
 			this.shell.dispose();
 			this.shell = null;
 		}
+		viewer.setInput(Collections.emptyList());
 	}
 
 	protected void createShell(Shell origin) {
@@ -57,5 +93,22 @@ public class OverlappingShell extends BaseMockupPart {
 		newShell.setMaximized(true);
 		this.shell = newShell; 
 		shell.open();
+		new Job("Updating tree content") {
+			@Override
+			protected IStatus run(IProgressMonitor monitor) {
+				shell.getDisplay().asyncExec(new Runnable() {
+					
+					@Override
+					public void run() {
+						updateTreeContent();
+					}
+				});
+				return Status.OK_STATUS;
+			}
+		}.schedule();
+	}
+	
+	private void updateTreeContent() {
+		viewer.setInput(SampleTreeNode.createSample());
 	}
 }
