@@ -442,6 +442,7 @@
       <part
             category="swt.shell"
             class="org.eclipse.swt.shell.OverlappingShell"
+            issue="ADI-10"
             name="Overlapping Shell tools">
       </part>
    </extension>
