@@ -17,6 +17,7 @@
       <part
             category="swt.table"
             class="com.xored.q7.quality.mockups.swt.table.DialogCellEditMouseListenerPart"
+            issue="ADI-10"
             name="Dialog CellEdit Mouse Listener Table Test">
       </part>
       <part
@@ -437,6 +438,11 @@
             category="jface.tooltip"
             class="com.eclipse.jface.tooltip.TreeWithTooltipSupport"
             name="TreeWithTooltipSupport">
+      </part>
+      <part
+            category="swt.shell"
+            class="org.eclipse.swt.shell.OverlappingShell"
+            name="Overlapping Shell tools">
       </part>
    </extension>
 
