@@ -7,7 +7,7 @@ Element-Version: 3.0
 External-Reference: 
 Id: _JfMAcNcbEeaScIX8fKgtPQ
 Runtime-Version: 2.2.0.201701100637
-Save-Time: 1/10/17 5:01 PM
+Save-Time: 1/10/17 5:16 PM
 Testcase-Type: ecl
 
 ------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
@@ -25,9 +25,9 @@ Content-Type: text/ecl
 Entry-Name: .content
 
 with [get-view "Q7 Quality Mockups"] {
-    get-tree | select "swt/shell/com.xored.q7.quality.mockups.swt.OverlappingShell"
-    get-group "com.xored.q7.quality.mockups.swt.OverlappingShell" | get-button "Create shell" | click
+    get-tree | select "swt/shell/Overlapping Shell tools"
+    get-group "Overlapping Shell tools" | get-button "Create shell" | click
 }
-get-view "Q7 Quality Mockups" | get-group "com.xored.q7.quality.mockups.swt.OverlappingShell" 
+get-view "Q7 Quality Mockups" | get-group "Overlapping Shell tools" 
     | get-button "Close shell" | click
 ------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
