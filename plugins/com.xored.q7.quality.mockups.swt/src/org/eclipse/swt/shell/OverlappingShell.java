@@ -2,10 +2,6 @@ package org.eclipse.swt.shell;
 
 import java.util.Collections;
 
-import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.Status;
-import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.jface.viewers.ColumnLabelProvider;
 import org.eclipse.jface.viewers.LabelProvider;
@@ -22,7 +18,6 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Shell;
 
 import com.xored.q7.quality.mockups.issues.BaseMockupPart;
-import com.xored.q7.quality.mockups.issues.internal.SampleTreeContentProvider;
 import com.xored.q7.quality.mockups.issues.internal.SampleTreeNode;
 
 public class OverlappingShell extends BaseMockupPart {
@@ -54,10 +49,11 @@ public class OverlappingShell extends BaseMockupPart {
 				closeShell();
 			}
 		});
-		viewer = new TreeViewer(parent, SWT.FULL_SELECTION);
+		viewer = new TreeViewer(parent, SWT.FULL_SELECTION|SWT.VIRTUAL);
+		viewer.setUseHashlookup(true);
 		GridDataFactory.fillDefaults().grab(true, false).applyTo(viewer.getTree());
 		viewer.setLabelProvider(new LabelProvider());
-		viewer.setContentProvider(new SampleTreeContentProvider());
+		viewer.setContentProvider(new LazyTreePathContentProvider());
 		TreeViewerColumn column = new TreeViewerColumn(viewer, SWT.FILL);
 		column.getColumn().setWidth(100);
 		column.setLabelProvider(new ColumnLabelProvider(){
@@ -93,22 +89,23 @@ public class OverlappingShell extends BaseMockupPart {
 		newShell.setMaximized(true);
 		this.shell = newShell; 
 		shell.open();
-		new Job("Updating tree content") {
-			@Override
-			protected IStatus run(IProgressMonitor monitor) {
-				shell.getDisplay().asyncExec(new Runnable() {
-					
-					@Override
-					public void run() {
-						updateTreeContent();
-					}
-				});
-				return Status.OK_STATUS;
-			}
-		}.schedule();
+		viewer.setInput(SampleTreeNode.createSample());
+//		new Job("Updating tree content") {
+//			@Override
+//			protected IStatus run(IProgressMonitor monitor) {
+//				shell.getDisplay().asyncExec(new Runnable() {
+//					
+//					@Override
+//					public void run() {
+//						updateTreeContent();
+//					}
+//				});
+//				return Status.OK_STATUS;
+//			}
+//		}.schedule();
 	}
 	
-	private void updateTreeContent() {
-		viewer.setInput(SampleTreeNode.createSample());
-	}
+//	private void updateTreeContent() {
+//		viewer.setInput(SampleTreeNode.createSample());
+//	}
 }
