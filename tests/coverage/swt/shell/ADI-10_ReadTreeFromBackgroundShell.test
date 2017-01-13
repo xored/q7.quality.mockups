@@ -7,7 +7,7 @@ Element-Version: 3.0
 External-Reference: 
 Id: _c4hoINclEeaScIX8fKgtPQ
 Runtime-Version: 2.2.0.201701100637
-Save-Time: 1/11/17 1:50 PM
+Save-Time: 1/12/17 6:08 PM
 Testcase-Type: ecl
 
 ------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
@@ -28,7 +28,8 @@ with [get-view "Q7 Quality Mockups"] {
     get-tree | select "swt/shell/Overlapping Shell tools"
     with [get-group "Overlapping Shell tools"] {
         get-button "Create shell" | click
-        get-tree | get-item -path "root2" | get-property childCount | equals 2 | verify-true
+        click
+        get-tree | get-item -path "root2/child5" | get-property childCount | equals 1 | verify-true
         get-tree | select "root2/child5/child6"
     }
 }
