@@ -2,7 +2,9 @@ package org.eclipse.swt.shell;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
+import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 import org.eclipse.jface.viewers.ILazyTreePathContentProvider;
@@ -13,8 +15,15 @@ import org.eclipse.jface.viewers.Viewer;
 import com.xored.q7.quality.mockups.issues.internal.SampleTreeNode;
 
 public final class LazyTreePathContentProvider implements ILazyTreePathContentProvider {
-	private List<SampleTreeNode> input = Collections.emptyList();
-	private Optional<TreeViewer> viewerOptional = Optional.empty();
+	private volatile List<SampleTreeNode> input = Collections.emptyList();
+	private volatile Optional<TreeViewer> viewerOptional = Optional.empty();
+	
+	private final Consumer<Runnable> executor;
+	
+	public LazyTreePathContentProvider(Consumer<Runnable> executor) {
+		super();
+		this.executor = Objects.requireNonNull(executor);
+	}
 
 	@Override
 	public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
@@ -27,9 +36,15 @@ public final class LazyTreePathContentProvider implements ILazyTreePathContentPr
 			.collect(Collectors.toList());
 	}
 
+	private void execute(Consumer<TreeViewer> operation) {
+		executor.accept(() -> {
+			viewerOptional.ifPresent(operation);
+		});
+	}
+	
 	@Override
 	public void updateElement(TreePath parentPath, int index) {
-		viewerOptional.ifPresent(viewer -> {
+		execute(viewer -> {
 			List<SampleTreeNode> children = getChildren(parentPath);
 			if (index < children.size()) {
 				SampleTreeNode child = children.get(index);
@@ -41,7 +56,7 @@ public final class LazyTreePathContentProvider implements ILazyTreePathContentPr
 
 	@Override
 	public void updateChildCount(TreePath treePath, int currentChildCount) {
-		viewerOptional.ifPresent(viewer -> {
+		execute(viewer -> {
 			int count = getChildren(treePath).size();
 			viewer.setChildCount(treePath, count);
 		});
@@ -49,7 +64,7 @@ public final class LazyTreePathContentProvider implements ILazyTreePathContentPr
 
 	@Override
 	public void updateHasChildren(TreePath path) {
-		viewerOptional.ifPresent(viewer -> {
+		execute(viewer -> {
 			int count = getChildren(path).size();
 			viewer.setHasChildren(path, count > 0);
 		});
