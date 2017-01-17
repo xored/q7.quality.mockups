@@ -5,7 +5,6 @@ import java.util.Collections;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
-import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.jface.viewers.ColumnLabelProvider;
 import org.eclipse.jface.viewers.LabelProvider;
@@ -20,6 +19,7 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.progress.UIJob;
 
 import com.xored.q7.quality.mockups.issues.BaseMockupPart;
 import com.xored.q7.quality.mockups.issues.internal.SampleTreeNode;
@@ -58,9 +58,9 @@ public class OverlappingShell extends BaseMockupPart {
 		GridDataFactory.fillDefaults().grab(true, false).applyTo(viewer.getTree());
 		viewer.setLabelProvider(new LabelProvider());
 		viewer.setContentProvider(new LazyTreePathContentProvider(operation -> {
-			new Job("updating") {
+			new UIJob("updating") {
 				@Override
-				protected IStatus run(IProgressMonitor monitor) {
+				public IStatus runInUIThread(IProgressMonitor monitor) {
 					operation.run();
 					return Status.OK_STATUS;
 				}
