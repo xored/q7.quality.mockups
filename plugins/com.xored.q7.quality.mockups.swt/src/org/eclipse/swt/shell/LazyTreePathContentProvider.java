@@ -26,8 +26,11 @@ public final class LazyTreePathContentProvider implements ILazyTreePathContentPr
 	}
 
 	@Override
-	public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
+	public final void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
 		this.viewerOptional = Optional.ofNullable((TreeViewer) viewer);
+		viewer.getControl().addDisposeListener(ignored -> {
+			viewerOptional = Optional.empty();
+		});
 		input = Optional.ofNullable((List<?>)newInput)
 			.orElse(Collections.emptyList())
 			.stream()
@@ -38,12 +41,14 @@ public final class LazyTreePathContentProvider implements ILazyTreePathContentPr
 
 	private void execute(Consumer<TreeViewer> operation) {
 		executor.accept(() -> {
-			viewerOptional.ifPresent(operation);
+			viewerOptional
+				.filter(viewer -> !viewer.getControl().isDisposed())
+				.ifPresent(operation);
 		});
 	}
 	
 	@Override
-	public void updateElement(TreePath parentPath, int index) {
+	public final void updateElement(TreePath parentPath, int index) {
 		execute(viewer -> {
 			List<SampleTreeNode> children = getChildren(parentPath);
 			if (index < children.size()) {
@@ -55,7 +60,7 @@ public final class LazyTreePathContentProvider implements ILazyTreePathContentPr
 	}
 
 	@Override
-	public void updateChildCount(TreePath treePath, int currentChildCount) {
+	public final void updateChildCount(TreePath treePath, int currentChildCount) {
 		execute(viewer -> {
 			int count = getChildren(treePath).size();
 			viewer.setChildCount(treePath, count);
@@ -63,7 +68,7 @@ public final class LazyTreePathContentProvider implements ILazyTreePathContentPr
 	}
 
 	@Override
-	public void updateHasChildren(TreePath path) {
+	public final void updateHasChildren(TreePath path) {
 		execute(viewer -> {
 			int count = getChildren(path).size();
 			viewer.setHasChildren(path, count > 0);
@@ -71,7 +76,7 @@ public final class LazyTreePathContentProvider implements ILazyTreePathContentPr
 	}
 
 	@Override
-	public TreePath[] getParents(Object element) {
+	public final TreePath[] getParents(Object element) {
 		if (element instanceof SampleTreeNode) {
 			return new TreePath[]{getParentPath((SampleTreeNode) element)};
 		} 
