@@ -19,6 +19,12 @@
             class="org.eclipse.platform.resources.HangingJobPart"
             name="Hanging Jobs">
       </part>
+      <part
+            category="issues.customer.intersystems"
+            class="com.xored.q7.quality.mockups.jobs.JobAndAsyncMix"
+            issue="https://github.com/intersystems/Atelier/issues/2230"
+            name="Job and async mix">
+      </part>
    </extension>
 
 </plugin>

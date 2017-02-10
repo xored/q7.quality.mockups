@@ -6,8 +6,8 @@ Element-Type: testcase
 Element-Version: 3.0
 External-Reference: http://jira4.xored.com/browse/QS-2530
 Id: _VH8hkbYhEeKqqemODfr8hQ
-Runtime-Version: 2.1.0.201511240016
-Save-Time: 11/25/15 12:18 PM
+Runtime-Version: 2.2.0.201608180542
+Save-Time: 1/9/17 6:44 PM
 Testcase-Type: ecl
 
 ------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
@@ -21,7 +21,7 @@ Content-Type: text/ecl
 Entry-Name: .content
 
 get-menu "File/Switch Workspace/Other..." | click
-with [get-window "Workspace Launcher"] {
+with [get-window "Eclipse Launcher"] {
     with [get-section "Copy Settings"] {
         get-button "Workbench Layout" | check
         get-button "Working Sets" | check
