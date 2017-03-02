@@ -38,7 +38,7 @@ public class RangeSplit extends BaseMockupPart {
 	public Control construct(Composite parent) {
 		StyledText t1 = new StyledText(parent, SWT.MULTI | SWT.BORDER | SWT.WRAP);
 		GridDataFactory.fillDefaults().grab(true, true).applyTo(t1);
-		t1.setText("This text contains multiple style ranges with same parameters. On some platforms such style ranges are squashed. For consistency, RCPTT have to explicitly squash them every time.");
+		t1.setText("This\n text contains multiple style ranges with same parameters. On some platforms such style ranges are squashed. For consistency, RCPTT have to explicitly squash them every time.");
 		Ranger r = new Ranger(t1);
 		r.createStyleRange(2);
 		r.createStyleRange(3);
