@@ -445,6 +445,12 @@
             issue="ADI-10"
             name="Overlapping Shell tools">
       </part>
+      <part
+            category="swt.text"
+            class="org.eclipse.swt.text.RangeSplit"
+            issue="ADI-106"
+            name="RangeSplit">
+      </part>
    </extension>
 
 </plugin>
