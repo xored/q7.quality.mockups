@@ -1,0 +1,27 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Contexts: _2jXpEHTyEeKQnp4qYEvDRA
+Element-Name: Custom EditPart Identification
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _MxQDoKD5EeeMvuHNiFOJAQ
+Runtime-Version: 2.3.0.qualifier
+Save-Time: 9/25/17 8:44 PM
+Testcase-Type: ecl
+
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+set-q7-option identifyByClassMethods "ContainerEditPart:getModel().id,ComponentEditPart:getModel().id"
+get-view "Q7 Quality Mockups" | get-tree | select "draw2d/Diagram With Custom Id"
+with [get-view "Q7 Quality Mockups" | get-group "Diagram With Custom Id" | get-diagram | get-edit-part -customId "container-01"] {
+    get-edit-part -customId "component-01" | assert-non-empty
+    get-edit-part -customId "component-02" | assert-non-empty
+}
+
+set-q7-option identifyByClassMethods ""
+get-view "Q7 Quality Mockups" | get-group "Diagram With Custom Id" | get-diagram | verify-error { get-edit-part -customId "container-01" }
+
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
