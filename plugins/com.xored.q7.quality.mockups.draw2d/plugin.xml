@@ -21,6 +21,12 @@
             name="Diagram Item With Image">
       </part>
       
+      <part
+            category="draw2d"
+            class="com.xored.q7.quality.mockups.draw2d.DiagramWithCustomId"
+            name="Diagram With Custom Id">
+      </part>
+      
    </extension>
 
 </plugin>
