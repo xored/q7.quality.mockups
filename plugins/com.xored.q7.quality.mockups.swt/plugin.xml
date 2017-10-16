@@ -251,6 +251,11 @@
             name="MenuBarTest">
       </part>
       <part
+            category="swt.menu"
+            class="org.eclipse.swt.menu.MenuWithNonUniqueItems"
+            name="MenuWithNonUniqueItems Test">
+      </part>
+      <part
             category="swt.toolbar"
             class="org.eclipse.swt.toolbar.ToolBarWithDropDown"
             name="ToolBarWithDropDown Test">
