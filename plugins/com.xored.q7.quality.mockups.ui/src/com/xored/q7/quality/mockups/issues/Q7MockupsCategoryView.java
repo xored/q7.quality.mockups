@@ -34,8 +34,9 @@ public class Q7MockupsCategoryView extends ViewPart implements ISelectionProvide
 	public void createPartControl(Composite parent) {
 		getSite().setSelectionProvider(this);
 
+		GridLayoutFactory.fillDefaults().applyTo(parent);
+
 		FormToolkit toolkit = new FormToolkit(parent.getDisplay());
-		GridDataFactory.fillDefaults().grab(true, true).applyTo(parent);
 		ScrolledForm form = toolkit.createScrolledForm(parent);
 		GridDataFactory.fillDefaults().grab(true, true).applyTo(form);
 		ToolBarManager manager = (ToolBarManager) form.getToolBarManager();

@@ -78,7 +78,8 @@ public class FormToolkitTest extends BaseMockupPart {
 			}
 		});
 
-		final Tree tree1 = toolkit.createTree(form.getBody(), SWT.BORDER
+		final Composite composite = toolkit.createComposite(form.getBody());
+		final Tree tree1 = toolkit.createTree(composite, SWT.BORDER
 				| SWT.VIRTUAL | SWT.FULL_SELECTION);
 		// tree1.setLayout(new FillLayout());
 		tree1.setBounds(10, 60, 500, 600);
