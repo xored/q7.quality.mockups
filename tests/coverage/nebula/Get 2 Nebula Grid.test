@@ -1,0 +1,28 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Element-Name: Get 2 Nebula Grid
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _WW8xsGp4EemfG6ICIaSmXw
+Runtime-Version: 2.4.2.201904291036
+Save-Time: 4/29/19 7:15 PM
+Testcase-Type: ecl
+
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+with [get-view "Q7 Quality Mockups"] {
+    get-tree | select "nebula/Nebula-TwoGrids"
+    with [get-group "Nebula-TwoGrids"] {
+        with [get-nebula-grid] {
+            get-item -path Item | get-item-cell -column Name | double-click
+        }
+        with [get-nebula-grid -index 1] {
+            select "Item in Grid 2"
+            get-item -path "Item in Grid 2" | check
+        }
+    }
+}
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
