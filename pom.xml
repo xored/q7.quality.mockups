@@ -6,7 +6,7 @@
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<properties>
-		<tycho-version>0.22.0</tycho-version>
+		<tycho-version>1.3.0</tycho-version>
 		<tycho-groupid>org.eclipse.tycho</tycho-groupid>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<aspectj_version>1.4</aspectj_version>
@@ -25,6 +25,7 @@
 		<module>plugins/com.xored.q7.quality.mockups.draw2d</module>
 		<module>plugins/com.xored.q7.quality.mockups.zest</module>
 		<module>plugins/com.xored.q7.quality.mockups.nattable</module>
+		<module>plugins/com.xored.q7.quality.mockups.nebula</module>
 		<module>features/com.xored.q7.quality.mockups-feature</module>
 		<module>repository</module>
 		<!--module>tests</module-->
