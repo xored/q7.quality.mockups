@@ -65,10 +65,19 @@
          install-size="0"
          version="0.0.0"
          unpack="false"/>
+
    <plugin
          id="com.xored.q7.quality.mockups.nattable"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
+
+   <plugin
+         id="com.xored.q7.quality.mockups.nebula"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
 </feature>
