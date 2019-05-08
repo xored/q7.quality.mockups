@@ -52,6 +52,12 @@
 								</features>                      
 							</injection>
 							<injection>
+								<site>http://download.eclipse.org/nebula/snapshot</site>
+								<features>
+									<feature>org.eclipse.nebula.widgets.grid</feature>
+								</features>                      
+							</injection>
+							<injection>
 								<site>${mockupsRepository}</site>
 							</injection>
 						</injections>
