@@ -11,9 +11,9 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<aspectj_version>1.4</aspectj_version>
 		<aspectj_dep>1.7.0</aspectj_dep>
-		<q7-maven-version>2.4.2-SNAPSHOT</q7-maven-version>
+		<q7-maven-version>2.5.0-SNAPSHOT</q7-maven-version>
 		<q7-maven-group>org.eclipse.rcptt</q7-maven-group>
-		<q7-runner-version>2.4.2-SNAPSHOT</q7-runner-version>
+		<q7-runner-version>2.5.0-SNAPSHOT</q7-runner-version>
 		<mockupsRepository>file:/${basedir}/../repository/target/repository</mockupsRepository>
 	</properties>
 	<modules>
