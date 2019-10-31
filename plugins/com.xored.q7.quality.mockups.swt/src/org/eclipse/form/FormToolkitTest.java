@@ -2,6 +2,10 @@ package org.eclipse.form;
 
 import org.eclipse.jface.action.Action;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.DisposeEvent;
+import org.eclipse.swt.events.DisposeListener;
+import org.eclipse.swt.events.MouseAdapter;
+import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
@@ -19,6 +23,7 @@ import org.eclipse.swt.widgets.MenuItem;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.swt.widgets.TreeItem;
+import org.eclipse.swt.widgets.Widget;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.Hyperlink;
 import org.eclipse.ui.forms.widgets.ScrolledForm;
@@ -30,8 +35,6 @@ public class FormToolkitTest extends BaseMockupPart {
 	@SuppressWarnings("unused")
 	@Override
 	public Control construct(Composite parent) {
-		// TODO Auto-generated method stub
-
 		/**
 		 * The constructor.
 		 */
@@ -44,33 +47,39 @@ public class FormToolkitTest extends BaseMockupPart {
 		form.setFocus();
 		form.getBody().setLayout(new GridLayout());
 
-		Button button = toolkit.createButton(form.getBody(), "Test button",
-				SWT.NULL);
-		final Label label1 = toolkit.createLabel(form.getBody(), "Test label",
-				SWT.NONE);
-		// Boolean f = label1.getVisible();
-		// System.out.print(f);
+		view.getViewSite().getActionBars().getStatusLineManager().setMessage(null);
+		setClearStatusLineOnDispose(form);
+
+		Button button = toolkit.createButton(form.getBody(), "Test button", SWT.NULL);
+		final Label labelA = toolkit.createLabel(form.getBody(), "Label for mouse clicking test", SWT.NONE);
+		final Label labelB = toolkit.createLabel(form.getBody(), "Test label", SWT.NONE);
+
 		button.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent e) {
-				// TODO Auto-generated method stub
-				label1.setText("Pressing on the button");
+				labelB.setText("Button pressed. SelectionListener.widgetSelected called. StateMask: " + String.valueOf(e.stateMask));
+				labelB.setSize(500, 18);
 				// label1.setBounds(10, 25, 200, 25);
 			}
 		});
 
+		addMouseListener(button, "Button", button.getText());
+		addMouseListener(labelA, "Label", labelA.getText());
+
 		final Text tt = toolkit.createText(form.getBody(), "test");
 
-		Hyperlink link = toolkit.createHyperlink(form.getBody(), "Test link",
-				SWT.NONE);
+		Hyperlink link = toolkit.createHyperlink(form.getBody(), "Test link", SWT.NONE);
+
 		link.addListener(SWT.PUSH, new Listener() {
 			public void handleEvent(Event event) {
 				// System.out.println("Selection: " + event.text);
 				tt.setBackground(customColor2);
 				// tt.setBounds(10, 100, 200, 100);
 				tt.setText("hyperlink");
-
+				tt.setSize(100, 18);
 			}
 		});
+
+		addMouseListener(link, "Hyperlink", link.getText());
 
 		// tool bar
 		form.getToolBarManager().add(new Action("TEST") {
@@ -107,15 +116,12 @@ public class FormToolkitTest extends BaseMockupPart {
 		item.addSelectionListener(new SelectionListener() {
 
 			public void widgetSelected(SelectionEvent e) {
-				// TODO Auto-generated method stub
 				tt.setText("MenuItem");
 
 			}
 
 			public void widgetDefaultSelected(SelectionEvent e) {
-				// TODO Auto-generated method stub
 				tt.setText("MenuItem");
-
 			}
 		});
 
@@ -128,4 +134,32 @@ public class FormToolkitTest extends BaseMockupPart {
 		return null;
 	}
 
+	private void addMouseListener(Control control, String type, String name) {
+		control.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseDown(MouseEvent e) {
+				StringBuilder sb = new StringBuilder();
+				sb.append(type).append(" \"").append(name).append("\" clicked. MouseButton: ").append(e.button)
+						.append(". StateMask: ").append(e.stateMask);
+				view.getViewSite().getActionBars().getStatusLineManager().setMessage(sb.toString());
+			}
+
+			@Override
+			public void mouseDoubleClick(MouseEvent e) {
+				StringBuilder sb = new StringBuilder();
+				sb.append(type).append(" \"").append(name).append("\" double-clicked. MouseButton: ").append(e.button)
+						.append(". StateMask: ").append(e.stateMask);
+				view.getViewSite().getActionBars().getStatusLineManager().setMessage(sb.toString());
+			}
+		});
+	}
+
+	private void setClearStatusLineOnDispose(Widget widget) {
+		widget.addDisposeListener(new DisposeListener() {
+			@Override
+			public void widgetDisposed(DisposeEvent e) {
+				view.getViewSite().getActionBars().getStatusLineManager().setMessage(null);
+			}
+		});
+	}
 }
