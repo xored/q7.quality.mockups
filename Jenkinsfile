@@ -1,7 +1,7 @@
 pipeline {
   agent {
     kubernetes {
-      label 'rcptt-mockups-build-agent'
+      label 'rcptt-mockups-agent'
       yaml """
 apiVersion: v1
 kind: Pod
@@ -17,6 +17,9 @@ spec:
       requests:
         memory: "2Gi"
         cpu: "1"
+    env:
+    - name: "MAVEN_OPTS"
+      value: "-Duser.home=/home/jenkins"
     volumeMounts:
     - name: settings-xml
       mountPath: /home/jenkins/.m2/settings.xml
