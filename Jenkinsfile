@@ -1,7 +1,7 @@
 pipeline {
   agent {
     kubernetes {
-      label 'rcptt-mockups-agent'
+      label 'rcptt-build-and-deploy-agent'
       yaml """
 apiVersion: v1
 kind: Pod
@@ -12,10 +12,10 @@ spec:
     tty: true
     resources:
       limits:
-        memory: "2Gi"
+        memory: "4Gi"
         cpu: "1"
       requests:
-        memory: "2Gi"
+        memory: "4Gi"
         cpu: "1"
     env:
     - name: "MAVEN_OPTS"
@@ -29,12 +29,20 @@ spec:
       mountPath: /home/jenkins/.m2/toolchains.xml
       subPath: toolchains.xml
       readOnly: true
+    - name: settings-security-xml
+      mountPath: /home/jenkins/.m2/settings-security.xml
+      subPath: settings-security.xml
+      readOnly: true
     - name: m2-repo
       mountPath: /home/jenkins/.m2/repository
+  - name: jnlp
+    volumeMounts:
+    - name: volume-known-hosts
+      mountPath: /home/jenkins/.ssh
   volumes:
   - name: settings-xml
-    configMap: 
-      name: m2-dir
+    secret:
+      secretName: m2-secret-dir
       items:
       - key: settings.xml
         path: settings.xml
@@ -44,8 +52,17 @@ spec:
       items:
       - key: toolchains.xml
         path: toolchains.xml
+  - name: settings-security-xml
+    secret:
+      secretName: m2-secret-dir
+      items:
+      - key: settings-security.xml
+        path: settings-security.xml
   - name: m2-repo
     emptyDir: {}
+  - name: volume-known-hosts
+    configMap:
+      name: known-hosts
 """
     }
   }
