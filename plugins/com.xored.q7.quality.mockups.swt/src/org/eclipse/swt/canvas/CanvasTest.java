@@ -1,8 +1,13 @@
 package org.eclipse.swt.canvas;
 
+
 import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.jface.layout.GridLayoutFactory;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.DisposeEvent;
+import org.eclipse.swt.events.DisposeListener;
+import org.eclipse.swt.events.MouseAdapter;
+import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.events.PaintEvent;
 import org.eclipse.swt.events.PaintListener;
 import org.eclipse.swt.graphics.Rectangle;
@@ -17,19 +22,38 @@ public class CanvasTest extends BaseMockupPart {
 
 	@Override
 	public Control construct(Composite parent) {
-		// TODO Auto-generated method stub
 
 		// Composite composite = new Composite(parent, SWT.NONE);
 		Canvas canvas = new Canvas(parent, SWT.BORDER);
 		GridLayoutFactory.swtDefaults().numColumns(1).applyTo(parent);
-		GridDataFactory.swtDefaults().align(SWT.FILL, SWT.FILL)
-				.grab(true, true).applyTo(canvas);
+		GridDataFactory.swtDefaults().align(SWT.FILL, SWT.FILL).grab(true, true).applyTo(canvas);
 
 		// canvas.setBounds(20, 20, 1000, 1000);
+		setStatusLineMessage(null);
+		canvas.addDisposeListener(new DisposeListener() {
+			@Override
+			public void widgetDisposed(DisposeEvent e) {
+				setStatusLineMessage(null);
+			}
+		});
 
 		Button button = new Button(canvas, SWT.PUSH);
 		button.setBounds(10, 10, 200, 40);
 		button.setText("You can place widgets on a canvas");
+
+		canvas.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseDown(MouseEvent event) {
+				setStatusLineMessage(
+						"Click on Canvas. MouseButton: " + event.button + ". StateMask: " + event.stateMask);
+			}
+
+			@Override
+			public void mouseDoubleClick(MouseEvent event) {
+				setStatusLineMessage(
+						"Double-click on Canvas. MouseButton: " + event.button + ". StateMask: " + event.stateMask);
+			}
+		});
 
 		canvas.addPaintListener(new PaintListener() {
 			public void paintControl(PaintEvent e) {
@@ -48,5 +72,9 @@ public class CanvasTest extends BaseMockupPart {
 		});
 
 		return null;
+	}
+
+	private void setStatusLineMessage(String message) {
+		view.getViewSite().getActionBars().getStatusLineManager().setMessage(message);
 	}
 }
