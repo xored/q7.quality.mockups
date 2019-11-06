@@ -1,7 +1,6 @@
 package org.eclipse.swt.canvas;
 
 
-import org.eclipse.jface.action.StatusLineManager;
 import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.jface.layout.GridLayoutFactory;
 import org.eclipse.swt.SWT;
@@ -16,7 +15,6 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Canvas;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
-import org.eclipse.ui.PlatformUI;
 
 import com.xored.q7.quality.mockups.issues.BaseMockupPart;
 
@@ -31,11 +29,11 @@ public class CanvasTest extends BaseMockupPart {
 		GridDataFactory.swtDefaults().align(SWT.FILL, SWT.FILL).grab(true, true).applyTo(canvas);
 
 		// canvas.setBounds(20, 20, 1000, 1000);
-		view.getViewSite().getActionBars().getStatusLineManager().setMessage(null);
+		setStatusLineMessage(null);
 		canvas.addDisposeListener(new DisposeListener() {
 			@Override
 			public void widgetDisposed(DisposeEvent e) {
-				view.getViewSite().getActionBars().getStatusLineManager().setMessage(null);
+				setStatusLineMessage(null);
 			}
 		});
 
@@ -46,13 +44,13 @@ public class CanvasTest extends BaseMockupPart {
 		canvas.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseDown(MouseEvent event) {
-				view.getViewSite().getActionBars().getStatusLineManager().setMessage(
+				setStatusLineMessage(
 						"Click on Canvas. MouseButton: " + event.button + ". StateMask: " + event.stateMask);
 			}
 
 			@Override
 			public void mouseDoubleClick(MouseEvent event) {
-				view.getViewSite().getActionBars().getStatusLineManager().setMessage(
+				setStatusLineMessage(
 						"Double-click on Canvas. MouseButton: " + event.button + ". StateMask: " + event.stateMask);
 			}
 		});
@@ -74,5 +72,9 @@ public class CanvasTest extends BaseMockupPart {
 		});
 
 		return null;
+	}
+
+	private void setStatusLineMessage(String message) {
+		view.getViewSite().getActionBars().getStatusLineManager().setMessage(message);
 	}
 }

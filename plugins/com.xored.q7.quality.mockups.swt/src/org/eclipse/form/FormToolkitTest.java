@@ -47,7 +47,7 @@ public class FormToolkitTest extends BaseMockupPart {
 		form.setFocus();
 		form.getBody().setLayout(new GridLayout());
 
-		view.getViewSite().getActionBars().getStatusLineManager().setMessage(null);
+		setStatusLineMessage(null);
 		setClearStatusLineOnDispose(form);
 
 		Button button = toolkit.createButton(form.getBody(), "Test button", SWT.NULL);
@@ -141,7 +141,7 @@ public class FormToolkitTest extends BaseMockupPart {
 				StringBuilder sb = new StringBuilder();
 				sb.append(type).append(" \"").append(name).append("\" clicked. MouseButton: ").append(e.button)
 						.append(". StateMask: ").append(e.stateMask);
-				view.getViewSite().getActionBars().getStatusLineManager().setMessage(sb.toString());
+				setStatusLineMessage(sb.toString());
 			}
 
 			@Override
@@ -149,7 +149,7 @@ public class FormToolkitTest extends BaseMockupPart {
 				StringBuilder sb = new StringBuilder();
 				sb.append(type).append(" \"").append(name).append("\" double-clicked. MouseButton: ").append(e.button)
 						.append(". StateMask: ").append(e.stateMask);
-				view.getViewSite().getActionBars().getStatusLineManager().setMessage(sb.toString());
+				setStatusLineMessage(sb.toString());
 			}
 		});
 	}
@@ -158,8 +158,12 @@ public class FormToolkitTest extends BaseMockupPart {
 		widget.addDisposeListener(new DisposeListener() {
 			@Override
 			public void widgetDisposed(DisposeEvent e) {
-				view.getViewSite().getActionBars().getStatusLineManager().setMessage(null);
+				setStatusLineMessage(null);
 			}
 		});
+	}
+
+	private void setStatusLineMessage(String message) {
+		view.getViewSite().getActionBars().getStatusLineManager().setMessage(message);
 	}
 }
