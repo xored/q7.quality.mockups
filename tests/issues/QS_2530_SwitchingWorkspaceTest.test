@@ -6,8 +6,8 @@ Element-Type: testcase
 Element-Version: 3.0
 External-Reference: http://jira4.xored.com/browse/QS-2530
 Id: _VH8hkbYhEeKqqemODfr8hQ
-Runtime-Version: 2.5.0.201910250831
-Save-Time: 11/13/19 2:48 PM
+Runtime-Version: 2.5.0.201912100818
+Save-Time: 12/18/19 5:10 PM
 Testcase-Type: ecl
 
 ------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
@@ -30,6 +30,7 @@ with [get-window ".* Launcher"] {
     get-button Launch | click
 }
 wait-until-eclipse-is-ready
+get-view Welcome | close
 
 get-menu "Window/Perspective/Open Perspective/Other..." | click
 with [get-window "Open Perspective"] {
