@@ -7,7 +7,7 @@ Element-Version: 3.0
 External-Reference: 
 Id: __Q-bQJhFEeK184kZHmPTQQ
 Runtime-Version: 2.5.0.201912100818
-Save-Time: 12/19/19 11:57 AM
+Save-Time: 12/20/19 12:42 AM
 Tags: swt
 Testcase-Type: ecl
 
@@ -36,8 +36,8 @@ with [get-view "Q7 Quality Mockups" | get-group "Styled Text"] {
     with [get-editbox -index 2] {
         get-property className | equals "org.eclipse.swt.custom.StyledText" | verify-true
         get-property text | equals "MULTI, Style Range is applied" | verify-true
-        get-property backgroundColor | equals "#FFFFFF" | verify-true
-        get-property foregroundColor | equals "#000000" | verify-true
+        get-property backgroundColor | equals "#FCFCFC" | verify-true
+        get-property foregroundColor | equals "#212121" | verify-true
         get-property "styles.start" -index 0 | equals 0 | verify-true
         get-property "styles.length" -index 0 | equals 29 | verify-true
         get-property "styles.text" -index 0 | equals "MULTI, Style Range is applied" | verify-true
