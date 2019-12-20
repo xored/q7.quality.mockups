@@ -64,6 +64,8 @@
 						<args>
 							<arg>-nosplash</arg>
 							<arg>-consoleLog</arg>
+              				<arg>-debug</arg>
+	            			<arg>${basedir}/debug.options</arg>
 						</args>
 					</aut>
 					<runner>

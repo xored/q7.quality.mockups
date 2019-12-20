@@ -1,0 +1,4 @@
+org.eclipse.rcptt.tesla.swt/debug/jobCollector=true
+org.eclipse.rcptt.tesla.swt/debug/proceed=true
+org.eclipse.ui/trace/sources=true
+org.eclipse.ui/debug=true
