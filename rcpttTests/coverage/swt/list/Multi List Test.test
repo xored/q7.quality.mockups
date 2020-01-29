@@ -6,8 +6,8 @@ Element-Type: testcase
 Element-Version: 3.0
 External-Reference: http://jira4.xored.com/browse/QS-2588
 Id: _D0c3AJznEeKqCsn5ldPFvQ
-Runtime-Version: 1.5.6.qualifier
-Save-Time: 4/1/15 12:04 PM
+Runtime-Version: 2.5.1.202001271456
+Save-Time: 1/29/20 7:08 PM
 Tags: swt
 Testcase-Type: ecl
 
@@ -26,7 +26,7 @@ with [get-view "Q7 Quality Mockups" | get-group List | get-list -after [get-labe
     get-property "getItems().String[2]" | equals Item2 | verify-true
     get-property "getItems().String[3]" | equals Item3 | verify-true
     get-property "getItems().String[4]" | equals Item4 | verify-true
-    get-property "getStyle()" | equals "[MULTI, LEFT_TO_RIGHT]" | verify-true
+    get-property "getStyle()" | equals "[MULTI, LEFT_TO_RIGHT, DOUBLE_BUFFERED]" | verify-true
 }
 get-view "Q7 Quality Mockups" | get-group List | get-list -after [get-label "MULTI List:"] | select Item0
 get-view "Q7 Quality Mockups" | get-group List | get-editbox | get-property text | equals Item0 | verify-true
