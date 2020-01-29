@@ -6,8 +6,8 @@ Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _M6dOgXWxEeKildJqAz4YNg
-Runtime-Version: 1.5.6.qualifier
-Save-Time: 4/1/15 12:04 PM
+Runtime-Version: 2.5.1.202001271456
+Save-Time: 1/29/20 7:12 PM
 Tags: swt
 Testcase-Type: ecl
 
@@ -46,8 +46,6 @@ with [get-view "Q7 Quality Mockups" | get-group "CellEdit Tree Test" | get-tree]
 	    select A
 	    get-property selection | equals A | verify-true
 	}
-	
-    get-button "..." | click
     apply-cell-edit
 }
 with [get-view "Q7 Quality Mockups" | get-group "CellEdit Tree Test" | get-tree] {
