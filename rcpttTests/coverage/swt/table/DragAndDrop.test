@@ -154,9 +154,9 @@ with [get-view "Q7 Quality Mockups" | get-group "RCPTT-351 Drag and drop at tabl
     	"Kepler > Dropped into nothing\n" +
     	"Galileo > Dropped into nothing\n" +
     	"Callisto > Dropped into nothing\n" +
-		"Helios > Dropped into nothing\n" +
-		"Ganymede > Dropped into nothing\n" +
-		"Juno > Dropped into nothing\n" | verify-true
+	"Helios > Dropped into nothing\n" +
+	"Ganymede > Dropped into nothing\n" +
+	"Juno > Dropped into nothing\n" | verify-true
     }
     
 with [get-view "Q7 Quality Mockups" | get-group "RCPTT-351 Drag and drop at table" | get-table -index 1] {
