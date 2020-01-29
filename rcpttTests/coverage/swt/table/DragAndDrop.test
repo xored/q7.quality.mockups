@@ -6,8 +6,8 @@ Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _Di8h4M1dEeSuqYJKSWMiKQ
-Runtime-Version: 1.5.6.qualifier
-Save-Time: 4/1/15 12:04 PM
+Runtime-Version: 2.5.1.202001271456
+Save-Time: 1/29/20 7:22 PM
 Tags: swt
 Testcase-Type: ecl
 
@@ -63,10 +63,11 @@ with [get-view "Q7 Quality Mockups"] {
     }
 }
 with [get-view "Q7 Quality Mockups" | get-group "RCPTT-351 Drag and drop at table" | get-table -index 1] {
-    get-property "getItemCount()" | equals 1 | verify-true
+    get-property "getItemCount()" | equals 2 | verify-true
     get-property "getItems().getClassName()" | equals "org.eclipse.swt.widgets.TableItem[]" | verify-true
-    get-property "getItems().length" | equals 1 | verify-true
+    get-property "getItems().length" | equals 2 | verify-true
     get-property "getItems().TableItem[0].toString()" | equals "TableItem {Juno}" | verify-true
+    get-property "getItems().TableItem[1].toString()" | equals "TableItem {Mars}" | verify-true
 }
 with [get-view "Q7 Quality Mockups" | get-group "RCPTT-351 Drag and drop at table"] {
     with [get-table] {
@@ -146,23 +147,26 @@ with [get-view "Q7 Quality Mockups" | get-group "RCPTT-351 Drag and drop at tabl
     get-table | drag-end
 }
 with [get-view "Q7 Quality Mockups" | get-group "RCPTT-351 Drag and drop at table"] {
-    get-editbox | get-property text | equals "Mars > Dropped on the target\n"
-        + "Ganymede > Dropped on the target\n"
-        + "Juno > Dropped on the target\n"
-        + "Kepler > Dropped into nothing\n"
-        + "Galileo > Dropped into nothing\n"
-        + "Callisto > Dropped before the target\n"
-        + "Helios > Dropped into nothing\n"
-        + "Ganymede > Dropped on the target\n"
-        + "Juno > Dropped into nothing" | verify-true
-    with [get-table -index 1] {
-        get-property itemCount | equals 6 | verify-true
-        get-property "getItems().TableItem[0].toString()" | equals "TableItem {Juno}" | verify-true
-        get-property "getItems().TableItem[1].toString()" | equals "TableItem {Helios}" | verify-true
-        get-property "getItems().TableItem[2].toString()" | equals "TableItem {Callisto}" | verify-true
-        get-property "getItems().TableItem[3].toString()" | equals "TableItem {Ganymede}" | verify-true
-        get-property "getItems().TableItem[4].toString()" | equals "TableItem {Kepler}" | verify-true
-        get-property "getItems().TableItem[5].toString()" | equals "TableItem {Juno}" | verify-true
-    }
+    get-editbox | get-property text | equals "Mars > Dropped on the target\n" +
+		"Ganymede > Dropped into nothing\n" + 
+		"Juno > Dropped on the target\n" + 
+		"Kepler > Dropped into nothing\n" +
+		"Galileo > Dropped into nothing\n" +
+		"Callisto > Dropped into nothing\n" +
+		"Helios > Dropped into nothing\n" +
+		"Ganymede > Dropped into nothing\n" +
+		"Juno > Dropped into nothing\n"
+ | verify-true
+    
+}
+with [get-view "Q7 Quality Mockups" | get-group "RCPTT-351 Drag and drop at table" | get-table -index 1] {
+    get-property "getItems().TableItem[0].toString()" | equals "TableItem {Juno}" | verify-true
+   	get-property "getItems().TableItem[1].toString()" | equals "TableItem {Ganymede}" | verify-true
+    get-property "getItems().TableItem[2].toString()" | equals "TableItem {Helios}" | verify-true
+    get-property "getItems().TableItem[3].toString()" | equals "TableItem {Callisto}" | verify-true
+    get-property "getItems().TableItem[4].toString()" | equals "TableItem {Galileo}" | verify-true
+    get-property "getItems().TableItem[5].toString()" | equals "TableItem {Kepler}" | verify-true
+    get-property "getItems().TableItem[6].toString()" | equals "TableItem {Juno}" | verify-true
+    get-property "getItems().TableItem[7].toString()" | equals "TableItem {Mars}" | verify-true
 }
 ------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
