@@ -6,8 +6,8 @@ Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _1tbTgJ1KEeKUTbHlS7Hh6Q
-Runtime-Version: 1.5.6.qualifier
-Save-Time: 4/1/15 12:04 PM
+Runtime-Version: 2.5.1.202001271456
+Save-Time: 1/29/20 7:15 PM
 Tags: swt
 Testcase-Type: ecl
 
@@ -26,11 +26,11 @@ get-view "Q7 Quality Mockups" | get-group "Spinner Test" | get-editbox -after [g
 get-view "Q7 Quality Mockups" | get-group "Spinner Test" | get-editbox -after [get-label "Simple spinner"] 
     | get-property text | equals "650.0" | verify-true
 get-view "Q7 Quality Mockups" | get-group "Spinner Test" | get-editbox -after [get-label "Spinner with float values"] 
-    | set-text 3316
+    | set-text "3.316"
 get-view "Q7 Quality Mockups" | get-group "Spinner Test" | get-editbox -after [get-label "Spinner with float values"] 
     | get-property text | equals "3.316" | verify-true
 get-view "Q7 Quality Mockups" | get-group "Spinner Test" | get-editbox -after [get-label "Spinner with float values"] 
-    | set-text 3234
+    | set-text "3.234"
 get-view "Q7 Quality Mockups" | get-group "Spinner Test" | get-editbox -after [get-label "Spinner with float values"] 
     | get-property text | equals "3.234" | verify-true
 ------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
