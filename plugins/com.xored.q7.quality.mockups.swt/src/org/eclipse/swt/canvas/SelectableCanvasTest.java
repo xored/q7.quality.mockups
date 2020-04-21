@@ -28,18 +28,18 @@ public class SelectableCanvasTest extends BaseMockupPart {
         SelectableCanvas canvas = new SelectableCanvas(parent, SWT.NONE);
         Text logText = new Text(parent, SWT.NONE);
         logText.setText("unchecked");
-       
-       canvas.addSelectionListener(new SelectionListener() {
-            
+
+        canvas.addSelectionListener(new SelectionListener() {
+
             @Override
             public void widgetSelected(SelectionEvent e) {
-                if (canvas.isChecked){
+                if (canvas.isChecked) {
                     logText.setText("checked");
                 } else {
                     logText.setText("unchecked");
                 }
             }
-            
+
             @Override
             public void widgetDefaultSelected(SelectionEvent e) {
             }
