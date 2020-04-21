@@ -126,6 +126,11 @@
             name="ColoredCanvas">
       </part>
       <part
+            category="swt.canvas"
+            class="org.eclipse.swt.canvas.SelectableCanvasTest"
+            name="SelectableCanvas">
+      </part>
+      <part
             category="swt.colorDialog"
             class="org.eclipse.swt.colorDialog.Color_Dialog"
             name="ColorDialog">
