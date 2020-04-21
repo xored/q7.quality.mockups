@@ -73,4 +73,14 @@ with [get-view "Q7 Quality Mockups" | get-group "ButonRadio Test"] {
         click
     }
 }
+
+with [get-view "Q7 Quality Mockups"] {
+    get-group "ButonRadio Test" | get-button "Choice 5" | click
+    get-tree | select "swt/toolbar"
+}
+get-view "Q7 Quality Mockups" | get-group "ButonRadio Test" | get-editbox | get-property text | equals selected 
+    | verify-true
+get-view "Q7 Quality Mockups" | get-group "ButonRadio Test" | get-button "Choice 3" -index 1 | click
+get-view "Q7 Quality Mockups" | get-group "ButonRadio Test" | get-editbox | get-property text | equals unselected 
+    | verify-true
 ------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
