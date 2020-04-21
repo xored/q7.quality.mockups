@@ -33,8 +33,6 @@ public class SelectableCanvasTest extends BaseMockupPart {
 
     @Override
     public Control construct(Composite parent) {
-
-        // Composite composite = new Composite(parent, SWT.NONE);
         SelectableCanvas canvas = new SelectableCanvas(parent, SWT.NONE);
         Text logText = new Text(parent, SWT.NONE);
         logText.setText("unchecked");
@@ -52,8 +50,6 @@ public class SelectableCanvasTest extends BaseMockupPart {
             
             @Override
             public void widgetDefaultSelected(SelectionEvent e) {
-                // TODO Auto-generated method stub
-                
             }
         });
 
