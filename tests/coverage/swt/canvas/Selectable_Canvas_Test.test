@@ -1,0 +1,26 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Element-Name: Selectable_Canvas_Test
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _H7Wd0IPKEeq1M8dvD3Uygg
+Runtime-Version: 2.5.1.202004211155
+Save-Time: 4/21/20 7:17 PM
+Testcase-Type: ecl
+
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Q7 Quality Mockups" | get-tree | select "swt/canvas/SelectableCanvas" | double-click
+with [get-view "Q7 Quality Mockups" | get-group SelectableCanvas] {
+    get-editbox | get-property text | equals unchecked | verify-true
+}
+
+get-view "Q7 Quality Mockups" | get-group SelectableCanvas | get-canvas | click
+get-view "Q7 Quality Mockups" | get-group SelectableCanvas | get-editbox | get-property text | equals checked 
+    | verify-true
+get-view "Q7 Quality Mockups" | get-group SelectableCanvas | get-canvas | click
+get-view "Q7 Quality Mockups" | get-group SelectableCanvas | get-editbox | get-property text | equals unchecked | verify-true
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
