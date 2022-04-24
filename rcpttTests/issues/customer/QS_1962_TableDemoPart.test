@@ -1,0 +1,33 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _2jXpEHTyEeKQnp4qYEvDRA
+Element-Name: QS_1962_TableDemoPart
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: http://jira4.xored.com/browse/QS-1962
+Id: _H-FIAHWZEeK3FJaR1pV8TQ
+Save-Time: 2/13/13 3:20 PM
+Tags: 
+Testcase-Type: ecl
+
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+with [get-view "Q7 Quality Mockups"] {
+    get-tree | select "issues/customer/QS-1962 - Table Demo Part" | double-click
+    with [get-group "QS-1962 - Table Demo Part" | get-tree] {
+        get-cell 0 0 | mouse down -count 1
+        get-cell 0 0 | mouse down -with Left -count 1
+        key-type Down
+        select root2
+        get-item root2 | expand
+        get-item "root2/child5" | expand
+        get-cell 3 0 | mouse down -count 1
+        get-cell 3 0 | mouse down -with Left -count 1
+    }
+}
+get-view "Q7 Quality Mockups" | get-group "QS-1962 - Table Demo Part" | get-tree | get-item "root2/child5/child6" 
+    | get-property caption | equals child6 | verify-true
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

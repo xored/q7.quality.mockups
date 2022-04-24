@@ -1,0 +1,21 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Contexts: _2jXpEHTyEeKQnp4qYEvDRA
+Element-Name: CheckNoNamedSection
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _E015YKchEeKonO_dRswN5g
+Runtime-Version: 2.5.0.201910250831
+Save-Time: 11/7/19 5:57 PM
+Tags: eclipse_forms
+Testcase-Type: ecl
+
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Q7 Quality Mockups" | get-tree | select "eclipse/form/FormWithSection"
+get-view "Q7 Quality Mockups" | get-group FormWithSection | get-section -after [get-label "Eclipse Forms API Example"] 
+    -index 3 | get-property "getDescription()" | equals "No named section" | verify-true
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

@@ -1,0 +1,52 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Contexts: _2jXpEHTyEeKQnp4qYEvDRA
+Element-Name: CellEdit Table Test
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _V7T5EHWzEeKildJqAz4YNg
+Runtime-Version: 1.5.6.qualifier
+Save-Time: 4/1/15 12:04 PM
+Tags: QS-2438, swt
+Testcase-Type: ecl
+
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+with [get-view "Q7 Quality Mockups"] {
+    get-tree | select "swt/table/Dialog CellEdit Table Test" | double-click
+    with [get-group "Dialog CellEdit Table Test" | get-table] {
+        select root2 | activate-cell-edit -column 1
+        get-editbox | set-text 90
+        select root3 | apply-cell-edit
+        select root3 | activate-cell-edit -column 1
+        get-editbox | set-text 80
+        select root3 | apply-cell-edit
+    }
+}
+with [get-view "Q7 Quality Mockups" | get-group "Dialog CellEdit Table Test" | get-table] {
+    get-item root2 | get-property columns -index 1 | equals 90 | verify-true
+    get-item root3 | get-property columns -index 1 | equals 80 | verify-true
+}
+with [get-view "Q7 Quality Mockups" | get-group "Dialog CellEdit Table Test" | get-table] {
+    select root1 | activate-cell-edit -column 1
+    get-editbox | set-text 123
+    get-button "..." | click
+    apply-cell-edit
+}
+get-window -from "Window.createShell()" | get-button OK | click
+get-view "Q7 Quality Mockups" | get-group "Dialog CellEdit Table Test" | get-table | select root1
+with [get-view "Q7 Quality Mockups" | get-group "Dialog CellEdit Table Test" | get-table] {
+    get-item root1 | get-property columns -index 0 | equals root1 | verify-true
+    get-item root1 | get-property columns -index 1 | equals "123#" | verify-true
+}
+with [get-view "Q7 Quality Mockups" | get-group "Dialog CellEdit Table Test" | get-table] {
+    select root2 | activate-cell-edit -column 1
+    get-editbox | set-text 45
+    select root2 | apply-cell-edit
+}
+get-view "Q7 Quality Mockups" | get-group "Dialog CellEdit Table Test" | get-table | get-item root2 
+    | get-property columns -index 1 | equals 45 | verify-true
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
