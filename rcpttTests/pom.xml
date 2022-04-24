@@ -35,21 +35,16 @@
 						<groupId>org.eclipse</groupId>
 						<version>4.5.1</version-->
 						
-						<explicit>https://archive.eclipse.org/eclipse/downloads/drops4/R-4.7.3a-201803300640/eclipse-SDK-4.7.3a-linux-gtk-x86_64.tar.gz</explicit>
+						<explicit>https://download.eclipse.org/eclipse/downloads/drops4/R-4.23-202203080310/eclipse-SDK-4.23-linux-gtk-x86_64.tar.gz</explicit>
 					
 						<injections>
 							<injection>
-								<site>http://download.eclipse.org/releases/mars</site>
+								<site>http://download.eclipse.org/releases/2021-12</site>
 								<features>
 									<feature>org.eclipse.gef</feature>
 									<feature>org.eclipse.draw2d</feature>
-								</features>
-							</injection>
-							<injection>
-								<site>http://download.eclipse.org/tools/gef/updates/legacy/releases/4.0.0_gef-master_1952/</site>
-								<features>
 									<feature>org.eclipse.zest.feature.group</feature>
-								</features>                      
+								</features>
 							</injection>
 							<injection>
 								<site>http://download.eclipse.org/nebula/snapshot</site>
