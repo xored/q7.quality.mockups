@@ -12,7 +12,7 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IResourceVisitor;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.jface.databinding.swt.SWTObservables;
+import org.eclipse.jface.databinding.swt.typed.WidgetProperties;
 import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.jface.layout.GridLayoutFactory;
 import org.eclipse.swt.SWT;
@@ -30,7 +30,7 @@ import com.xored.q7.quality.mockups.issues.BaseMockupPart;
 public class LockResourcesPart extends BaseMockupPart {
 	private Map<IFile, InputStream> files = new HashMap<IFile, InputStream>();
 	private DataBindingContext dbc = new DataBindingContext();
-	private WritableValue value = new WritableValue("", String.class);
+	private WritableValue<String> value = new WritableValue<>("", String.class);
 
 	public String getLabel() {
 		return "Resource Locking";
@@ -65,20 +65,21 @@ public class LockResourcesPart extends BaseMockupPart {
 			}
 		});
 		Label msg = new Label(client, SWT.NONE);
-		dbc.bindValue(value, SWTObservables.observeText(msg));
+		dbc.bindValue(value, WidgetProperties.text().observe(msg));
 		value.setValue("Unlocked");
 		GridDataFactory.fillDefaults().grab(true, false).span(2, 1)
 				.applyTo(msg);
 		return client;
 	}
 
+	@SuppressWarnings("resource")
 	protected void unlockResources() {
 		if (files.size() > 0) {
 			for (InputStream stream : files.values()) {
 				try {
 					stream.close();
 				} catch (IOException e) {
-					e.printStackTrace();
+					throw new AssertionError(e);
 				}
 			}
 		}
@@ -92,6 +93,7 @@ public class LockResourcesPart extends BaseMockupPart {
 				ResourcesPlugin.getWorkspace().getRoot()
 						.accept(new IResourceVisitor() {
 
+							@SuppressWarnings("resource")
 							public boolean visit(IResource resource)
 									throws CoreException {
 								if (resource.isAccessible()
