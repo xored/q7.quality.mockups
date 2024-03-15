@@ -8,8 +8,10 @@ kind: Pod
 spec:
   containers:
   - name: ubuntu
-    image: dudaevar/ubuntu-rcptt
+    image: maven:3.9-eclipse-temurin-17-focal
     tty: true
+    command:
+      - cat
     resources:
       limits:
         memory: "4Gi"
