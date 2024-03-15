@@ -55,7 +55,7 @@ public class OverlappingShell extends BaseMockupPart {
 		});
 		viewer = new TreeViewer(parent, SWT.FULL_SELECTION|SWT.VIRTUAL);
 		viewer.setUseHashlookup(true);
-		GridDataFactory.fillDefaults().grab(true, false).applyTo(viewer.getTree());
+		GridDataFactory.fillDefaults().grab(true, true).applyTo(viewer.getTree());
 		viewer.setLabelProvider(new LabelProvider());
 		viewer.setContentProvider(new LazyTreePathContentProvider(operation -> {
 			new UIJob("updating") {
