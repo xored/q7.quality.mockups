@@ -306,7 +306,7 @@ public class EditableGridExample {
 
         TextCellEditor textCellEditor = new TextCellEditor();
         textCellEditor.setErrorDecorationEnabled(true);
-        textCellEditor.setErrorDecorationText(
+        textCellEditor.showErrorDecorationHover(
                 "Security Id must be 3 alpha characters optionally followed by numbers");
         textCellEditor.setDecorationPositionOverride(SWT.LEFT | SWT.TOP);
         configRegistry.registerConfigAttribute(

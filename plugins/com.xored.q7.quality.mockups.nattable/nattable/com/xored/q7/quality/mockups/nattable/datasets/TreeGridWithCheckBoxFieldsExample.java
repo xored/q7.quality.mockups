@@ -32,7 +32,7 @@ import org.eclipse.nebula.widgets.nattable.data.ReflectiveColumnPropertyAccessor
 import org.eclipse.nebula.widgets.nattable.data.convert.DefaultBooleanDisplayConverter;
 import org.eclipse.nebula.widgets.nattable.edit.CheckBoxStateEnum;
 import org.eclipse.nebula.widgets.nattable.edit.EditConfigAttributes;
-import org.eclipse.nebula.widgets.nattable.edit.action.CellEditDragMode;
+import org.eclipse.nebula.widgets.nattable.ui.action.CellDragMode;
 import org.eclipse.nebula.widgets.nattable.edit.action.MouseEditAction;
 import org.eclipse.nebula.widgets.nattable.edit.action.ToggleCheckBoxColumnAction;
 import org.eclipse.nebula.widgets.nattable.edit.command.UpdateDataCommand;
@@ -276,7 +276,7 @@ public class TreeGridWithCheckBoxFieldsExample {
                                 GridRegion.BODY,
                                 MouseEventMatcher.LEFT_BUTTON,
                                 checkBoxPainter),
-                        new CellEditDragMode());
+                        new CellDragMode());
             }
         });
 
