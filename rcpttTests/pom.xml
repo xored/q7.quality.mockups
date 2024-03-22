@@ -34,9 +34,7 @@
 						<!--artifactId>sdk</artifactId>
 						<groupId>org.eclipse</groupId>
 						<version>4.5.1</version-->
-						
 						<explicit>https://download.eclipse.org/eclipse/downloads/drops4/R-4.23-202203080310/eclipse-SDK-4.23-linux-gtk-x86_64.tar.gz</explicit>
-					
 						<injections>
 							<injection>
 								<site>http://download.eclipse.org/releases/2021-12</site>
@@ -50,7 +48,7 @@
 								<site>http://download.eclipse.org/nebula/snapshot</site>
 								<features>
 									<feature>org.eclipse.nebula.widgets.grid</feature>
-								</features>                      
+								</features>
 							</injection>
 							<injection>
 								<site>${mockupsRepository}</site>
@@ -59,8 +57,8 @@
 						<args>
 							<arg>-nosplash</arg>
 							<arg>-consoleLog</arg>
-              				<arg>-debug</arg>
-	            			<arg>${basedir}/debug.options</arg>
+							<arg>-debug</arg>
+							<arg>${basedir}/debug.options</arg>
 						</args>
 					</aut>
 					<runner>
@@ -92,6 +90,28 @@
 							<runner>
 								<explicit>${explicitRunner}</explicit>
 							</runner>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>linux</id>
+			<activation>
+				<os>
+					<family>unix</family>
+				</os>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>${q7-maven-group}</groupId>
+						<artifactId>rcptt-maven-plugin</artifactId>
+						<extensions>true</extensions>
+						<configuration>
+							<skipTags combine.children="append">
+								<tag>skipLinux</tag>
+							</skipTags>
 						</configuration>
 					</plugin>
 				</plugins>
