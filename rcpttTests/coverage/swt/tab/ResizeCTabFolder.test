@@ -4,13 +4,19 @@ Contexts: _2jXpEHTyEeKQnp4qYEvDRA
 Element-Name: ResizeCTabFolder
 Element-Type: testcase
 Element-Version: 3.0
-External-Reference: 
+External-Reference: https://github.com/eclipse/org.eclipse.rcptt/issues/63
 Id: _n8fj8JhMEeKUTbHlS7Hh6Q
-Runtime-Version: 1.5.6.qualifier
-Save-Time: 4/1/15 12:04 PM
-Tags: swt
+Runtime-Version: 2.5.5.202403301941
+Save-Time: 3/31/24, 3:36 AM
+Tags: swt, skipLinux
 Testcase-Type: ecl
 
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+`get-tab-item "Item 3" | click` accidentally closes the tab see https://github.com/eclipse/org.eclipse.rcptt/issues/63
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
 ------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
 Content-Type: text/ecl
 Entry-Name: .content
