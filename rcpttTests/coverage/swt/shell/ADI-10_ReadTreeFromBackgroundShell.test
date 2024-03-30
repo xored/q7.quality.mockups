@@ -4,10 +4,11 @@ Contexts: _2jXpEHTyEeKQnp4qYEvDRA
 Element-Name: ADI-10_ReadTreeFromBackgroundShell
 Element-Type: testcase
 Element-Version: 3.0
-External-Reference: 
+External-Reference: https://github.com/eclipse/org.eclipse.rcptt/issues/59
 Id: _c4hoINclEeaScIX8fKgtPQ
-Runtime-Version: 2.5.0.201912100818
-Save-Time: 12/19/19 11:57 AM
+Runtime-Version: 2.5.5.202403301941
+Save-Time: 3/31/24, 3:14 AM
+Tags: skipLinux
 Testcase-Type: ecl
 
 ------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
@@ -18,7 +19,7 @@ On Windows, a window should be brought to foreground before taking a snapshot or
 
 This should happen even if the window is overllapped by another one.
 
-This test 
+Same problem started happening on Linux see https://github.com/eclipse/org.eclipse.rcptt/issues/59 
 ------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
 ------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
 Content-Type: text/ecl
