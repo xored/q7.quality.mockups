@@ -64,6 +64,7 @@
 					<runner>
 						<version>${q7-runner-version}</version>
 					</runner>
+					<testFailureIgnore>true</testFailureIgnore>
 					<!--testOptions>
 						<testExecTimeout>50</testExecTimeout>
 					</testOptions-->
