@@ -51,6 +51,12 @@
 								</features>
 							</injection>
 							<injection>
+								<site>http://download.eclipse.org/nattable/releases/2.3.0/repository/</site>
+								<features>
+									<feature>org.eclipse.nebula.widgets.nattable.extension.glazedlists.feature.feature.group</feature>
+								</features>
+							</injection>
+							<injection>
 								<site>${mockupsRepository}</site>
 							</injection>
 						</injections>
