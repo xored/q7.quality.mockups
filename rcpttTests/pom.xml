@@ -45,7 +45,7 @@
 								</features>
 							</injection>
 							<injection>
-								<site>http://download.eclipse.org/nebula/snapshot</site>
+								<site>https://download.eclipse.org/nebula/archive/releases/3.1.1/</site>
 								<features>
 									<feature>org.eclipse.nebula.widgets.grid</feature>
 								</features>
