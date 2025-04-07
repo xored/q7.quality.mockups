@@ -15,3 +15,4 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Export-Package: com.xored.q7.quality.mockups.issues,
  com.xored.q7.quality.mockups.issues.internal
+Automatic-Module-Name: com.xored.q7.quality.mockups.ui
