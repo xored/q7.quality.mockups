@@ -69,6 +69,7 @@
 					</aut>
 					<runner>
 						<version>${q7-runner-version}</version>
+						<vmArgs>-ea</vmArgs>
 					</runner>
 					<testFailureIgnore>false</testFailureIgnore>
 					<!--testOptions>
