@@ -7,5 +7,5 @@ Bundle-Vendor: Xored Software Inc
 Require-Bundle: com.xored.q7.quality.mockups.ui;bundle-version="1.0.0",
  org.eclipse.ui;bundle-version="3.7.0",
  org.eclipse.nebula.widgets.grid
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy

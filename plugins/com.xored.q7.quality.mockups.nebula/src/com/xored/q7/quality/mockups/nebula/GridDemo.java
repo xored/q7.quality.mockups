@@ -7,6 +7,11 @@ import org.eclipse.nebula.widgets.grid.GridColumn;
 import org.eclipse.nebula.widgets.grid.GridEditor;
 import org.eclipse.nebula.widgets.grid.GridItem;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.VerifyEvent;
+import org.eclipse.swt.events.VerifyListener;
+import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Text;
@@ -26,6 +31,9 @@ public class GridDemo extends BaseMockupPart {
 
 		Grid grid = new Grid(content, SWT.BORDER | SWT.V_SCROLL | SWT.H_SCROLL);
 		grid.setHeaderVisible(true);
+		grid.setBackground(content.getBackground());
+		grid.setForeground(content.getForeground());
+		grid.setCellSelectionEnabled(true);
 
 		GridColumn treeColumn = new GridColumn(grid, SWT.NONE);
 		treeColumn.setWidth(120);
@@ -52,8 +60,46 @@ public class GridDemo extends BaseMockupPart {
 		GridEditor editor = new GridEditor(grid);
 		editor.grabHorizontal = true;
 		Text text = new Text(grid, SWT.NONE);
+		Runnable updateModel = () -> {
+			GridItem item2 = editor.getItem();
+			if (item2 != null) {
+				String t = text.getText();
+				System.out.println("Setting text: " + t +" to column " + editor.getColumn() + ", item: " + item2);
+				item2.setText(editor.getColumn(), t);
+			}			
+		};
+		text.addVerifyListener(new VerifyListener() {
+			@Override
+			public void verifyText(VerifyEvent e) {
+				updateModel.run();
+		}});
+	
 		text.setText("Editable");
 		editor.setEditor(text, editItem, 2);
+		editItem = new GridItem(grid, SWT.NONE);
+		editItem.setText("Editable Item");
+
+		
+		grid.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				super.widgetSelected(e);
+				Point[] cells = grid.getCellSelection();
+				if (cells.length != 1) {
+					return;
+				}
+				GridItem itemToEdit = (GridItem) e.item;
+				String oldData = itemToEdit.getText(cells[0].x);
+				System.out.println("Retreved text: " + oldData + " from " + cells[0]);
+				if (cells[0].x <= 0) {
+					return;
+				}
+				updateModel.run();
+				editor.setEditor(text, itemToEdit, cells[0].x);
+				text.setText(oldData);
+				text.setFocus();
+			}
+		});
 
 		GridDataFactory.fillDefaults().grab(true, true).applyTo(grid);
 		return content;
