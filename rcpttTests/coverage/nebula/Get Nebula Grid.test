@@ -7,7 +7,7 @@ Element-Version: 3.0
 External-Reference: 
 Id: _b7Id4Gp2EemfG6ICIaSmXw
 Runtime-Version: 2.9.0.qualifier
-Save-Time: 3/13/26, 10:51 PM
+Save-Time: 3/14/26, 10:44 AM
 Testcase-Type: ecl
 Verifications: _XOsS8FN7EeSJ2ZBuJqltwA
 
@@ -32,7 +32,7 @@ with [get-view "Q7 Quality Mockups"] {
     with [get-group "Nebula-Grid"] {
 	    with [ get-nebula-grid] {
 		    get-item -path Item | get-item-cell -column Name | double-click
-			get-item  "Item/Child 1" | click
+			select  "Item/Child 1" 
 	    }
 	    if [ $v29 ] {
 		    with [ get-nebula-grid] {
