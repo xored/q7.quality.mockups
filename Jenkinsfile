@@ -1,3 +1,6 @@
+def ssh = 'ssh genie.rcptt@projects-storage.eclipse.org '
+def storageFolderLatest = '/home/data/httpd/download.eclipse.org/rcptt/dependencies/mockups/nightly/latest'
+
 pipeline {
   agent {
     kubernetes {
@@ -85,8 +88,6 @@ spec:
       steps {
         archiveArtifacts allowEmptyArchive: true, artifacts: 'repository/target/repository/**/*'
         sshagent(["projects-storage.eclipse.org-bot-ssh"]) {
-					def ssh = 'ssh genie.rcptt@projects-storage.eclipse.org '
-					def storageFolderLatest = '/home/data/httpd/download.eclipse.org/rcptt/dependencies/mockups/nightly/latest'
 					sh returnStatus: true, script: "${ssh} rm -rf ${storageFolderLatest}"
 					sh "${ssh} mkdir -p ${storageFolderLatest}"
 					sh "scp -r repository/target/repository genie.rcptt@projects-storage.eclipse.org:${storageFolderLatest}/"
